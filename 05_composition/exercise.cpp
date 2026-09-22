@@ -38,9 +38,31 @@
 using namespace std;
 
 class Engine{
-  
-}
+  int horsepower;
+  public:
+        Engine(int hp) : horsepower(hp){}
+        int getHorsepower() const {
+            return horsepower;
+        }
+        void start() const{
+            cout << "Engine (" << horsepower << "hp) started\n";
+        }
+};
 // TODO: class Car
+class Car{
+    string model;
+    Engine engine;
+    public:
+        Car(const string& m, int hp) : model(m) , engine(hp){}
+        void drive() const{
+            cout << model << " is moving\n";
+            engine.start();
+        }
+        int getPower() const{
+            return engine.getHorsepower();
+        }
+
+};
 
 // ------------------ DRIVER CODE (do not edit) ------------------
 int main() {
