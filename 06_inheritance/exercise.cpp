@@ -52,11 +52,40 @@ using namespace std;
 
 // ==================== YOUR CODE HERE ====================
 
-// class Shape { ... };
-
-// class Circle : public Shape { ... };
-
-// class Rectangle : public Shape { ... };
+class Shape {
+    protected:
+        string color;
+    public:
+        Shape(const string &c) : color(c) {}
+        virtual void draw() const {
+            cout << "Drawing a " << color << " shape";
+        }
+        virtual ~Shape(){}
+};
+class Circle : public Shape {
+    private:
+        double radius;
+    public:
+        Circle(const string &c,double r) : Shape(c) , radius(r){}
+        void draw() const override {
+            cout << "Drawing a " << color << " circle, radius " << radius;
+        }
+        double area() const {
+            return 3.14 * radius * radius;
+        }
+};
+class Rectangle : public Shape {
+    private:
+        double width , height;
+    public:
+        Rectangle(const string&c ,double w,double h) : Shape(c) , width(w) , height(h){}
+        void draw() const override {
+            cout << "Drawing a " << color << " rectangle " << width << " x " << height;
+        }
+        double area() const {
+            return width * height;
+        }
+};
 
 // ==================== DRIVER CODE (do not edit) ====================
 
