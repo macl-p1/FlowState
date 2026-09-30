@@ -684,10 +684,23 @@ class ToolRegistry:
         """
         Execute a tool by name with the given inputs.
         Only registered tools can be executed.
+
+        If a custom tool with this name has an integration_config set,
+        the call is routed to the real integration handler. Otherwise,
+        the mock implementation is used.
         """
         if tool_name not in TOOL_IMPLEMENTATIONS:
             raise UnknownToolError(tool_name)
 
+        # Check for real integration config on a custom tool
+        custom_tool = self._get_custom_tool_by_name(tool_name)
+        if custom_tool and custom_tool.integration_config:
+            from app.tools.integrations import integration_handler
+            return await integration_handler.execute(
+                custom_tool.integration_config, inputs
+            )
+
+        # Mock path (unchanged)
         tool_func = TOOL_IMPLEMENTATIONS[tool_name]
         try:
             result = await tool_func(inputs)
@@ -698,6 +711,16 @@ class ToolRegistry:
                 error=str(e),
                 retryable=True,
             )
+
+    def _get_custom_tool_by_name(self, name: str) -> Any:
+        """Look up a CustomTool record by name. Returns None if not found."""
+        from app.database import get_db_context
+        from app.models.custom_tool import CustomTool
+        try:
+            with get_db_context() as db:
+                return db.query(CustomTool).filter(CustomTool.name == name).first()
+        except Exception:
+            return None
 
 
 # Singleton

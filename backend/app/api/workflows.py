@@ -5,6 +5,7 @@ import uuid
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from pydantic import BaseModel
+from typing import Any
 
 from app.database import get_db
 from app.models import WorkflowModel
@@ -16,6 +17,13 @@ from app.tools.registry import registry
 
 
 router = APIRouter()
+
+
+class SaveWorkflowRequest(BaseModel):
+    name: str
+    description: str = ""
+    nodes: list[dict[str, Any]]
+    edges: list[dict[str, Any]]
 
 
 class GenerateRequest(BaseModel):
@@ -77,6 +85,40 @@ async def generate_workflow(request: GenerateRequest, db: Session = Depends(get_
         "nodes": wf_model.nodes,
         "edges": wf_model.edges,
         "metadata": metadata,
+    }
+
+
+@router.post("/workflows")
+async def save_workflow_direct(request: SaveWorkflowRequest, db: Session = Depends(get_db)):
+    """Save a workflow graph directly (no LLM re-generation).
+
+    The frontend builder sends the exact nodes/edges after AI generation
+    or manual editing. This endpoint persists them as-is.
+    """
+    import re
+    # Generate stable ID from name for idempotent saves
+    slug = re.sub(r'[^a-z0-9]', '_', request.name.lower())[:20]
+    wf_id = f"wf_{slug}_{uuid.uuid4().hex[:6]}"
+
+    wf_model = WorkflowModel(
+        id=wf_id,
+        name=request.name,
+        description=request.description,
+        nodes=request.nodes,
+        edges=request.edges,
+        metadata={"source": "builder"},
+    )
+    db.add(wf_model)
+    db.commit()
+    db.refresh(wf_model)
+
+    return {
+        "id": wf_model.id,
+        "name": wf_model.name,
+        "description": wf_model.description,
+        "nodes": wf_model.nodes,
+        "edges": wf_model.edges,
+        "metadata": wf_model.wf_metadata,
     }
 
 

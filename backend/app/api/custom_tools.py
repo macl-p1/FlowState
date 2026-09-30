@@ -16,12 +16,17 @@ from app.schemas.custom_tool import (
     ToolVerifyResponse,
     ToolCategory,
 )
+from app.tools.integrations import integration_handler, _mask_credentials
 from app.tools.registry import registry
 
 router = APIRouter()
 
 
 def _tool_to_response(tool: CustomTool) -> CustomToolResponse:
+    # Mask credentials before returning integration config
+    ic = tool.integration_config or None
+    if ic:
+        ic = _mask_credentials(ic)
     return CustomToolResponse(
         id=tool.id,
         name=tool.name,
@@ -31,6 +36,7 @@ def _tool_to_response(tool: CustomTool) -> CustomToolResponse:
         input_schema=tool.input_schema or {},
         config=tool.config or {},
         output_schema=tool.output_schema or {},
+        integration_config=ic,
         last_test_result=tool.last_test_result,
         verified_at=tool.verified_at,
         verified_by=tool.verified_by,
@@ -337,92 +343,98 @@ async def verify_custom_tool(tool_id: str, req: ToolVerifyRequest, db: Session =
 
 
 async def _run_verification_test(tool: CustomTool, test_inputs: dict[str, Any]) -> dict[str, Any]:
-    """Simulate a tool verification test."""
+    """Verify a tool — use real integration handler if configured, otherwise validate config shape."""
+    ic = tool.integration_config or {}
+
+    if ic:
+        # Real integration test — call the handler with safe test inputs
+        verification_inputs = _build_verification_inputs(tool.tool_type.value, ic, test_inputs)
+        try:
+            result = await integration_handler.execute(ic, verification_inputs)
+            return {
+                "success": result.success,
+                "output": result.output,
+                "error": result.error,
+            }
+        except Exception as exc:
+            return {"success": False, "error": str(exc)}
+
+    # No integration config — validate config shape for the tool type
     config = tool.config or {}
     ttype = tool.tool_type.value
+    return _validate_config_shape(ttype, config)
 
-    # Basic validation based on tool type
+
+def _build_verification_inputs(
+    tool_type: str, ic: dict[str, Any], test_inputs: dict[str, Any]
+) -> dict[str, Any]:
+    """Build safe test inputs for each integration type."""
+    ttype = ic.get("integration_type", tool_type)
+
     if ttype == "http":
-        if not config.get("url"):
-            return {"success": False, "error": "Missing 'url' in tool config"}
-        if not config.get("method"):
-            return {"success": False, "error": "Missing 'method' in tool config"}
         return {
-            "success": True,
-            "output": {
-                "status": 200,
-                "body": {"message": "Test successful", "url": config["url"]},
-                "headers": {"content-type": "application/json"},
-            },
+            "url": test_inputs.get("url", "/"),
+            "method": test_inputs.get("method", "GET"),
         }
-
+    elif ttype == "email_smtp":
+        return {
+            "to": test_inputs.get("to", "test@example.com"),
+            "subject": "OrchestrAI Test",
+            "body": "This is a verification email from OrchestrAI.",
+        }
+    elif ttype == "email_api":
+        return {
+            "to": test_inputs.get("to", "test@example.com"),
+            "subject": "OrchestrAI Test",
+            "body": "This is a verification email.",
+        }
     elif ttype == "database":
-        if not config.get("connection_string"):
-            return {"success": False, "error": "Missing 'connection_string' in config"}
+        return {"query": "SELECT 1"}
+    elif ttype == "messaging_slack":
         return {
-            "success": True,
-            "output": {
-                "rows_affected": 0,
-                "message": "Connection validated",
-                "connection_string": config["connection_string"][:20] + "...",
-            },
+            "channel": test_inputs.get("channel", "#general"),
+            "message": "OrchestrAI verification message",
         }
-
-    elif ttype == "email":
-        if not config.get("smtp_host") and not config.get("api_endpoint"):
-            return {"success": False, "error": "Missing SMTP host or API endpoint"}
-        return {
-            "success": True,
-            "output": {
-                "sent": True,
-                "to": test_inputs.get("to", "test@example.com"),
-                "provider": config.get("provider", "smtp"),
-            },
-        }
-
+    elif ttype == "storage_s3":
+        return {"action": "list_objects", "prefix": ""}
     elif ttype == "webhook":
-        if not config.get("endpoint_url"):
-            return {"success": False, "error": "Missing 'endpoint_url' in config"}
         return {
-            "success": True,
-            "output": {
-                "webhook_id": "wh_" + __import__("uuid").uuid4().hex[:8],
-                "endpoint": config["endpoint_url"],
-                "status": "active",
-            },
+            "url": ic.get("endpoint_url", ""),
+            "method": "POST",
+            "body": {"test": True},
         }
-
-    elif ttype == "transform":
-        if not config.get("expression") and not config.get("mapping"):
-            return {"success": False, "error": "Missing 'expression' or 'mapping' in config"}
-        return {
-            "success": True,
-            "output": {
-                "transformed": True,
-                "input_keys": list(test_inputs.keys()),
-                "output_keys": ["result"],
-            },
-        }
-
-    elif ttype == "delay":
-        return {
-            "success": True,
-            "output": {
-                "delay_seconds": config.get("duration", 5),
-                "scheduled": True,
-            },
-        }
-
     else:
-        # Generic custom tool — just check that it has a name and description
+        return test_inputs
+
+
+def _validate_config_shape(tool_type: str, config: dict[str, Any]) -> dict[str, Any]:
+    """Validate that a tool config has the right shape for its type (no integration config)."""
+    ttype = tool_type
+    required = {
+        "http": ["url"],
+        "database": ["connection_string"],
+        "email": ["api_endpoint", "api_key"],
+        "webhook": ["endpoint_url"],
+        "transform": ["expression", "mapping"],
+        "delay": ["duration"],
+        "messaging": ["bot_token"],
+        "storage": ["access_key", "secret_key", "bucket"],
+    }
+
+    missing = [k for k in required.get(ttype, []) if not config.get(k)]
+    if missing:
         return {
-            "success": True,
-            "output": {
-                "message": f"Custom tool '{tool.name}' validated",
-                "type": ttype,
-                "config_keys": list(config.keys()),
-            },
+            "success": False,
+            "error": f"Missing required config keys: {', '.join(missing)}",
         }
+
+    return {
+        "success": True,
+        "output": {
+            "message": f"Tool '{tool_type}' config shape is valid",
+            "config_keys": list(config.keys()),
+        },
+    }
 
 
 @router.post("/tools/custom/{tool_id}/register")

@@ -46,5 +46,8 @@ class CustomTool(Base):
     verified_at = Column(DateTime(timezone=True), nullable=True)
     verified_by = Column(String(100), nullable=True)
 
+    # Integration config — real service credentials (JSONB on Postgres, JSON on SQLite)
+    integration_config = Column(JSONB, nullable=True)
+
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())

@@ -7,7 +7,7 @@ from fastapi import APIRouter
 
 from app.config import settings
 from app.database import engine, Base
-from app.api import workflows, runs, approvals, tools, custom_tools
+from app.api import workflows, runs, approvals, tools, custom_tools, integrations
 
 
 # Health endpoint (must be defined before inclusion)
@@ -49,6 +49,7 @@ app.include_router(workflows.router, prefix="/api", tags=["workflows"])
 app.include_router(runs.router, prefix="/api", tags=["runs"])
 app.include_router(approvals.router, prefix="/api", tags=["approvals"])
 app.include_router(custom_tools.router, prefix="/api", tags=["custom-tools"])
+app.include_router(integrations.router, prefix="/api", tags=["integrations"])
 app.include_router(tools.router, prefix="/api", tags=["tools"])
 
 

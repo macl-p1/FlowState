@@ -34,6 +34,7 @@ class CustomToolResponse(BaseModel):
     input_schema: dict[str, Any]
     config: dict[str, Any]
     output_schema: dict[str, Any]
+    integration_config: dict[str, Any] | None = None
     last_test_result: dict[str, Any] | None
     verified_at: datetime | None
     verified_by: str | None
