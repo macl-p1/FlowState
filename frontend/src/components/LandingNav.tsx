@@ -22,7 +22,7 @@ export default function LandingNav() {
             <Workflow className="w-4 h-4 text-base" strokeWidth={2.5} />
           </div>
           <span className="text-text font-semibold text-base tracking-tight">
-            OrchestrAI
+            FlowState
           </span>
         </Link>
 

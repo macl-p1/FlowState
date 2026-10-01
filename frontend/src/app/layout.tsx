@@ -15,7 +15,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "OrchestrAI — AI Workflow Automation",
+  title: "FlowState — AI Workflow Automation",
   description:
     "Describe processes in natural language. Convert them into executable, observable workflows.",
 };

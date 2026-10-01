@@ -36,7 +36,7 @@ export default function AppSidebar() {
               <Workflow className="w-3.5 h-3.5 text-base" strokeWidth={2.5} />
             </div>
             <span className="text-text font-semibold text-sm tracking-tight">
-              OrchestrAI
+              FlowState
             </span>
           </Link>
 

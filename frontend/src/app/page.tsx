@@ -31,7 +31,7 @@ const features = [
     icon: FileText,
     title: "Natural Language Input",
     description:
-      "Describe any process in plain English. No node graphs, no YAML — just tell OrchestrAI what you need.",
+      "Describe any process in plain English. No node graphs, no YAML — just tell FlowState what you need.",
     color: "text-accent",
   },
   {
@@ -247,15 +247,9 @@ export default function LandingPage() {
             <span className="text-accent">executable workflows</span>
           </h1>
 
-          {/* Product name */}
-          <p className="text-sm text-text-muted mb-6">
-            Working product name:&nbsp;
-            <span className="text-text font-medium">FlowPilot</span>
-          </p>
-
           {/* Subtitle */}
           <p className="max-w-xl mx-auto text-base sm:text-lg text-text-muted leading-relaxed mb-10">
-            Describe any business process in natural language. OrchestrAI
+            Describe any business process in natural language. FlowState
             compiles, runs, and verifies it — so you can ship automation in
             seconds, not sprints.
           </p>
@@ -314,7 +308,7 @@ export default function LandingPage() {
             </h2>
             <p className="text-sm text-text-muted max-w-md mx-auto">
               Type a process description or pick a template and watch
-              OrchestrAI plan, execute, and verify it.
+              FlowState plan, execute, and verify it.
             </p>
           </div>
 
@@ -620,7 +614,7 @@ export default function LandingPage() {
           </h2>
           <p className="text-sm text-text-muted mb-8 max-w-md mx-auto">
             Open the dashboard, describe your first workflow, and let
-            OrchestrAI do the rest.
+            FlowState do the rest.
           </p>
           <Link
             href="/dashboard"
@@ -640,11 +634,11 @@ export default function LandingPage() {
               <Workflow className="w-3.5 h-3.5 text-base" strokeWidth={2.5} />
             </div>
             <span className="text-sm font-semibold text-text tracking-tight">
-              OrchestrAI
+              FlowState
             </span>
           </div>
           <p className="text-xs text-text-muted">
-            OrchestrAI — AI Workflow Automation
+            FlowState — AI Workflow Automation
           </p>
           <div className="flex items-center gap-4">
             <a
