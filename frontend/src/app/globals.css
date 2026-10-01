@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-base: #08090B;
+  --color-surface: #0F1117;
+  --color-surface-2: #161922;
+  --color-border: #1E2130;
+  --color-text: #E4E2DD;
+  --color-text-muted: #6B6F7B;
+  --color-wire: #3A3F4E;
+  --color-accent: #E8A83E;
+  --color-accent-dim: #3D2E10;
+  --color-signal: #4A9EFF;
+  --color-signal-dim: #0D1B33;
+  --color-success: #3DD68C;
+  --color-warn: #E85D3A;
+  --font-sans: var(--font-instrument);
+  --font-mono: var(--font-jetbrains);
+}
+
+@layer base {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-wire) transparent;
+  }
+
+  *::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: var(--color-wire);
+    border-radius: 3px;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background: var(--color-text-muted);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-signal);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  ::placeholder {
+    color: var(--color-text-muted);
+    opacity: 0.5;
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-base);
+  }
+
+  pre,
+  code {
+    font-family: var(--font-mono), ui-monospace, monospace;
+  }
+}
+
+/* ── Animations ─────────────────────────────────────────── */
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-in-from-right {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes slide-in-from-bottom {
+  from { transform: translateY(8px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes scale-in {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-in {
+  animation-fill-mode: both;
+  animation-name: fade-in;
+  animation-duration: 200ms;
+}
+
+.animate-in.fade-in {
+  animation-duration: 200ms;
+}
+
+.animate-in.slide-in-from-right {
+  animation-name: slide-in-from-right;
+  animation-duration: 250ms;
+}
+
+.animate-in.slide-in-from-bottom {
+  animation-name: slide-in-from-bottom;
+  animation-duration: 200ms;
+}
+
+.animate-in.scale-in {
+  animation-name: scale-in;
+  animation-duration: 150ms;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(228, 226, 221, 0.04) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s ease-in-out infinite;
+}
