@@ -28,6 +28,12 @@
 - [x] LLM enrichment via Claude for richer suggestions
 - [x] API endpoints: GET suggestions, POST apply suggestion
 
+### Backend — Evolution Engine
+- [x] Sandbox fitness (mock-only tools, in-memory DB): success rate without approval gates or failures
+- [x] Mutations: cross-pollination patches + retry bumps
+- [x] `POST /workflows/{id}/evolve` — scores variants; `apply=true` saves winner as a version with rationale
+- [ ] Multi-generation loop / crossover (single generation today)
+
 ### Frontend
 - [x] Next.js app with glassmorphism UI
 - [x] Dashboard â€” workflow list
@@ -86,7 +92,7 @@ Dev/staging/prod promotion with approval gates between environments.
 
 ### 5. Observability & Analytics
 Execution metrics, failure rate dashboards, pattern heatmaps.
-- [ ] Execution metrics aggregation (avg duration, failure rate per tool/node)
-- [ ] Dashboard stats endpoint
+- [x] Execution metrics aggregation (per tool; per node not yet)
+- [x] Dashboard stats endpoint (`GET /api/analytics/stats`)
 - [ ] Frontend analytics page (charts, heatmaps, trends)
 - [ ] Alerting rules (e.g., failure rate > threshold)

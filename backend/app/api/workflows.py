@@ -122,7 +122,7 @@ async def save_workflow_direct(request: SaveWorkflowRequest, db: Session = Depen
             description=request.description,
             nodes=request.nodes,
             edges=request.edges,
-            metadata={"source": "builder"},
+            wf_metadata={"source": "builder"},
         )
         db.add(wf_model)
         db.commit()
@@ -174,7 +174,7 @@ async def get_workflow(workflow_id: str, db: Session = Depends(get_db)):
         "description": wf.description,
         "nodes": wf.nodes,
         "edges": wf.edges,
-        "metadata": wf.metadata,
+        "metadata": wf.wf_metadata,
         "created_at": wf.created_at.isoformat(),
     }
 

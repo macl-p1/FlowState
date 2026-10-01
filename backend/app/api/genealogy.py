@@ -7,6 +7,7 @@ from sqlalchemy.orm import Session
 from app.database import get_db
 from app.models import WorkflowModel
 from app.genealogy.service import GenealogyService
+from app.genealogy.evolve import evolve
 
 
 router = APIRouter()
@@ -140,3 +141,34 @@ async def get_lineage(workflow_id: str, db: Session = Depends(get_db)):
 
     service = GenealogyService(db)
     return service.get_lineage(workflow_id)
+
+
+class EvolveRequest(BaseModel):
+    trials: int = 3
+    apply: bool = False
+
+
+@router.post("/workflows/{workflow_id}/evolve")
+async def evolve_workflow(
+    workflow_id: str,
+    request: EvolveRequest,
+    db: Session = Depends(get_db),
+):
+    """Test mutated variants in a sandbox; with apply=true, save the winner as a new version."""
+    workflow = db.query(WorkflowModel).filter(WorkflowModel.id == workflow_id).first()
+    if not workflow:
+        raise HTTPException(status_code=404, detail="Workflow not found")
+
+    result = await evolve(db, workflow, max(1, min(request.trials, 20)))
+    winner = result["winner"]
+    result["applied_version_id"] = None
+    if request.apply and winner:
+        workflow.nodes, workflow.edges = winner["nodes"], winner["edges"]
+        version = GenealogyService(db).save_version(
+            workflow_id, winner["nodes"], winner["edges"],
+            rationale=f"Evolved: {winner['description']} "
+                      f"(sandbox success {result['baseline']:.0%} -> {winner['fitness']:.0%})",
+        )
+        db.commit()
+        result["applied_version_id"] = version.id
+    return result

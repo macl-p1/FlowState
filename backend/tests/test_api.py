@@ -206,3 +206,15 @@ class TestApiKeyAuth:
         monkeypatch.setattr("app.config.settings.api_key", "")
         response = client.get("/api/workflows")
         assert response.status_code == 200
+
+
+class TestSaveCreatesVersion:
+    def test_resave_adds_version_and_get_works(self, client):
+        n = [{"id": "a", "type": "trigger", "name": "t", "trigger": {"type": "manual"}},
+             {"id": "b", "type": "end", "name": "e", "outcome": "done"}]
+        e = [{"from": "a", "to": "b"}]
+        wid = client.post("/api/workflows", json={"name": "W", "nodes": n, "edges": e}).json()["id"]
+        client.post("/api/workflows", json={"name": "W", "nodes": n + [{"id": "c", "type": "end", "name": "x", "outcome": "x"}],
+                                            "edges": e, "workflow_id": wid})
+        assert len(client.get(f"/api/workflows/{wid}/history").json()["versions"]) == 2
+        assert client.get(f"/api/workflows/{wid}").status_code == 200
