@@ -10,7 +10,7 @@ from app.database import engine, Base
 from app.api import workflows, runs, approvals, tools, custom_tools, integrations
 from app.api.auth import get_api_key
 from app.api import genealogy
-from app.api import suggestions, analytics
+from app.api import suggestions, analytics, quality
 from fastapi import Depends
 
 
@@ -58,6 +58,7 @@ app.include_router(tools.router, prefix="/api", tags=["tools"], dependencies=[De
 app.include_router(genealogy.router, prefix="/api", tags=["genealogy"], dependencies=[Depends(get_api_key)])
 app.include_router(suggestions.router, prefix="/api", tags=["suggestions"], dependencies=[Depends(get_api_key)])
 app.include_router(analytics.router, prefix="/api", tags=["analytics"], dependencies=[Depends(get_api_key)])
+app.include_router(quality.router, prefix="/api", tags=["quality"], dependencies=[Depends(get_api_key)])
 
 
 if __name__ == "__main__":

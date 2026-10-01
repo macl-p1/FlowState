@@ -28,11 +28,23 @@
 - [x] LLM enrichment via Claude for richer suggestions
 - [x] API endpoints: GET suggestions, POST apply suggestion
 
+### Backend — Silent-Success Detection
+- [x] Run evaluator: offline heuristics (empty output, warnings, shape drift, identical repeats) + optional Claude judgement
+- [x] Auto-evaluates completed runs (fail-soft; off in evolve sandbox)
+- [x] Human corrections (POST /runs/{id}/correction, approval rejections) and override-rate insight (GET /workflows/{id}/quality)
+- [x] Console: quality score, reasons, Flag as wrong, override banner
+- [x] Per-workflow override rates on Analytics page
+- [x] Learns from corrections: flagged issues weigh more next time and are fed to Claude as examples
+- [x] Claude judgement runs in a background thread; offline checks stay inline
+- [ ] Judging things that need outside data (e.g. recipient tone) - needs an external data source
+
 ### Backend — Evolution Engine
 - [x] Sandbox fitness (mock-only tools, in-memory DB): success rate without approval gates or failures
 - [x] Mutations: cross-pollination patches + retry bumps
 - [x] `POST /workflows/{id}/evolve` — scores variants; `apply=true` saves winner as a version with rationale
-- [ ] Multi-generation loop / crossover (single generation today)
+- [x] Multi-generation loop with crossover (union of survivors' ops) and mutation, parsimony penalty
+- [x] Approval-gate removal mutation (opt-in via allow_gate_removal; flagged in results)
+- [ ] Sandbox uses mock tools only; real tool behavior is not simulated
 
 ### Frontend
 - [x] Next.js app with glassmorphism UI

@@ -88,6 +88,9 @@ async def reject_request(approval_id: str, request: RejectRequest, db: Session =
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
 
+    from app.api.quality import record_correction
+    record_correction(db, approval.execution_id, "approval_rejected", request.reason, request.approver_id)
+
     # Cancel the workflow execution
     runner = WorkflowRunner(db=db, tool_registry=registry)
     try:

@@ -13,6 +13,7 @@ from app.schemas.workflow import NodeType, PermissionLevel
 from app.schemas.execution import ExecutionStatus, StepStatus
 from app.models.custom_tool import CustomTool  # noqa: F401 — ensures table is registered
 from app.models.genealogy import WorkflowVersionModel, WorkflowBranchModel  # noqa: F401
+from app.models.quality import RunEvaluationModel, RunCorrectionModel  # noqa: F401
 
 
 def gen_id() -> str:

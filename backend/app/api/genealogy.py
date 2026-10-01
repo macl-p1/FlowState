@@ -145,6 +145,8 @@ async def get_lineage(workflow_id: str, db: Session = Depends(get_db)):
 
 class EvolveRequest(BaseModel):
     trials: int = 3
+    generations: int = 1
+    allow_gate_removal: bool = False  # removing approval gates is opt-in
     apply: bool = False
 
 
@@ -159,7 +161,11 @@ async def evolve_workflow(
     if not workflow:
         raise HTTPException(status_code=404, detail="Workflow not found")
 
-    result = await evolve(db, workflow, max(1, min(request.trials, 20)))
+    result = await evolve(
+        db, workflow, max(1, min(request.trials, 20)),
+        generations=max(1, min(request.generations, 5)),
+        allow_gate_removal=request.allow_gate_removal,
+    )
     winner = result["winner"]
     result["applied_version_id"] = None
     if request.apply and winner:

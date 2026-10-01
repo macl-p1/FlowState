@@ -7,7 +7,8 @@ from fastapi.responses import StreamingResponse
 from sqlalchemy.orm import Session
 
 from app.database import get_db
-from app.models import WorkflowExecutionModel, StepExecutionModel
+from app.models import WorkflowExecutionModel, StepExecutionModel, RunEvaluationModel, RunCorrectionModel
+from app.api.quality import serialize_evaluation
 from app.engine.runner import WorkflowRunner, WorkflowNotFoundError
 from app.tools.registry import registry
 
@@ -122,6 +123,33 @@ async def stream_run(run_id: str, db: Session = Depends(get_db)):
             "Connection": "keep-alive",
         },
     )
+
+
+@router.get("/runs/{run_id}")
+async def get_run(run_id: str, db: Session = Depends(get_db)):
+    exec_ = db.query(WorkflowExecutionModel).filter(WorkflowExecutionModel.id == run_id).first()
+    if not exec_:
+        raise HTTPException(status_code=404, detail="Run not found")
+    quality = db.query(RunEvaluationModel).filter_by(execution_id=run_id).first()
+    return {
+        **_serialize_exec(exec_),
+        "workflow_id": exec_.workflow_id,
+        "workflow_name": exec_.workflow_name,
+        "quality": serialize_evaluation(quality),
+    }
+
+
+@router.delete("/runs/{run_id}")
+async def delete_run(run_id: str, db: Session = Depends(get_db)):
+    exec_ = db.query(WorkflowExecutionModel).filter(WorkflowExecutionModel.id == run_id).first()
+    if not exec_:
+        raise HTTPException(status_code=404, detail="Run not found")
+    # quality rows have no ORM cascade
+    db.query(RunEvaluationModel).filter_by(execution_id=run_id).delete()
+    db.query(RunCorrectionModel).filter_by(execution_id=run_id).delete()
+    db.delete(exec_)
+    db.commit()
+    return {"deleted": run_id}
 
 
 @router.post("/runs/{run_id}/cancel")

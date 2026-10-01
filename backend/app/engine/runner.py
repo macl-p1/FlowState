@@ -31,8 +31,9 @@ class WorkflowRunner:
     Manages the execution lifecycle: start → run steps → pause for approval → resume → complete/fail.
     """
 
-    def __init__(self, db: Session, tool_registry=None):
+    def __init__(self, db: Session, tool_registry=None, evaluate: bool = True):
         self.db = db
+        self.evaluate = evaluate
         self.registry = tool_registry or registry
         self.compiler = WorkflowCompiler(tool_registry=self.registry)
         self.approval_service = ApprovalService(db)
@@ -169,6 +170,7 @@ class WorkflowRunner:
                 )
             self.db.commit()
             self.db.refresh(exec_model)
+            self._evaluate(exec_model.id)
 
             return self._to_pydantic(exec_model)
 
@@ -379,8 +381,15 @@ class WorkflowRunner:
         exec_model.context = resumed_context
         exec_model.completed_at = datetime.utcnow()
         self.db.commit()
+        self._evaluate(exec_model.id)
 
         return self._to_pydantic(exec_model)
+
+    def _evaluate(self, execution_id: str) -> None:
+        """Quality check on completed runs; fail-soft, off for sandbox runners."""
+        if self.evaluate:
+            from app.agents.evaluator import evaluate_run
+            evaluate_run(self.db, execution_id)
 
     async def cancel(self, execution_id: str) -> WorkflowExecution:
         """Cancel a running workflow."""

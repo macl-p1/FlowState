@@ -5,7 +5,8 @@ from sqlalchemy import func
 from sqlalchemy.orm import Session
 
 from app.database import get_db
-from app.models import WorkflowExecutionModel as E, StepExecutionModel as S
+from app.api.quality import workflow_quality
+from app.models import WorkflowExecutionModel as E, StepExecutionModel as S, WorkflowModel as W
 from app.schemas.execution import ExecutionStatus, StepStatus
 
 router = APIRouter()
@@ -31,7 +32,15 @@ def stats(db: Session = Depends(get_db)):
         if t0 and t1:
             a[2] += (t1 - t0).total_seconds()
             a[3] += 1
+    workflows = []
+    for wid, name in db.query(W.id, W.name).all():
+        q = workflow_quality(db, wid)
+        if q["runs"]:
+            workflows.append({"id": wid, "name": name, **q})
+    workflows.sort(key=lambda w: w["override_rate"], reverse=True)
+
     return {
+        "workflows": workflows,
         "total_runs": total,
         "by_status": by_status,
         "failure_rate": _rate(by_status.get(ExecutionStatus.FAILED.value, 0), total),
