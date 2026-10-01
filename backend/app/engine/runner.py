@@ -11,7 +11,7 @@ from app.models import WorkflowModel, WorkflowExecutionModel, StepExecutionModel
 from app.schemas.workflow import Workflow
 from app.schemas.execution import ExecutionStatus, StepStatus, WorkflowExecution, StepExecution
 from app.schemas.tool import ToolResult
-from app.agents.compiler import WorkflowCompiler, CompiledWorkflow, CompilationError
+from app.agents.compiler import WorkflowCompiler, CompiledWorkflow, CompilationError, node_start_hook
 from app.tools.registry import registry
 from app.approval.service import ApprovalService
 from app.utils.safe_eval import safe_eval, SafeEvalError
@@ -62,9 +62,20 @@ class WorkflowRunner:
         self,
         workflow_id: str,
         context: dict[str, Any] | None = None,
+        on_created=None,
+        on_node_start=None,
+        execution_id: str | None = None,
+        graph: dict | None = None,
     ) -> WorkflowExecution:
         """
         Execute a workflow by ID.
+
+        on_created(exec_model) fires once the execution row exists (so callers can hand out the run id
+        before the run finishes); on_node_start(node_id) fires as each node begins.
+        The running node is also persisted as current_node_id for stream readers.
+
+        execution_id: run an execution row that was queued earlier instead of creating one.
+        graph: {"nodes", "edges"} to run instead of the workflow's current definition (replay).
 
         Returns the execution record with all steps.
         """
@@ -78,9 +89,9 @@ class WorkflowRunner:
         # Parse workflow
         workflow = Workflow.model_validate({
             "name": workflow_model.name,
-            "description": workflow_model.description,
-            "nodes": workflow_model.nodes,
-            "edges": workflow_model.edges,
+            "description": workflow_model.description or "",
+            "nodes": graph["nodes"] if graph else workflow_model.nodes,
+            "edges": graph["edges"] if graph else workflow_model.edges,
             "metadata": workflow_model.wf_metadata or {},
         })
 
@@ -88,9 +99,23 @@ class WorkflowRunner:
         compiled = self.compiler.compile(workflow)
 
         # Create execution record
-        exec_model = self._create_execution_record(workflow_model, compiled, context)
+        if execution_id:
+            exec_model = self.db.query(WorkflowExecutionModel).filter(WorkflowExecutionModel.id == execution_id).first()
+            if not exec_model:
+                raise WorkflowNotFoundError(f"Execution {execution_id} not found")
+            exec_model.started_at = datetime.utcnow()  # queue wait is not run time
+        else:
+            exec_model = self._create_execution_record(workflow_model, compiled, context)
         exec_model.status = ExecutionStatus.RUNNING
         self.db.commit()
+        if on_created:
+            on_created(exec_model)
+
+        def _on_start(node_id: str, node_name: str) -> None:
+            exec_model.current_node_id = node_id
+            self.db.commit()
+            if on_node_start:
+                on_node_start(node_id)
 
         # Persist steps incrementally during execution
         persisted_count = 0
@@ -117,6 +142,7 @@ class WorkflowRunner:
             persisted_count = len(steps_data)
             self.db.commit()
 
+        hook_token = node_start_hook.set(_on_start)
         try:
             # Execute the graph, streaming state after each node for incremental step persistence
             initial_state = {
@@ -180,6 +206,8 @@ class WorkflowRunner:
             exec_model.completed_at = datetime.utcnow()
             self.db.commit()
             raise RunnerError(f"Workflow execution failed: {e}") from e
+        finally:
+            node_start_hook.reset(hook_token)
 
     async def resume(self, execution_id: str) -> WorkflowExecution:
         """

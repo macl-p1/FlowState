@@ -2,12 +2,15 @@
 
 import asyncio
 import json
+from pydantic import BaseModel
 from fastapi import APIRouter, Depends, HTTPException
 from fastapi.responses import StreamingResponse
 from sqlalchemy.orm import Session
 
 from app.database import get_db
-from app.models import WorkflowExecutionModel, StepExecutionModel, RunEvaluationModel, RunCorrectionModel
+from app.engine.jobs import enqueue_run, get_worker, WorkflowInvalid
+from app.models.triggers import RunMetaModel
+from app.models import WorkflowModel, WorkflowExecutionModel, StepExecutionModel, RunEvaluationModel, RunCorrectionModel
 from app.api.quality import serialize_evaluation
 from app.engine.runner import WorkflowRunner, WorkflowNotFoundError
 from app.tools.registry import registry
@@ -52,67 +55,61 @@ def _serialize_exec(exec_) -> dict:
 
 @router.get("/runs/{run_id}/stream")
 async def stream_run(run_id: str, db: Session = Depends(get_db)):
-    """SSE stream of execution updates — sends steps as they appear in the DB."""
-    exec_ = db.query(WorkflowExecutionModel).filter(
-        WorkflowExecutionModel.id == run_id
-    ).first()
-    if not exec_:
+    """SSE stream of execution progress.
+
+    Unnamed messages (EventSource.onmessage): {"type": "step", "data": step} per finished step and
+    {"type": "status", "data": {"status", "current_node_id"}} whenever status or the running node changes.
+    Named events: "snapshot" (full state) and "done".
+    """
+    exists = db.query(WorkflowExecutionModel.id).filter(WorkflowExecutionModel.id == run_id).first()
+    if not exists:
         raise HTTPException(status_code=404, detail="Run not found")
+    bind = db.get_bind()
+
+    def msg(kind: str, data: dict) -> str:
+        return f"data: {json.dumps({'type': kind, 'data': data})}\n\n"
 
     async def event_generator():
-        # Immediately send current state
-        yield f"event: snapshot\ndata: {json.dumps(_serialize_exec(exec_))}\n\n"
+        # The request-scoped session is closed before the body streams, so use our own.
+        with Session(bind) as sdb:
+            def load():
+                sdb.expire_all()
+                return sdb.query(WorkflowExecutionModel).filter(WorkflowExecutionModel.id == run_id).first()
 
-        if exec_.status.value in _TERMINAL_STATUSES:
-            yield f"event: done\ndata: {{}}\n\n"
-            return
+            current = load()
+            yield f"event: snapshot\ndata: {json.dumps(_serialize_exec(current))}\n\n"
+            if current.status.value in _TERMINAL_STATUSES:
+                yield "event: done\ndata: {}\n\n"
+                return
 
-        seen_step_ids: set = set(s.id for s in exec_.steps)
+            wf = sdb.query(WorkflowModel).filter(WorkflowModel.id == current.workflow_id).first()
+            node_names = {n.get("id"): n.get("name") for n in (wf.nodes if wf else [])}
+            seen_step_ids: set = {s.id for s in current.steps}
+            last_status = None
+            try:
+                while True:
+                    await asyncio.sleep(0.25)
+                    current = load()
+                    if not current:
+                        break
 
-        try:
-            while True:
-                await asyncio.sleep(0.5)
-                db.expire_all()
+                    for step in current.steps:
+                        if step.id not in seen_step_ids:
+                            seen_step_ids.add(step.id)
+                            yield msg("step", _serialize_step(step))
 
-                exec_ = db.query(WorkflowExecutionModel).filter(
-                    WorkflowExecutionModel.id == run_id
-                ).first()
-                if not exec_:
-                    break
+                    state = (current.status.value, current.current_node_id)
+                    if state != last_status:
+                        last_status = state
+                        yield msg("status", {"status": state[0], "current_node_id": state[1],
+                                             "current_node_name": node_names.get(state[1])})
 
-                current_status = exec_.status.value
-
-                # Check for new steps
-                current_step_ids = set(s.id for s in exec_.steps)
-                new_ids = current_step_ids - seen_step_ids
-                if new_ids:
-                    new_steps = [s for s in exec_.steps if s.id in new_ids]
-                    for step in new_steps:
-                        seen_step_ids.add(step.id)
-                        payload = json.dumps({
-                            "type": "step",
-                            "data": _serialize_step(step),
-                        })
-                        yield f"event: step\ndata: {payload}\n\n"
-
-                # Check for status change
-                payload = json.dumps({
-                    "type": "status",
-                    "data": {"status": current_status},
-                })
-                yield f"event: status\ndata: {payload}\n\n"
-
-                # Send periodic full snapshot (every ~5s via the periodic status event)
-                # The client can use this for live updates without full re-poll
-
-                if current_status in _TERMINAL_STATUSES:
-                    # Send final snapshot with all steps
-                    final_payload = json.dumps(_serialize_exec(exec_))
-                    yield f"event: snapshot\ndata: {final_payload}\n\n"
-                    yield f"event: done\ndata: {{}}\n\n"
-                    break
-        except asyncio.CancelledError:
-            pass
+                    if current.status.value in _TERMINAL_STATUSES:
+                        yield f"event: snapshot\ndata: {json.dumps(_serialize_exec(current))}\n\n"
+                        yield "event: done\ndata: {}\n\n"
+                        break
+            except asyncio.CancelledError:
+                pass
 
     return StreamingResponse(
         event_generator(),
@@ -136,7 +133,37 @@ async def get_run(run_id: str, db: Session = Depends(get_db)):
         "workflow_id": exec_.workflow_id,
         "workflow_name": exec_.workflow_name,
         "quality": serialize_evaluation(quality),
+        **_meta(db, run_id),
     }
+
+
+def _meta(db: Session, run_id: str) -> dict:
+    m = db.get(RunMetaModel, run_id)
+    return {"source": m.source if m else "manual", "replay_of": m.replay_of if m else None,
+            "trigger_id": m.trigger_id if m else None}
+
+
+class ReplayRequest(BaseModel):
+    latest: bool = False  # False: replay against the workflow definition as it was when the run was queued
+
+
+@router.post("/runs/{run_id}/replay")
+async def replay_run(run_id: str, req: ReplayRequest, db: Session = Depends(get_db)):
+    """Run it again with the same input (and, by default, the same workflow definition)."""
+    ex = db.query(WorkflowExecutionModel).filter(WorkflowExecutionModel.id == run_id).first()
+    if not ex:
+        raise HTTPException(status_code=404, detail="Run not found")
+    meta = db.get(RunMetaModel, run_id)
+    context = (meta.input_context if meta else ex.context) or {}
+    snapshot = None if (req.latest or not meta) else meta.snapshot
+    try:
+        new_id = enqueue_run(db, ex.workflow_id, context, "replay", replay_of=run_id, snapshot=snapshot)
+    except LookupError:
+        raise HTTPException(status_code=404, detail="Workflow no longer exists")
+    except WorkflowInvalid as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    get_worker(db.get_bind()).kick()
+    return {"id": new_id, "replay_of": run_id, "status": "pending"}
 
 
 @router.delete("/runs/{run_id}")
@@ -155,6 +182,8 @@ async def delete_run(run_id: str, db: Session = Depends(get_db)):
 @router.post("/runs/{run_id}/cancel")
 async def cancel_run(run_id: str, db: Session = Depends(get_db)):
     """Cancel a running execution."""
+    if get_worker(db.get_bind()).cancel(run_id):  # in flight: stop the task; the worker records CANCELLED
+        return {"id": run_id, "status": "cancelled"}
     runner = WorkflowRunner(db=db, tool_registry=registry)
     try:
         execution = await runner.cancel(run_id)
@@ -176,8 +205,12 @@ async def list_runs(db: Session = Depends(get_db), limit: int = 50):
         WorkflowExecutionModel.started_at.desc()
     ).limit(limit).all()
 
+    metas = {m.execution_id: m for m in db.query(RunMetaModel).filter(
+        RunMetaModel.execution_id.in_([e.id for e in executions])).all()}
     return [
         {
+            "source": metas[e.id].source if e.id in metas else "manual",
+            "replay_of": metas[e.id].replay_of if e.id in metas else None,
             "id": e.id,
             "workflow_id": e.workflow_id,
             "workflow_name": e.workflow_name,

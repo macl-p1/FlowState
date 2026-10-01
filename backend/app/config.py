@@ -27,6 +27,12 @@ class Settings(BaseSettings):
     max_retry_attempts: int = 3
     retry_backoff_base: float = 1.0
 
+    # Run queue / scheduler
+    worker_enabled: bool = True  # startup recovery + scheduler on the main database
+    max_concurrent_runs: int = 4
+    run_timeout_seconds: int = 300
+    scheduler_poll_seconds: float = 1.0
+
     # Approval
     approval_timeout_hours: int = 48
 

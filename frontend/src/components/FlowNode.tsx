@@ -35,6 +35,8 @@ export interface FlowNodeData {
   tool: string;
   detail: string;
   nodeType?: string;
+  /** Live execution state set by the builder while a run is in progress. */
+  runStatus?: "running" | "completed" | "failed" | "waiting" | "skipped";
   [key: string]: unknown;
 }
 
@@ -47,6 +49,14 @@ type FlowNodeComponentProps = {
   selected: boolean;
 };
 
+const RUN_RING: Record<string, string> = {
+  running: "border-signal shadow-lg shadow-signal/30 ring-2 ring-signal/40 animate-pulse",
+  completed: "border-success/60 ring-1 ring-success/30",
+  failed: "border-warn shadow-lg shadow-warn/20 ring-2 ring-warn/40",
+  waiting: "border-accent/60 ring-2 ring-accent/30",
+  skipped: "opacity-50",
+};
+
 function FlowNodeComponent({ data, selected, id }: FlowNodeComponentProps) {
   const toolInfo = TOOL_ICONS[data.tool] || { color: "#6B6F7B", label: "?" };
   const typeInfo = TYPE_COLORS[data.nodeType || "action"] || TYPE_COLORS.action;
@@ -56,7 +66,9 @@ function FlowNodeComponent({ data, selected, id }: FlowNodeComponentProps) {
       className={`
         min-w-[220px] max-w-[260px] rounded-xl border backdrop-blur-sm
         transition-shadow duration-200
-        ${selected
+        ${data.runStatus
+          ? RUN_RING[data.runStatus]
+          : selected
           ? "border-signal/50 shadow-lg shadow-signal/10 ring-1 ring-signal/20"
           : `${typeInfo.border} ${typeInfo.bg} hover:shadow-md`
         }

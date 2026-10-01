@@ -2,7 +2,8 @@
 
 import json
 import uuid
-from typing import Any
+from contextvars import ContextVar
+from typing import Any, Callable
 from langgraph.graph import StateGraph, END
 from langgraph.checkpoint.memory import MemorySaver
 
@@ -12,6 +13,10 @@ from app.utils.safe_eval import safe_eval, SafeEvalError
 from app.tools.registry import registry
 from datetime import datetime
 import uuid
+
+
+# Set by the runner so it learns which node is executing (for live progress); None when unused.
+node_start_hook: ContextVar[Callable[[str, str], None] | None] = ContextVar("node_start_hook", default=None)
 
 
 class CompilationError(Exception):
@@ -46,6 +51,9 @@ def _make_node_executor(node: dict, tool_registry):
 
     async def execute(state: dict) -> dict:
         """Execute a single workflow node."""
+        hook = node_start_hook.get()
+        if hook:
+            hook(node_id, node_name)
         steps = state.get("steps", [])
         context = state.get("context", {})
 

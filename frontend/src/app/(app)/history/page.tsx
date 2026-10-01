@@ -14,6 +14,7 @@ interface HistoryRow {
   id: string;
   name: string;
   status: string;
+  source: string;
   startedAt: string;
   completedAt: string | null;
   duration: string;
@@ -36,6 +37,7 @@ function toRow(r: RunListItem): HistoryRow {
     id: r.id,
     name: r.workflow_name,
     status: STATUS_BUCKET[r.status] ?? "pending",
+    source: r.source ?? "manual",
     startedAt: r.started_at ? new Date(r.started_at).toLocaleString() : "—",
     completedAt: r.completed_at ? new Date(r.completed_at).toLocaleTimeString() : null,
     duration: secs === null ? (r.status === "running" ? "Running" : "—") : `${secs.toFixed(1)}s`,
@@ -176,6 +178,9 @@ export default function HistoryPage() {
                   className={`w-2 h-2 rounded-full shrink-0 ${statusDot[run.status]}`}
                 />
                 <Link href={`/console?run=${encodeURIComponent(run.id)}`} className="text-sm text-text truncate hover:text-accent">{run.name}</Link>
+                {run.source !== "manual" && (
+                  <span className="shrink-0 px-1.5 py-0.5 text-[10px] rounded-full border border-border text-text-muted">{run.source}</span>
+                )}
               </div>
 
               {/* Started */}

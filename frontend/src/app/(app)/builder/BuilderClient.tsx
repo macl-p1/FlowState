@@ -17,6 +17,10 @@ import {
 import {
   generateWorkflow,
   getWorkflow,
+  startWorkflowRun,
+  openRunStream,
+  getRun,
+  type RunStep,
   saveWorkflow,
   saveWorkflowDirect,
   runWorkflow,
@@ -33,6 +37,7 @@ import {
   AlertCircle,
   Sparkles,
   Dna,
+  Zap,
   ChevronRight,
   ZoomIn,
   ZoomOut,
@@ -46,6 +51,7 @@ import { flowNodeTypes } from "@/components/FlowNode";
 import VersionHistoryPanel from "@/components/VersionHistoryPanel";
 import SuggestionsPanel from "@/components/SuggestionsPanel";
 import EvolvePanel from "@/components/EvolvePanel";
+import TriggersPanel from "@/components/TriggersPanel";
 
 /* ── Custom edge with visible delete button ── */
 import { BaseEdge, EdgeProps, getSmoothStepPath, type Edge as EdgeType } from "@xyflow/react";
@@ -227,6 +233,7 @@ function BuilderInner({
   const [historyOpen, setHistoryOpen] = useState(false);
   const [suggestionsOpen, setSuggestionsOpen] = useState(false);
   const [evolveOpen, setEvolveOpen] = useState(false);
+  const [triggersOpen, setTriggersOpen] = useState(false);
 
   const handleLoadVersion = useCallback((nodes: BackendNode[], edges: BackendEdge[]) => {
     const g = toFlowGraph(nodes, edges);
@@ -497,6 +504,82 @@ function BuilderInner({
   }, [nodes, edges, configName, configPrompt, savedWorkflowId]);
 
   /* ── Run workflow (auto-saves then executes) ── */
+  /* ── Live run: highlight nodes as the backend reports them ── */
+  const closeStreamRef = useRef<(() => void) | null>(null);
+  const playbackRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const stopLive = useCallback(() => {
+    closeStreamRef.current?.();
+    closeStreamRef.current = null;
+    if (playbackRef.current) clearInterval(playbackRef.current);
+    playbackRef.current = null;
+  }, []);
+  useEffect(() => stopLive, [stopLive]);
+
+  const setRunStatus = useCallback(
+    (nodeId: string | null, status: FlowNodeData["runStatus"]) =>
+      setNodes((ns) =>
+        ns.map((n) =>
+          nodeId === null || n.id === nodeId ? { ...n, data: { ...(n.data as FlowNodeData), runStatus: status } } : n
+        )
+      ),
+    [setNodes]
+  );
+
+  const followRun = useCallback(
+    (runId: string) => {
+      // Events are queued and shown ~350ms apart so fast runs are still visible.
+      const queue: { id: string; status: FlowNodeData["runStatus"] }[] = [];
+      const seen = new Set<string>();
+      let finished = false;
+      const TERMINAL = ["completed", "failed", "cancelled", "waiting_approval"];
+      const STEP_TO_NODE: Record<string, FlowNodeData["runStatus"]> = {
+        completed: "completed", failed: "failed", waiting_approval: "waiting", skipped: "skipped",
+      };
+
+      const pushStep = (s: RunStep) => {
+        if (seen.has(s.id)) return;
+        seen.add(s.id);
+        queue.push({ id: s.node_id, status: "running" });
+        queue.push({ id: s.node_id, status: STEP_TO_NODE[s.status] ?? "completed" });
+      };
+      const finalize = async () => {
+        stopLive();
+        try {
+          const run = await getRun(runId);
+          setRunResult({ execution_id: run.id, status: run.status, steps: run.steps } as typeof runResult);
+        } catch (e) {
+          setRunError(e instanceof Error ? e.message : "Failed to load run result");
+        } finally {
+          setRunning(false);
+        }
+      };
+
+      closeStreamRef.current = openRunStream(runId, {
+        onSnapshot: (run) => {
+          run.steps.forEach(pushStep);
+          if (TERMINAL.includes(run.status)) finished = true;
+        },
+        onStep: pushStep,
+        onStatus: (status, nodeId) => {
+          if (status === "running" && nodeId && queue[queue.length - 1]?.id !== nodeId) {
+            queue.push({ id: nodeId, status: "running" });
+          }
+          if (TERMINAL.includes(status)) finished = true;
+        },
+        onDone: () => { finished = true; },
+        onError: () => { finished = true; },
+      });
+
+      playbackRef.current = setInterval(() => {
+        const ev = queue.shift();
+        if (ev) setRunStatus(ev.id, ev.status);
+        else if (finished) finalize();
+      }, 350);
+    },
+    [setRunStatus, stopLive]
+  );
+
   const handleRun = useCallback(async () => {
     setRunError(null);
     setRunResult(null);
@@ -529,15 +612,16 @@ function BuilderInner({
     }
 
     setRunning(true);
+    stopLive();
+    setRunStatus(null, undefined);
     try {
-      const result = await runWorkflow(workflowId);
-      setRunResult(result as typeof runResult);
+      const { id: runId } = await startWorkflowRun(workflowId);
+      followRun(runId);
     } catch (e) {
       setRunError(e instanceof Error ? e.message : "Failed to run workflow");
-    } finally {
       setRunning(false);
     }
-  }, [savedWorkflowId, configName, configPrompt, nodes, edges]);
+  }, [savedWorkflowId, configName, configPrompt, nodes, edges, followRun, setRunStatus, stopLive]);
 
   /* ──────────────────────────────────────────────
      Render
@@ -666,6 +750,15 @@ function BuilderInner({
             >
               <Dna className="w-3.5 h-3.5" />
               Evolve
+            </button>
+            <button
+              onClick={() => setTriggersOpen(true)}
+              disabled={!savedWorkflowId}
+              title={savedWorkflowId ? "Schedules and webhooks" : "Save workflow first"}
+              className="h-8 px-3 rounded-lg border border-border text-xs text-text-muted hover:text-accent hover:border-accent/40 transition-all flex items-center gap-1.5 disabled:opacity-30 disabled:pointer-events-none"
+            >
+              <Zap className="w-3.5 h-3.5" />
+              Triggers
             </button>
           </div>
         </header>
@@ -951,6 +1044,16 @@ function BuilderInner({
           isOpen={suggestionsOpen}
           onClose={() => setSuggestionsOpen(false)}
           onApplySuggestion={handleLoadVersion}
+        />
+      )}
+
+      {/* Triggers Panel */}
+      {savedWorkflowId && (
+        <TriggersPanel
+          workflowId={savedWorkflowId}
+          workflowName={configName || "Untitled Workflow"}
+          isOpen={triggersOpen}
+          onClose={() => setTriggersOpen(false)}
         />
       )}
 

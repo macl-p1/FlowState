@@ -1,5 +1,9 @@
 """Shared pytest fixtures for all tests."""
 
+import os
+
+os.environ.setdefault("WORKER_ENABLED", "false")  # tests must not start a worker on the dev database
+
 import pytest
 import uuid
 from sqlalchemy import create_engine

@@ -10,7 +10,8 @@ from app.database import engine, Base
 from app.api import workflows, runs, approvals, tools, custom_tools, integrations
 from app.api.auth import get_api_key
 from app.api import genealogy
-from app.api import suggestions, analytics, quality
+from app.api import suggestions, analytics, quality, triggers
+from app.engine.jobs import get_worker, recover_interrupted
 from fastapi import Depends
 
 
@@ -27,8 +28,12 @@ async def lifespan(app: FastAPI):
     """Startup and shutdown events."""
     # Create all tables
     Base.metadata.create_all(bind=engine)
+    worker = get_worker(engine)
+    if settings.worker_enabled:
+        recover_interrupted(engine)  # runs a crash left mid-flight -> failed (replayable)
+        worker.kick()  # fires schedule triggers and starts queued runs
     yield
-    # Cleanup if needed
+    await worker.stop()
 
 
 app = FastAPI(
@@ -58,6 +63,8 @@ app.include_router(tools.router, prefix="/api", tags=["tools"], dependencies=[De
 app.include_router(genealogy.router, prefix="/api", tags=["genealogy"], dependencies=[Depends(get_api_key)])
 app.include_router(suggestions.router, prefix="/api", tags=["suggestions"], dependencies=[Depends(get_api_key)])
 app.include_router(analytics.router, prefix="/api", tags=["analytics"], dependencies=[Depends(get_api_key)])
+app.include_router(triggers.router, prefix="/api", tags=["triggers"], dependencies=[Depends(get_api_key)])
+app.include_router(triggers.hooks_router, prefix="/api", tags=["webhooks"])  # token-in-URL auth, no API key
 app.include_router(quality.router, prefix="/api", tags=["quality"], dependencies=[Depends(get_api_key)])
 
 

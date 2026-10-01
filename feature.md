@@ -28,6 +28,17 @@
 - [x] LLM enrichment via Claude for richer suggestions
 - [x] API endpoints: GET suggestions, POST apply suggestion
 
+### Backend — Triggers, Durable Runs & Replay
+- [x] Schedule triggers (interval or 5-field cron, UTC) and webhook triggers (secret URL, JSON body becomes run input)
+- [x] Durable run queue: runs are PENDING rows, a worker starts them (max_concurrent_runs, run_timeout_seconds)
+- [x] Cancel actually stops in-flight runs; queued runs can be cancelled before they start
+- [x] Restart recovery: runs left mid-flight are failed and replayable; queued runs survive
+- [x] Replay a run with the same input and the same workflow definition (snapshot), or against the latest
+- [x] Builder Triggers panel, Console Replay button and source badges
+- [ ] Multi-process workers (needs a row-level claim on PENDING runs)
+- [ ] Replay from a failed step (see Execution Caching)
+- [ ] Webhook rate limiting / signature verification
+
 ### Backend — Silent-Success Detection
 - [x] Run evaluator: offline heuristics (empty output, warnings, shape drift, identical repeats) + optional Claude judgement
 - [x] Auto-evaluates completed runs (fail-soft; off in evolve sandbox)
@@ -91,9 +102,9 @@ Turn the cross-pollination engine into a browsable template library.
 
 ### 3. Real-time Execution Console
 Live streaming of workflow runs with node-by-node status.
-- [ ] Server-Sent Events or WebSocket endpoint for run progress
-- [ ] Streaming step updates from runner to frontend
-- [ ] Live node highlighting on the builder canvas during execution
+- [x] Server-Sent Events endpoint for run progress (GET /runs/{id}/stream; fixed: used a closed DB session and named events the client never received)
+- [x] Streaming step updates from runner to frontend (POST /workflows/{id}/run/start returns the run id immediately; runner reports each node as it starts)
+- [x] Live node highlighting on the builder canvas during execution (running / done / failed / waiting rings); Console shows the running node
 
 ### 4. Multi-env Deployment
 Dev/staging/prod promotion with approval gates between environments.

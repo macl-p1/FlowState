@@ -27,6 +27,7 @@ import {
   type RunQuality,
   type WorkflowQuality,
   cancelRun as apiCancelRun,
+  replayRun,
   listApprovals,
   approveApproval,
   rejectApproval,
@@ -144,6 +145,7 @@ export default function ConsoleClient({ initialRunId }: ConsoleClientProps) {
   const [quality, setQuality] = useState<RunQuality | null>(null);
   const [wfQuality, setWfQuality] = useState<WorkflowQuality | null>(null);
   const [flagged, setFlagged] = useState(false);
+  const [runningNodeName, setRunningNodeName] = useState<string | null>(null);
   const [approvals, setApprovals] = useState<ApprovalItem[]>([]);
   const [approvingId, setApprovingId] = useState<string | null>(null);
 
@@ -229,9 +231,10 @@ export default function ConsoleClient({ initialRunId }: ConsoleClientProps) {
               return prev;
             });
           } else if (msg.type === "status" && msg.data) {
+            setRunningNodeName(msg.data.status === "running" ? msg.data.current_node_name ?? null : null);
             setSelectedRun((prev) => {
               if (!prev) return prev;
-              return { ...prev, status: msg.data.status };
+              return { ...prev, status: msg.data.status, current_node_id: msg.data.current_node_id ?? null };
             });
           }
         } catch { /* ignore parse errors */ }
@@ -312,6 +315,21 @@ export default function ConsoleClient({ initialRunId }: ConsoleClientProps) {
       /* ignore: button stays clickable */
     }
   }, [selectedRunId, selectedWorkflowId]);
+
+  const [replaying, setReplaying] = useState(false);
+  const handleReplay = useCallback(async () => {
+    if (!selectedRunId) return;
+    setReplaying(true);
+    try {
+      const { id } = await replayRun(selectedRunId);
+      await loadRuns();
+      setSelectedRunId(id);
+    } catch (e) {
+      alert(e instanceof Error ? e.message : "Failed to replay");
+    } finally {
+      setReplaying(false);
+    }
+  }, [selectedRunId, loadRuns]);
 
   const handleCancel = useCallback(async () => {
     if (!selectedRunId) return;
@@ -487,6 +505,18 @@ export default function ConsoleClient({ initialRunId }: ConsoleClientProps) {
                       >
                         {statusLabel[selectedRun.status] || selectedRun.status}
                       </span>
+                      {selectedRun.source && selectedRun.source !== "manual" && (
+                        <span className="px-2 py-0.5 text-[10px] rounded-full border border-border text-text-muted">
+                          {selectedRun.source}
+                          {selectedRun.replay_of ? ` of ${selectedRun.replay_of.slice(-8)}` : ""}
+                        </span>
+                      )}
+                      {selectedRun.status === "running" && runningNodeName && (
+                        <span className="flex items-center gap-1.5 text-[10px] text-signal">
+                          <span className="w-1.5 h-1.5 rounded-full bg-signal animate-pulse" />
+                          {runningNodeName}
+                        </span>
+                      )}
                     </div>
                     <div className="flex items-center gap-3 mt-1.5">
                       <span className="text-[10px] text-text-muted">
@@ -512,7 +542,16 @@ export default function ConsoleClient({ initialRunId }: ConsoleClientProps) {
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
-                    {(selectedRun.status === "running" || selectedRun.status === "waiting_approval") && (
+                    <button
+                      onClick={handleReplay}
+                      disabled={replaying || selectedRun.status === "running" || selectedRun.status === "pending"}
+                      title="Run again with the same input and workflow definition"
+                      className="h-8 px-3 border border-border text-text-muted text-xs rounded-md hover:text-text hover:border-text-muted/40 transition-colors disabled:opacity-40 flex items-center gap-1.5"
+                    >
+                      {replaying ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <RefreshCw className="w-3.5 h-3.5" />}
+                      Replay
+                    </button>
+                    {(selectedRun.status === "running" || selectedRun.status === "pending" || selectedRun.status === "waiting_approval") && (
                       <button
                         onClick={handleCancel}
                         disabled={cancelling}

@@ -192,6 +192,8 @@ export async function runWorkflow(id: string, context?: Record<string, unknown>)
 // ── Runs / Executions ────────────────────────
 
 export interface RunListItem {
+  source?: string;
+  replay_of?: string | null;
   id: string;
   workflow_id: string;
   workflow_name: string;
@@ -213,6 +215,8 @@ export interface RunDetail {
   steps: RunStep[];
   approval: { id: string; reason: string; context: Record<string, unknown>; status: string } | null;
   quality?: RunQuality | null;
+  source?: string;
+  replay_of?: string | null;
 }
 
 export interface RunQuality {
@@ -656,4 +660,101 @@ export async function getWorkflowQuality(workflowId: string): Promise<WorkflowQu
 
 export async function deleteRun(id: string): Promise<void> {
   await handleResponse(await fetchWithAuth(`${API_BASE}/runs/${encodeURIComponent(id)}`, { method: "DELETE" }));
+}
+
+// ── Live runs ────────────────────────────────
+
+/** Start a run in the background; resolves with the run id as soon as the run exists. */
+export async function startWorkflowRun(id: string, context?: Record<string, unknown>): Promise<{ id: string }> {
+  const res = await fetchWithAuth(`${API_BASE}/workflows/${encodeURIComponent(id)}/run/start`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ context: context || {} }),
+  });
+  return handleResponse(res);
+}
+
+export interface RunStreamHandlers {
+  onSnapshot?: (run: RunDetail) => void;
+  onStep?: (step: RunStep) => void;
+  onStatus?: (status: string, currentNodeId: string | null, currentNodeName: string | null) => void;
+  onDone?: () => void;
+  onError?: () => void;
+}
+
+/** Subscribe to a run's SSE stream. Returns a function that closes it. */
+export function openRunStream(runId: string, h: RunStreamHandlers): () => void {
+  const url = new URL(`${API_BASE}/runs/${encodeURIComponent(runId)}/stream`);
+  if (API_KEY) url.searchParams.set("api_key", API_KEY);
+  const es = new EventSource(url.toString());
+  es.onmessage = (evt) => {
+    try {
+      const m = JSON.parse(evt.data);
+      if (m.type === "step") h.onStep?.(m.data);
+      else if (m.type === "status") h.onStatus?.(m.data.status, m.data.current_node_id ?? null, m.data.current_node_name ?? null);
+    } catch { /* ignore malformed event */ }
+  };
+  es.addEventListener("snapshot", (evt) => {
+    try { h.onSnapshot?.(JSON.parse((evt as MessageEvent).data)); } catch { /* ignore */ }
+  });
+  es.addEventListener("done", () => { es.close(); h.onDone?.(); });
+  es.onerror = () => { es.close(); h.onError?.(); };
+  return () => es.close();
+}
+
+// ── Triggers & replay ────────────────────────
+
+export interface TriggerItem {
+  id: string;
+  workflow_id: string;
+  kind: "schedule" | "webhook";
+  enabled: boolean;
+  config: { interval_seconds?: number; cron?: string; last_error?: string };
+  webhook_path: string | null;
+  next_run_at: string | null;
+  last_run_at: string | null;
+}
+
+/** Absolute URL external systems should POST to. */
+export function webhookUrl(t: TriggerItem): string {
+  return t.webhook_path ? new URL(t.webhook_path, API_BASE).toString() : "";
+}
+
+export async function listTriggers(workflowId: string): Promise<TriggerItem[]> {
+  return handleResponse(await fetchWithAuth(`${API_BASE}/workflows/${encodeURIComponent(workflowId)}/triggers`));
+}
+
+export async function createTrigger(
+  workflowId: string,
+  data: { kind: "schedule" | "webhook"; interval_seconds?: number; cron?: string },
+): Promise<TriggerItem> {
+  const res = await fetchWithAuth(`${API_BASE}/workflows/${encodeURIComponent(workflowId)}/triggers`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  return handleResponse(res);
+}
+
+export async function setTriggerEnabled(id: string, enabled: boolean): Promise<TriggerItem> {
+  const res = await fetchWithAuth(`${API_BASE}/triggers/${encodeURIComponent(id)}`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ enabled }),
+  });
+  return handleResponse(res);
+}
+
+export async function deleteTrigger(id: string): Promise<void> {
+  await handleResponse(await fetchWithAuth(`${API_BASE}/triggers/${encodeURIComponent(id)}`, { method: "DELETE" }));
+}
+
+/** Re-run with the same input. By default uses the workflow as it was when the run was queued. */
+export async function replayRun(id: string, latest = false): Promise<{ id: string; replay_of: string }> {
+  const res = await fetchWithAuth(`${API_BASE}/runs/${encodeURIComponent(id)}/replay`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ latest }),
+  });
+  return handleResponse(res);
 }

@@ -13,6 +13,7 @@ from app.schemas.workflow import Workflow
 from app.schemas.execution import WorkflowExecution
 from app.agents.planner import PlannerAgent, PlanningResult
 from app.engine.runner import WorkflowRunner
+from app.engine.jobs import enqueue_run, get_worker, WorkflowInvalid
 from app.tools.registry import registry
 from app.genealogy.service import GenealogyService
 
@@ -188,6 +189,19 @@ async def delete_workflow(workflow_id: str, db: Session = Depends(get_db)):
     db.delete(wf)
     db.commit()
     return {"deleted": workflow_id}
+
+
+@router.post("/workflows/{workflow_id}/run/start")
+async def start_workflow(workflow_id: str, request: RunRequest, db: Session = Depends(get_db)):
+    """Queue a run and return its id immediately; follow it via GET /runs/{id}/stream."""
+    try:
+        run_id = enqueue_run(db, workflow_id, request.context, "manual")
+    except LookupError:
+        raise HTTPException(status_code=404, detail="Workflow not found")
+    except WorkflowInvalid as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    get_worker(db.get_bind()).kick()
+    return {"id": run_id, "workflow_id": workflow_id, "status": "pending"}
 
 
 @router.post("/workflows/{workflow_id}/run")
