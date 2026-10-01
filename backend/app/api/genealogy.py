@@ -125,9 +125,30 @@ async def get_version(workflow_id: str, version_id: str, db: Session = Depends(g
 
     service = GenealogyService(db)
     version = service.get_version(version_id)
-    if not version:
+    if not version or version["workflow_id"] != workflow_id:
         raise HTTPException(status_code=404, detail="Version not found")
     return version
+
+
+class RestoreRequest(BaseModel):
+    rationale: str | None = None
+
+
+@router.post("/workflows/{workflow_id}/versions/{version_id}/restore")
+async def restore_version(workflow_id: str, version_id: str, request: RestoreRequest, db: Session = Depends(get_db)):
+    """Make an old version current again (recorded as a new version)."""
+    service = GenealogyService(db)
+    try:
+        version = service.restore_version(workflow_id, version_id, request.rationale)
+    except ValueError:
+        raise HTTPException(status_code=404, detail="Version not found")
+    return {
+        "version_id": version.id,
+        "version_number": version.version_number,
+        "nodes": version.nodes,
+        "edges": version.edges,
+        "change_rationale": version.change_rationale,
+    }
 
 
 @router.get("/workflows/{workflow_id}/lineage")
@@ -169,6 +190,7 @@ async def evolve_workflow(
     winner = result["winner"]
     result["applied_version_id"] = None
     if request.apply and winner:
+        GenealogyService(db).ensure_baseline(workflow_id)
         workflow.nodes, workflow.edges = winner["nodes"], winner["edges"]
         version = GenealogyService(db).save_version(
             workflow_id, winner["nodes"], winner["edges"],

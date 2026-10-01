@@ -126,6 +126,7 @@ export async function saveWorkflowDirect(data: {
   nodes: BackendNode[];
   edges: BackendEdge[];
   workflowId?: string;
+  rationale?: string;
 }): Promise<GenerateResponse> {
   // Translate display tool names to internal registry names
   const normalizedNodes = data.nodes.map((n) => ({
@@ -140,6 +141,9 @@ export async function saveWorkflowDirect(data: {
   };
   if (data.workflowId) {
     body.workflow_id = data.workflowId;
+  }
+  if (data.rationale) {
+    body.rationale = data.rationale;
   }
   const res = await fetchWithAuth(`${API_BASE}/workflows`, {
     method: "POST",
@@ -561,6 +565,19 @@ export interface SuggestionItem {
   target_node_id: string | null;
   actionable: boolean;
   apply_patch: Record<string, unknown>;
+  /** structural = compared to similar workflows now; history = a similar workflow adopted it;
+   *  self_history = this workflow dropped it and got worse; self = found in this workflow's own nodes */
+  origin?: "structural" | "history" | "self_history" | "self";
+  evidence?: SuggestionEvidence | null;
+}
+
+export interface SuggestionEvidence {
+  verdict: "improved" | "worse" | "neutral" | "unknown";
+  before: { runs: number; rate: number | null };
+  after: { runs: number; rate: number | null };
+  version_number: number;
+  rationale: string | null;
+  text: string;
 }
 
 export interface SuggestionsResponse {
@@ -580,13 +597,14 @@ export async function getWorkflowSuggestions(
 export async function applySuggestion(
   workflowId: string,
   patch: Record<string, unknown>,
-): Promise<{ id: string; name: string; nodes: BackendNode[]; edges: BackendEdge[] }> {
+  rationale?: string,
+): Promise<{ id: string; name: string; nodes: BackendNode[]; edges: BackendEdge[]; version_number: number }> {
   const res = await fetchWithAuth(
     `${API_BASE}/workflows/${encodeURIComponent(workflowId)}/suggestions/apply`,
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ patch }),
+      body: JSON.stringify({ patch, rationale }),
     },
   );
   return handleResponse(res);
@@ -756,5 +774,18 @@ export async function replayRun(id: string, latest = false): Promise<{ id: strin
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ latest }),
   });
+  return handleResponse(res);
+}
+
+/** Make an old version current again (recorded as a new version). */
+export async function restoreVersion(
+  workflowId: string,
+  versionId: string,
+  rationale?: string,
+): Promise<{ version_id: string; version_number: number; nodes: BackendNode[]; edges: BackendEdge[] }> {
+  const res = await fetchWithAuth(
+    `${API_BASE}/workflows/${encodeURIComponent(workflowId)}/versions/${encodeURIComponent(versionId)}/restore`,
+    { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ rationale }) },
+  );
   return handleResponse(res);
 }

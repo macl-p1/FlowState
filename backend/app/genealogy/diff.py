@@ -1,6 +1,22 @@
 """Diff engine — compares two workflow graphs and produces a structured change report."""
 
+import hashlib
+import json
 from typing import Any
+
+# Canvas layout is not a workflow change: moving a node must not create a version.
+LAYOUT_KEYS = frozenset({"position"})
+
+
+def graph_key(nodes: list[dict], edges: list[dict]) -> str:
+    """Stable fingerprint of a workflow graph, ignoring layout and ordering."""
+    canon_nodes = sorted(
+        ({k: v for k, v in n.items() if k not in LAYOUT_KEYS} for n in nodes or []),
+        key=lambda n: str(n.get("id")),
+    )
+    canon_edges = sorted((e.get("from"), e.get("to"), e.get("condition") or None) for e in edges or [])
+    blob = json.dumps([canon_nodes, canon_edges], sort_keys=True, default=str)
+    return hashlib.sha256(blob.encode()).hexdigest()
 
 
 class DiffResult:
@@ -74,10 +90,7 @@ def compute_diff(
     for node_id in sorted(old_node_map.keys() - new_node_map.keys()):
         result.removed_nodes.append(old_node_map[node_id])
 
-    # Modified nodes — compare fields that matter
-    comparable_fields = {"type", "name", "tool", "inputs", "expression", "expression",
-                         "duration_seconds", "reason", "outcome", "trigger"}
-
+    # Modified nodes: every field except layout
     for node_id in sorted(old_node_map.keys() & new_node_map.keys()):
         old_node = old_node_map[node_id]
         new_node = new_node_map[node_id]
@@ -85,7 +98,7 @@ def compute_diff(
 
         all_keys = set(old_node.keys()) | set(new_node.keys())
         for key in all_keys:
-            if key == "id":
+            if key == "id" or key in LAYOUT_KEYS:
                 continue
             old_val = old_node.get(key)
             new_val = new_node.get(key)

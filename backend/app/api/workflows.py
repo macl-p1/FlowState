@@ -1,5 +1,6 @@
 """Workflow API routes."""
 
+import logging
 import uuid
 
 from fastapi import APIRouter, Depends, HTTPException
@@ -16,6 +17,7 @@ from app.engine.runner import WorkflowRunner
 from app.engine.jobs import enqueue_run, get_worker, WorkflowInvalid
 from app.tools.registry import registry
 from app.genealogy.service import GenealogyService
+from app.utils.graph import normalize_graph
 
 
 router = APIRouter()
@@ -27,6 +29,7 @@ class SaveWorkflowRequest(BaseModel):
     nodes: list[dict[str, Any]]
     edges: list[dict[str, Any]]
     workflow_id: str | None = None  # If provided, update existing workflow
+    rationale: str | None = None  # why this change was made (recorded on the version)
 
 
 class GenerateRequest(BaseModel):
@@ -75,11 +78,13 @@ async def generate_workflow(request: GenerateRequest, db: Session = Depends(get_
         description=workflow.description,
         nodes=response_nodes,
         edges=response_edges,
-        metadata=metadata,
+        wf_metadata=metadata,
     )
     db.add(wf_model)
     db.commit()
     db.refresh(wf_model)
+    GenealogyService(db).save_version(wf_model.id, response_nodes, response_edges,
+                                      rationale=f"Generated from prompt: {request.prompt[:200]}")
 
     return {
         "id": wf_model.id,
@@ -100,12 +105,16 @@ async def save_workflow_direct(request: SaveWorkflowRequest, db: Session = Depen
     """
     import re
 
+    # Never store the canvas's own shape: nothing downstream (runner, patterns, suggestions) understands it.
+    request.nodes, request.edges = normalize_graph(request.nodes, request.edges)
+
     if request.workflow_id:
         # Update existing workflow
         wf_model = db.query(WorkflowModel).filter(WorkflowModel.id == request.workflow_id).first()
         if not wf_model:
             raise HTTPException(status_code=404, detail="Workflow not found")
 
+        GenealogyService(db).ensure_baseline(wf_model.id)  # keep the pre-edit state in history
         wf_model.name = request.name
         wf_model.description = request.description
         wf_model.nodes = request.nodes
@@ -131,11 +140,11 @@ async def save_workflow_direct(request: SaveWorkflowRequest, db: Session = Depen
 
     # Save version with diff from previous version
     try:
-        genealogy = GenealogyService(db)
-        rationale = "Updated workflow" if request.workflow_id else "Initial version"
-        genealogy.save_version(wf_model.id, wf_model.nodes, wf_model.edges, rationale=rationale)
+        rationale = request.rationale or ("Updated workflow" if request.workflow_id else "Initial version")
+        GenealogyService(db).save_version(wf_model.id, wf_model.nodes, wf_model.edges, rationale=rationale)
     except Exception:
-        pass  # Non-critical — don't fail the save if genealogy fails
+        # The workflow itself is saved; a history failure must not lose the user's edit, but must be visible.
+        logging.getLogger(__name__).exception("failed to record version for %s", wf_model.id)
 
     return {
         "id": wf_model.id,

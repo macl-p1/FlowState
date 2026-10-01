@@ -19,6 +19,8 @@
 - [x] Branch workflow — create named branches from any version
 - [x] Lineage tracking — ancestry graph across branches
 - [x] Version history per workflow
+- [x] Every change path is versioned (builder save, suggestion apply, evolve apply, restore, generate); baseline kept before the first tracked change
+- [x] Layout-only and no-op saves don't create versions; restore an old version as a new version
 
 ### Backend — Cross-Pollination
 - [x] Pattern extraction — 8 patterns (retry, error_handling, approval_gate, human_escalation, branching, input_validation, wait_delay, fallback_path)
@@ -27,6 +29,10 @@
 - [x] Structured apply-patch engine (update_node, insert_between, insert_between_with_branch, append_node)
 - [x] LLM enrichment via Claude for richer suggestions
 - [x] API endpoints: GET suggestions, POST apply suggestion
+- [x] History-backed suggestions: patterns similar workflows adopted (with their rationale and before/after run success), and patterns this workflow dropped after which results got worse; ones that hurt are filtered out
+- [x] Patch engine resolves placeholders, keeps the graph connected, refuses no-op or unappliable patches
+- [x] Suggestions from the workflow itself (no other workflows needed): retry on outbound actions, ranked by real node failures; approval before irreversible tools (registry CONFIRM/HUMAN_ONLY)
+- [x] Workflows saved in the canvas's own shape are normalized on save and once at startup (they previously yielded no patterns and could not run)
 
 ### Backend � Triggers, Durable Runs & Replay
 - [x] Schedule triggers (interval or 5-field cron, UTC) and webhook triggers (secret URL, JSON body becomes run input)

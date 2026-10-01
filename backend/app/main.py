@@ -12,6 +12,7 @@ from app.api.auth import get_api_key
 from app.api import genealogy
 from app.api import suggestions, analytics, quality, triggers
 from app.engine.jobs import get_worker, recover_interrupted
+from app.utils.graph import normalize_stored_graphs
 from fastapi import Depends
 
 
@@ -28,6 +29,7 @@ async def lifespan(app: FastAPI):
     """Startup and shutdown events."""
     # Create all tables
     Base.metadata.create_all(bind=engine)
+    normalize_stored_graphs(engine)  # one-time fix for workflows saved in canvas shape (idempotent)
     worker = get_worker(engine)
     if settings.worker_enabled:
         recover_interrupted(engine)  # runs a crash left mid-flight -> failed (replayable)

@@ -29,3 +29,4 @@ class SuggestionsResponse(BaseModel):
 class ApplyPatchRequest(BaseModel):
     """Request to apply a suggestion's patch to a workflow."""
     patch: dict[str, Any]
+    rationale: str | None = None  # recorded on the version this creates

@@ -177,13 +177,17 @@ function toBackendGraph(fNodes: FlowNode[], fEdges: FlowEdge[]): { nodes: Backen
   return {
     nodes: fNodes.map((n) => {
       const d = n.data as FlowNodeData;
+      const raw = (d.raw as BackendNode | undefined) ?? ({} as BackendNode);
+      // toFlowGraph shows detail||expression||reason as "detail"; only write detail back if it was really set/edited,
+      // otherwise every save would look like a change to the version history.
+      const shown = (raw.detail || raw.expression || raw.reason || "") as string;
       return {
-        ...((d.raw as BackendNode | undefined) ?? {}),
+        ...raw,
         id: n.id,
         type: d.nodeType || "action",
         name: d.name,
         tool: d.tool,
-        detail: d.detail,
+        ...(raw.detail !== undefined || d.detail !== shown ? { detail: d.detail } : {}),
         position: n.position,
       };
     }),
@@ -483,7 +487,7 @@ function BuilderInner({
   };
 
   /* ── Save workflow (direct graph persistence) ── */
-  const handleSave = useCallback(async () => {
+  const saveCurrent = useCallback(async (rationale?: string) => {
     setSaved(false);
     try {
       const workflowName = configName || "Untitled Workflow";
@@ -494,6 +498,7 @@ function BuilderInner({
         nodes: g.nodes,
         edges: g.edges,
         workflowId: savedWorkflowId || undefined,
+        rationale,
       });
       setSavedWorkflowId(result.id || null);
       setSaved(true);
@@ -502,6 +507,7 @@ function BuilderInner({
       // Save failed silently
     }
   }, [nodes, edges, configName, configPrompt, savedWorkflowId]);
+  const handleSave = useCallback(() => { saveCurrent(); }, [saveCurrent]);
 
   /* ── Run workflow (auto-saves then executes) ── */
   /* ── Live run: highlight nodes as the backend reports them ── */
@@ -1033,6 +1039,7 @@ function BuilderInner({
           isOpen={historyOpen}
           onClose={() => setHistoryOpen(false)}
           onLoadVersion={handleLoadVersion}
+          onSaveVersion={(r) => saveCurrent(r)}
         />
       )}
 

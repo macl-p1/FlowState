@@ -468,6 +468,24 @@ def _summarize_workflow(nodes: list[dict], edges: list[dict]) -> str:
 
 # ── Apply Patch ─────────────────────────────────────────────────────────────
 
+class PatchError(ValueError):
+    """The patch cannot be applied cleanly to this workflow (missing anchor node, not connected, no-op)."""
+
+
+def _anchor_refs(nodes: list[dict]) -> dict[str, str | None]:
+    """Placeholders that suggestions use to point at existing nodes."""
+    def ids(t: str) -> list[str]:
+        return [n["id"] for n in nodes if n.get("type") == t]
+    actions = ids("action")
+    return {
+        "__trigger__": next(iter(ids("trigger")), None),
+        "__first_action__": actions[0] if actions else None,
+        "__second_action__": actions[1] if len(actions) > 1 else None,
+        "__first_approval__": next(iter(ids("approval")), None),
+        "__end__": next(iter(ids("end")), None),
+    }
+
+
 def apply_patch_to_workflow(
     nodes: list[dict],
     edges: list[dict],
@@ -476,103 +494,80 @@ def apply_patch_to_workflow(
     """
     Apply a structured patch to a workflow's nodes and edges.
 
-    Returns (new_nodes, new_edges) — originals are not mutated.
+    Placeholders (__trigger__, __first_action__, ...) are resolved against this workflow; new nodes
+    with placeholder ids get real ids. New nodes are always spliced into the existing edge so the
+    graph stays connected. Raises PatchError instead of producing a broken or unchanged graph.
+    Returns (new_nodes, new_edges); originals are not mutated.
     """
+    import uuid
+
     patch_type = patch.get("type")
     nodes_out = [dict(n) for n in nodes]
     edges_out = [dict(e) for e in edges]
+    anchors = _anchor_refs(nodes_out)
+    existing = {n["id"] for n in nodes_out}
+
+    def ref(x: str | None) -> str:
+        if x in anchors:
+            if anchors[x] is None:
+                raise PatchError(f"this workflow has no node for {x.strip('_').replace('_', ' ')}")
+            return anchors[x]
+        if x not in existing:
+            raise PatchError(f"node {x!r} does not exist in this workflow")
+        return x
+
+    def fresh(spec: dict) -> dict:
+        n = dict(spec)
+        if not n.get("id") or n["id"].startswith("__") or n["id"] in existing:
+            n["id"] = f"node_{uuid.uuid4().hex[:6]}"
+        return n
 
     if patch_type == "update_node":
-        node_id = patch.get("node_id")
-        field = patch.get("field")
-        value = patch.get("value")
-        for n in nodes_out:
-            if n.get("id") == node_id:
-                n[field] = value
-                # Apply secondary fields if any
-                for sf_key, sf_val in (patch.get("secondary_fields") or {}).items():
-                    n[sf_key] = sf_val
-                break
+        target = ref(patch.get("node_id"))
+        n = next(n for n in nodes_out if n["id"] == target)
+        n[patch.get("field")] = patch.get("value")
+        for k, v in (patch.get("secondary_fields") or {}).items():
+            n[k] = v
 
     elif patch_type == "insert_between":
-        from_id = patch.get("from_node_id")
-        to_id = patch.get("to_node_id")
-        new_node = patch.get("new_node", {})
-        new_edges = patch.get("new_edges", [])
-
-        # Resolve placeholder IDs
-        from_node = _find_node(nodes_out, from_id)
-        to_node = _find_node(nodes_out, to_id)
-        first_action = _find_first_by_type(nodes_out, "action")
-
-        resolve_from = from_node["id"] if from_node else (from_id if from_id != "__trigger__" else (first_action["id"] if first_action else from_id))
-        resolve_to = to_node["id"] if to_node else (to_id if to_id != "__first_action__" else (first_action["id"] if first_action else to_id))
-
-        # Generate stable ID for new node if placeholder
-        import uuid
-        resolved_node = dict(new_node)
-        if resolved_node.get("id", "").startswith("__"):
-            resolved_node["id"] = f"node_{uuid.uuid4().hex[:6]}"
-
-        # Replace the edge from -> to with from -> new, new -> to
-        edges_out = [e for e in edges_out if not (e.get("from") == resolve_from and e.get("to") == resolve_to)]
-        for ne in new_edges:
-            resolved_edge = dict(ne)
-            if resolved_edge.get("from") == "__trigger__":
-                resolved_edge["from"] = resolve_from
-            if resolved_edge.get("to") == "__first_action__":
-                resolved_edge["to"] = resolve_to
-            edges_out.append(resolved_edge)
-
-        nodes_out.append(resolved_node)
+        a, b = ref(patch.get("from_node_id")), ref(patch.get("to_node_id"))
+        link = next((e for e in edges_out if e.get("from") == a and e.get("to") == b), None)
+        if not link:
+            raise PatchError("those nodes are not directly connected, so there is nothing to insert between")
+        new_node = fresh(patch.get("new_node", {}))
+        edges_out.remove(link)
+        edges_out.append({**link, "to": new_node["id"]})  # keeps a branch condition on the first segment
+        edges_out.append({"from": new_node["id"], "to": b})
+        nodes_out.append(new_node)
 
     elif patch_type == "insert_between_with_branch":
-        from_id = patch.get("from_node_id")
-        to_id = patch.get("to_node_id")
-        condition_node = patch.get("condition_node", {})
-        branch_node = patch.get("branch_node", {})
-
-        from_node = _find_node(nodes_out, from_id)
-        to_node = _find_node(nodes_out, to_id)
-        first_action = _find_first_by_type(nodes_out, "action")
-
-        resolve_from = from_node["id"] if from_node else (from_id if from_id != "__first_action__" else (first_action["id"] if first_action else from_id))
-        resolve_to = to_node["id"] if to_node else (to_id if to_id != "__end__" else _find_node(nodes_out, "__end__")["id"] if _find_node(nodes_out, "__end__") else to_id)
-
-        import uuid
-        resolved_cond = dict(condition_node)
-        resolved_branch = dict(branch_node)
-        for rn in [resolved_cond, resolved_branch]:
-            if rn.get("id", "").startswith("__"):
-                rn["id"] = f"node_{uuid.uuid4().hex[:6]}"
-
-        # Remove existing edge from -> to
-        edges_out = [e for e in edges_out if not (e.get("from") == resolve_from and e.get("to") == resolve_to)]
-
-        # Add new edges
-        edges_out.append({"from": resolve_from, "to": resolved_cond["id"]})
-        edges_out.append({"from": resolved_cond["id"], "to": resolve_to, "condition": "true"})
-        edges_out.append({"from": resolved_cond["id"], "to": resolved_branch["id"], "condition": "false"})
-
-        nodes_out.append(resolved_cond)
-        nodes_out.append(resolved_branch)
+        # After node a: condition true -> wherever a used to go, false -> new branch node -> end.
+        a, end = ref(patch.get("from_node_id")), ref(patch.get("to_node_id"))
+        outs = [e for e in edges_out if e.get("from") == a]
+        link = outs[0] if len(outs) == 1 else next((e for e in outs if e.get("to") == end), None)
+        nxt = link["to"] if link else end
+        if link:
+            edges_out.remove(link)
+        cond, branch = fresh(patch.get("condition_node", {})), fresh(patch.get("branch_node", {}))
+        edges_out += [
+            {"from": a, "to": cond["id"], **({"condition": link["condition"]} if link and link.get("condition") else {})},
+            {"from": cond["id"], "to": nxt, "condition": "true"},
+            {"from": cond["id"], "to": branch["id"], "condition": "false"},
+            {"from": branch["id"], "to": end},
+        ]
+        nodes_out += [cond, branch]
 
     elif patch_type == "append_node":
-        new_node = patch.get("new_node", {})
-        from_node_id = patch.get("from_node_id")
+        a = ref(patch.get("from_node_id"))
+        new_node = fresh(patch.get("new_node", {}))
+        edges_out.append({"from": a, "to": new_node["id"]})
+        nodes_out.append(new_node)
 
-        import uuid
-        resolved_node = dict(new_node)
-        if resolved_node.get("id", "").startswith("__"):
-            resolved_node["id"] = f"node_{uuid.uuid4().hex[:6]}"
+    else:
+        raise PatchError(f"unknown patch type {patch_type!r}")
 
-        # Find the actual from node
-        from_node = _find_node(nodes_out, from_node_id)
-        actual_from = from_node["id"] if from_node else from_node_id
-
-        edges_out.append({"from": actual_from, "to": resolved_node["id"]})
-        nodes_out.append(resolved_node)
-
+    if nodes_out == nodes and edges_out == edges:
+        raise PatchError("this change is already in the workflow")
     return nodes_out, edges_out
 
 
@@ -593,6 +588,122 @@ def _find_first_by_type(nodes: list[dict], node_type: str) -> dict | None:
 # ── Main Entry Point ────────────────────────────────────────────────────────
 
 def get_suggestions(
+    db,
+    workflow_id: str,
+    top_k: int = 5,
+) -> list[dict[str, Any]]:
+    """
+    Suggestions for a workflow: history-backed ones first (patterns similar workflows adopted with
+    measurable benefit, or patterns this workflow dropped and then got worse), then structural
+    cross-pollination for the remaining patterns. Each suggestion has `origin` and `evidence`.
+    """
+    from app.genealogy.history_insights import history_suggestions
+
+    intrinsic = {s["pattern"]: s for s in intrinsic_suggestions(db, workflow_id)}
+    history = []
+    for h in history_suggestions(db, workflow_id):
+        mine = intrinsic.get(h["pattern"])
+        if mine:  # history's evidence, but aimed at the node this workflow's own check picked
+            h = {**h, "apply_patch": mine["apply_patch"], "target_node_id": mine["target_node_id"],
+                 "description": f"{mine['description']}. {h['description']}"}
+        history.append(h)
+    seen = {h["pattern"] for h in history}
+    structural = {}
+    for s in _structural_suggestions(db, workflow_id, top_k):
+        structural.setdefault(s["pattern"], s)
+    own = []
+    for s in intrinsic.values():
+        if s["pattern"] in seen:
+            continue
+        twin = structural.get(s["pattern"])
+        if twin:  # keep our precise target, credit the similar workflow that already does it
+            s = {**s, "source_workflow_id": twin["source_workflow_id"], "source_workflow_name": twin["source_workflow_name"],
+                 "similarity_score": twin["similarity_score"],
+                 "description": f"{s['description']}. '{twin['source_workflow_name']}' already does this."}
+        own.append(s)
+    seen |= {s["pattern"] for s in own}
+    rest = [{**s, "origin": "structural", "evidence": None} for p, s in structural.items() if p not in seen]
+    return (history + own + rest)[: top_k * 2]
+
+
+# Tools that only compute locally: retrying them doesn't help.
+_LOCAL_TOOLS = frozenset({
+    "transform", "transform_data", "merge_data", "hash_content", "conditional_router", "delay", "wait",
+    "aggregate_metrics", "classify_text", "fan_in", "fan_out",
+})
+
+
+def intrinsic_suggestions(db, workflow_id: str) -> list[dict[str, Any]]:
+    """
+    Suggestions from the workflow itself, needing no other workflows:
+    - retry on actions that call out (ranked by how often that node actually failed in past runs)
+    - an approval gate before irreversible actions (tools the registry marks CONFIRM / HUMAN_ONLY)
+    """
+    import uuid
+    from app.models import WorkflowModel, WorkflowExecutionModel, StepExecutionModel
+    from app.schemas.execution import StepStatus
+    from app.schemas.workflow import PermissionLevel
+    from app.tools.registry import registry
+
+    wf = db.query(WorkflowModel).filter(WorkflowModel.id == workflow_id).first()
+    if not wf:
+        return []
+    nodes, edges = wf.nodes or [], wf.edges or []
+    info = extract_patterns(nodes, edges)
+    actions = [n for n in nodes if n.get("type") == "action" and n.get("tool")]
+
+    failures: dict[str, int] = {}
+    for (node_id,) in (
+        db.query(StepExecutionModel.node_id)
+        .join(WorkflowExecutionModel, WorkflowExecutionModel.id == StepExecutionModel.execution_id)
+        .filter(WorkflowExecutionModel.workflow_id == workflow_id, StepExecutionModel.status == StepStatus.FAILED)
+    ):
+        failures[node_id] = failures.get(node_id, 0) + 1
+
+    def make(pattern: str, description: str, suggestion: str, node: dict, patch: dict) -> dict[str, Any]:
+        return {
+            "id": f"sugg_{uuid.uuid4().hex[:8]}", "workflow_id": workflow_id,
+            "source_workflow_id": workflow_id, "source_workflow_name": wf.name, "similarity_score": 1.0,
+            "pattern": pattern, "pattern_label": PATTERN_LABELS[pattern], "description": description,
+            "suggestion": suggestion, "target_node_id": node["id"], "actionable": True, "apply_patch": patch,
+            "origin": "self", "evidence": None,
+        }
+
+    out = []
+    outbound = [n for n in actions if n["tool"] not in _LOCAL_TOOLS and not n.get("retry_count")]
+    if outbound:
+        node = max(outbound, key=lambda n: failures.get(n["id"], 0))  # stable: first outbound if no failures
+        failed = failures.get(node["id"], 0)
+        out.append(make(
+            "retry_logic",
+            f"'{node.get('name', node['id'])}' calls {node['tool']} with no retry"
+            + (f"; it failed in {failed} past run(s)" if failed else ""),
+            f"Retry '{node.get('name', node['id'])}' up to 3 times so a transient error doesn't fail the whole run",
+            node, {"type": "update_node", "node_id": node["id"], "field": "retry_count", "value": 3,
+                   "secondary_fields": {"retry_delay": 2.0}},
+        ))
+
+    def risky(n: dict) -> bool:
+        tool = registry.get(n["tool"])
+        return bool(tool and tool.permission in (PermissionLevel.CONFIRM, PermissionLevel.HUMAN_ONLY))
+
+    if not info["patterns"]["approval_gate"]:
+        for node in (n for n in actions if risky(n)):
+            pred = next((e["from"] for e in edges if e.get("to") == node["id"]), None)
+            if pred:
+                out.append(make(
+                    "approval_gate",
+                    f"'{node.get('name', node['id'])}' runs {node['tool']}, which can't be undone, without human review",
+                    f"Add an approval step before '{node.get('name', node['id'])}'",
+                    node, {"type": "insert_between", "from_node_id": pred, "to_node_id": node["id"],
+                           "new_node": {"id": "__new_approval__", "type": "approval", "name": "Approve before "
+                                        + node.get("name", node["id"]), "reason": f"Review before {node['tool']}"}},
+                ))
+                break
+    return out
+
+
+def _structural_suggestions(
     db,
     workflow_id: str,
     top_k: int = 5,

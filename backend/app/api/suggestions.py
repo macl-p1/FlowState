@@ -8,6 +8,7 @@ from typing import Any
 from app.database import get_db
 from app.models import WorkflowModel
 from app.genealogy.cross_pollination import get_suggestions, apply_patch_to_workflow
+from app.genealogy.service import GenealogyService
 from app.schemas.suggestions import ApplyPatchRequest
 
 
@@ -56,6 +57,8 @@ async def apply_suggestion(
     if patch_type not in valid_types:
         raise HTTPException(status_code=400, detail=f"Invalid patch type: {patch_type}")
 
+    genealogy = GenealogyService(db)
+    genealogy.ensure_baseline(workflow_id)
     try:
         new_nodes, new_edges = apply_patch_to_workflow(
             workflow.nodes or [],
@@ -66,8 +69,14 @@ async def apply_suggestion(
         workflow.edges = new_edges
         db.commit()
         db.refresh(workflow)
+        version = genealogy.save_version(
+            workflow_id, new_nodes, new_edges,
+            rationale=request.rationale or f"Applied suggestion ({patch_type})",
+        )
 
         return {
+            "version_id": version.id,
+            "version_number": version.version_number,
             "id": workflow.id,
             "name": workflow.name,
             "nodes": workflow.nodes,

@@ -7,6 +7,7 @@ import {
   getWorkflowVersion,
   saveWorkflowVersion,
   branchWorkflow,
+  restoreVersion,
   type BackendNode,
   type BackendEdge,
 } from "@/lib/api";
@@ -17,6 +18,8 @@ export interface VersionHistoryPanelProps {
   isOpen: boolean;
   onClose: () => void;
   onLoadVersion?: (nodes: BackendNode[], edges: BackendEdge[]) => void;
+  /** Save the current canvas as a new version with this rationale (falls back to saving the stored workflow). */
+  onSaveVersion?: (rationale: string) => Promise<void>;
 }
 
 interface VersionItemData {
@@ -90,6 +93,7 @@ export default function VersionHistoryPanel({
   isOpen,
   onClose,
   onLoadVersion,
+  onSaveVersion,
 }: VersionHistoryPanelProps) {
   const [versions, setVersions] = useState<VersionItemData[]>([]);
   const [loading, setLoading] = useState(false);
@@ -132,7 +136,8 @@ export default function VersionHistoryPanel({
     if (!rationale.trim()) return;
     setSaving(true);
     try {
-      await saveWorkflowVersion(workflowId, { rationale: rationale.trim() });
+      if (onSaveVersion) await onSaveVersion(rationale.trim());
+      else await saveWorkflowVersion(workflowId, { rationale: rationale.trim() });
       setRationale("");
       setShowRationaleInput(false);
       await loadHistory();
@@ -148,9 +153,18 @@ export default function VersionHistoryPanel({
     setVersionDetail(version);
   };
 
-  const handleLoadVersion = () => {
-    if (versionDetail && onLoadVersion) {
-      onLoadVersion(versionDetail.nodes, versionDetail.edges);
+  const [restoreError, setRestoreError] = useState<string | null>(null);
+  const handleRestore = async (version: VersionItemData | null) => {
+    if (!version || !onLoadVersion) return;
+    setRestoreError(null);
+    try {
+      const restored = await restoreVersion(workflowId, version.id);
+      onLoadVersion(restored.nodes, restored.edges);
+      setSelectedVersion(null);
+      setVersionDetail(null);
+      await loadHistory();
+    } catch (e) {
+      setRestoreError(e instanceof Error ? e.message : "Failed to restore version");
     }
   };
 
@@ -426,10 +440,11 @@ export default function VersionHistoryPanel({
                           </button>
                           {onLoadVersion && (
                             <button
-                              onClick={handleLoadVersion}
+                              onClick={() => handleRestore(version)}
+                              title="Make this version current again (saved as a new version)"
                               className="flex-1 h-7 rounded-md bg-accent/10 border border-accent/20 text-[11px] text-accent hover:bg-accent/20 transition-all"
                             >
-                              Restore to Canvas
+                              Restore
                             </button>
                           )}
                         </div>
@@ -495,12 +510,13 @@ export default function VersionHistoryPanel({
             {onLoadVersion && (
               <div className="p-4 border-t border-border">
                 <button
-                  onClick={handleLoadVersion}
+                  onClick={() => handleRestore(versionDetail)}
                   className="w-full h-9 rounded-lg bg-accent text-white text-xs font-medium hover:bg-accent/90 transition-all flex items-center justify-center gap-1.5"
                 >
                   <GitFork className="w-3.5 h-3.5" />
-                  Restore This Version to Canvas
+                  Restore This Version
                 </button>
+                {restoreError && <p className="text-[11px] text-warn mt-2">{restoreError}</p>}
               </div>
             )}
           </div>

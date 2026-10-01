@@ -6,7 +6,7 @@ from sqlalchemy.orm import Session
 
 from app.models import WorkflowModel, WorkflowVersionModel, WorkflowBranchModel
 from app.models.genealogy import WorkflowBranchModel as BranchModel
-from app.genealogy.diff import compute_diff
+from app.genealogy.diff import compute_diff, graph_key
 
 
 class GenealogyService:
@@ -42,6 +42,14 @@ class GenealogyService:
             .all()
         )
 
+        # Nothing changed (layout aside): keep the latest version instead of adding a "no changes" one.
+        if existing_versions and graph_key(existing_versions[0].nodes, existing_versions[0].edges) == graph_key(nodes, edges):
+            latest = existing_versions[0]
+            if rationale and not latest.change_rationale:
+                latest.change_rationale = rationale
+                self.db.commit()
+            return latest
+
         version_number = (existing_versions[0].version_number + 1) if existing_versions else 1
         parent_version_id = existing_versions[0].id if existing_versions else None
 
@@ -68,6 +76,31 @@ class GenealogyService:
         self.db.commit()
         self.db.refresh(version)
         return version
+
+    def ensure_baseline(self, workflow_id: str) -> None:
+        """Before the first tracked change, snapshot the current state so history keeps the 'before'."""
+        has_version = self.db.query(WorkflowVersionModel.id).filter(
+            WorkflowVersionModel.workflow_id == workflow_id
+        ).first()
+        if has_version:
+            return
+        workflow = self.db.query(WorkflowModel).filter(WorkflowModel.id == workflow_id).first()
+        if workflow:
+            self.save_version(workflow_id, workflow.nodes or [], workflow.edges or [],
+                              rationale="Baseline (state before first tracked change)")
+
+    def restore_version(self, workflow_id: str, version_id: str, rationale: str | None = None) -> WorkflowVersionModel:
+        """Make an old version current again, recorded as a new version (history is never rewritten)."""
+        old = self.db.query(WorkflowVersionModel).filter(
+            WorkflowVersionModel.id == version_id, WorkflowVersionModel.workflow_id == workflow_id
+        ).first()
+        if not old:
+            raise ValueError(f"Version {version_id} not found for workflow {workflow_id}")
+        workflow = self.db.query(WorkflowModel).filter(WorkflowModel.id == workflow_id).first()
+        workflow.nodes, workflow.edges = old.nodes, old.edges
+        self.db.commit()
+        note = f"Restored v{old.version_number}" + (f": {rationale}" if rationale else "")
+        return self.save_version(workflow_id, old.nodes, old.edges, rationale=note)
 
     def branch_workflow(
         self,
@@ -107,7 +140,7 @@ class GenealogyService:
             description=source.description,
             nodes=new_nodes,
             edges=new_edges,
-            metadata={
+            wf_metadata={
                 "source": "builder",
                 "branched_from": source_workflow_id,
             },

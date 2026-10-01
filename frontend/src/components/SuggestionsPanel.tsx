@@ -66,7 +66,8 @@ export default function SuggestionsPanel({
     setApplying(suggestion.id);
     setError(null);
     try {
-      const result = await applySuggestion(workflowId, suggestion.apply_patch);
+      const why = suggestion.evidence?.text ?? `from '${suggestion.source_workflow_name}'`;
+      const result = await applySuggestion(workflowId, suggestion.apply_patch, `Applied suggestion: ${suggestion.pattern_label} (${why})`);
       setApplied((prev) => new Set(prev).add(suggestion.id));
       onApplySuggestion?.(result.nodes, result.edges);
     } catch (e) {
@@ -78,7 +79,7 @@ export default function SuggestionsPanel({
 
   // Group by source workflow
   const grouped = suggestions.reduce<Record<string, SuggestionItem[]>>((acc, s) => {
-    const key = s.source_workflow_name;
+    const key = s.source_workflow_id === workflowId ? "This workflow" : s.source_workflow_name;
     if (!acc[key]) acc[key] = [];
     acc[key].push(s);
     return acc;
@@ -132,7 +133,8 @@ export default function SuggestionsPanel({
               </div>
               <p className="text-sm text-text-muted">No suggestions yet</p>
               <p className="text-xs text-text-muted/70">
-                Save your workflow and create another one to discover patterns
+                This workflow already has retries and approvals where they matter, and no similar workflow does
+                anything it lacks
               </p>
             </div>
           )}
@@ -143,9 +145,11 @@ export default function SuggestionsPanel({
                 <div key={sourceName}>
                   <div className="flex items-center gap-2 mb-2">
                     <p className="text-xs font-medium text-text-muted">{sourceName}</p>
-                    <span className="text-[10px] px-1.5 py-0.5 bg-surface-2 border border-border rounded-full text-text-muted">
-                      {Math.round((group[0]?.similarity_score || 0) * 100)}% similar
-                    </span>
+                    {sourceName !== "This workflow" && (
+                      <span className="text-[10px] px-1.5 py-0.5 bg-surface-2 border border-border rounded-full text-text-muted">
+                        {Math.round((group[0]?.similarity_score || 0) * 100)}% similar
+                      </span>
+                    )}
                   </div>
                   <div className="flex flex-col gap-2">
                     {group.map((s) => (
@@ -208,6 +212,21 @@ function SuggestionCard({
       <p className="text-xs text-text-muted mb-3 leading-relaxed">
         {suggestion.suggestion}
       </p>
+      {suggestion.evidence && (
+        <div
+          className={`mb-3 p-2 rounded-md border text-[11px] leading-relaxed ${
+            suggestion.evidence.verdict === "improved" || suggestion.evidence.verdict === "worse"
+              ? "bg-success/5 border-success/20 text-text"
+              : "bg-surface-2 border-border text-text-muted"
+          }`}
+        >
+          <span className="font-medium">
+            {suggestion.origin === "self_history" ? "From this workflow's history: " : "From version history: "}
+          </span>
+          {suggestion.evidence.text}
+          {suggestion.evidence.verdict === "unknown" && " (not enough runs yet to measure the effect)"}
+        </div>
+      )}
 
       {suggestion.actionable && !isApplied && (
         <button
