@@ -10,6 +10,7 @@ class Settings(BaseSettings):
     app_name: str = "OrchestrAI"
     api_prefix: str = "/api"
     cors_origins: str = "http://localhost:3000"
+    api_key: str = ""  # Set to enable API-key auth; empty = dev mode (no auth)
 
     # Database
     database_url: str = "sqlite:///./orchestr_ai.db"

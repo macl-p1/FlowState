@@ -1,0 +1,995 @@
+{
+  "nodes": [
+    {
+      "id": "d_claude_code_orchestrai_claude_claude_md",
+      "label": "OrchestrAI CLAUDE.md",
+      "file_type": "document",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\CLAUDE.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "claude_skills_design_md_planner_readme_design_md_planner",
+      "label": "design-md-planner README",
+      "file_type": "document",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "claude_skills_design_md_planner_skill_design_md_planner",
+      "label": "design-md-planner skill",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\SKILL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "claude_skills_design_md_planner_assets_design_example_kiln_design_system",
+      "label": "Kiln — worked DESIGN.md example",
+      "file_type": "document",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\assets\\DESIGN.example.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "claude_skills_design_md_planner_assets_design_template_design_md_template",
+      "label": "DESIGN.md template skeleton",
+      "file_type": "document",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\assets\\DESIGN.template.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "claude_skills_design_md_planner_references_anti_slop_anti_slop_catalog",
+      "label": "anti-slop.md — slop catalog",
+      "file_type": "rationale",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\anti-slop.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "claude_skills_design_md_planner_references_cli_design_md_cli",
+      "label": "cli.md — @google/design.md CLI reference",
+      "file_type": "document",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\cli.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "claude_skills_design_md_planner_references_color_craft_color_craft",
+      "label": "color-craft.md — palette building guide",
+      "file_type": "rationale",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\color-craft.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "claude_skills_design_md_planner_references_designmd_spec_design_md_format_spec",
+      "label": "designmd-spec.md — DESIGN.md format spec",
+      "file_type": "document",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\designmd-spec.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "claude_skills_design_md_planner_references_style_directions_style_directions",
+      "label": "style-directions.md — 15 named aesthetic directions",
+      "file_type": "rationale",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\style-directions.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "claude_skills_design_md_planner_references_typography_typography_guide",
+      "label": "typography.md — typeface pairing and scale guide",
+      "file_type": "rationale",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\typography.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "claude_skills_graphify_skill_graphify",
+      "label": "graphify skill",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\graphify\\SKILL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "claude_skills_graphify_references_add_watch_add_watch",
+      "label": "add-watch.md — URL ingest and folder watch reference",
+      "file_type": "document",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\graphify\\references\\add-watch.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "claude_skills_graphify_references_exports_exports_benchmark",
+      "label": "exports.md — extra exports and benchmark reference",
+      "file_type": "document",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\graphify\\references\\exports.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "claude_skills_graphify_references_extraction_spec_extraction_spec",
+      "label": "extraction-spec.md — extraction subagent prompt spec",
+      "file_type": "document",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\graphify\\references\\extraction-spec.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "claude_skills_graphify_references_github_and_merge_github_merge",
+      "label": "github-and-merge.md — GitHub clone and cross-repo merge reference",
+      "file_type": "document",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\graphify\\references\\github-and-merge.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "claude_skills_graphify_references_hooks_hooks",
+      "label": "hooks.md — commit hook and CLAUDE.md integration reference",
+      "file_type": "document",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\graphify\\references\\hooks.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "claude_skills_graphify_references_query_query_path_explain",
+      "label": "query.md — query, path, explain reference",
+      "file_type": "document",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\graphify\\references\\query.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "claude_skills_graphify_references_transcribe_transcribe",
+      "label": "transcribe.md — video/audio transcription reference",
+      "file_type": "document",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\graphify\\references\\transcribe.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "claude_skills_graphify_references_update_update_cluster_only",
+      "label": "update.md — incremental update and cluster-only reference",
+      "file_type": "document",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\graphify\\references\\update.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "kiln_design_system",
+      "label": "Kiln — ceramicist studio management design system",
+      "file_type": "document",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\assets\\DESIGN.example.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "design_md_format_spec",
+      "label": "DESIGN.md format specification",
+      "file_type": "document",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\designmd-spec.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "google_design_md_linter",
+      "label": "@google/design.md linter",
+      "file_type": "tool",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\cli.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "oklch_color_space",
+      "label": "OKLCH color space",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\color-craft.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "ai_design_slop",
+      "label": "AI-generated design slop",
+      "file_type": "rationale",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\anti-slop.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "warm_analog_aesthetic",
+      "label": "Warm Analog aesthetic direction",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\style-directions.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "archival_institutional_aesthetic",
+      "label": "Archival Institutional aesthetic direction",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\style-directions.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "knowledge_graph",
+      "label": "knowledge graph",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\graphify\\SKILL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "d_claude_code_orchestrai_claude_claude_md",
+      "target": "claude_skills_graphify_skill_graphify",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_skill_design_md_planner",
+      "target": "claude_skills_design_md_planner_readme_design_md_planner",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_skill_design_md_planner",
+      "target": "claude_skills_design_md_planner_references_anti_slop_anti_slop_catalog",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_skill_design_md_planner",
+      "target": "claude_skills_design_md_planner_references_cli_design_md_cli",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_skill_design_md_planner",
+      "target": "claude_skills_design_md_planner_references_color_craft_color_craft",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_skill_design_md_planner",
+      "target": "claude_skills_design_md_planner_references_designmd_spec_design_md_format_spec",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_skill_design_md_planner",
+      "target": "claude_skills_design_md_planner_references_style_directions_style_directions",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_skill_design_md_planner",
+      "target": "claude_skills_design_md_planner_references_typography_typography_guide",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_skill_design_md_planner",
+      "target": "claude_skills_design_md_planner_assets_design_template_design_md_template",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_skill_design_md_planner",
+      "target": "claude_skills_design_md_planner_assets_design_example_kiln_design_system",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_readme_design_md_planner",
+      "target": "claude_skills_design_md_planner_skill_design_md_planner",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_readme_design_md_planner",
+      "target": "claude_skills_design_md_planner_references_style_directions_style_directions",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_assets_design_example_kiln_design_system",
+      "target": "kiln_design_system",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\assets\\DESIGN.example.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_assets_design_example_kiln_design_system",
+      "target": "claude_skills_design_md_planner_skill_design_md_planner",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\assets\\DESIGN.example.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "kiln_design_system",
+      "target": "warm_analog_aesthetic",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\assets\\DESIGN.example.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "kiln_design_system",
+      "target": "archival_institutional_aesthetic",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\assets\\DESIGN.example.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "kiln_design_system",
+      "target": "oklch_color_space",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\assets\\DESIGN.example.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "kiln_design_system",
+      "target": "ai_design_slop",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\assets\\DESIGN.example.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "kiln_design_system",
+      "target": "design_md_format_spec",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\assets\\DESIGN.example.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "kiln_design_system",
+      "target": "google_design_md_linter",
+      "relation": "validated_by",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\assets\\DESIGN.example.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_references_designmd_spec_design_md_format_spec",
+      "target": "design_md_format_spec",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\designmd-spec.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_references_anti_slop_anti_slop_catalog",
+      "target": "ai_design_slop",
+      "relation": "describes",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\anti-slop.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_references_color_craft_color_craft",
+      "target": "oklch_color_space",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\color-craft.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_references_style_directions_style_directions",
+      "target": "warm_analog_aesthetic",
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\style-directions.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_references_style_directions_style_directions",
+      "target": "archival_institutional_aesthetic",
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\style-directions.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_references_cli_design_md_cli",
+      "target": "google_design_md_linter",
+      "relation": "documents",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\cli.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_references_cli_design_md_cli",
+      "target": "design_md_format_spec",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\cli.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_references_typography_typography_guide",
+      "target": "claude_skills_design_md_planner_references_style_directions_style_directions",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\typography.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_references_anti_slop_anti_slop_catalog",
+      "target": "claude_skills_design_md_planner_references_style_directions_style_directions",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\anti-slop.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_assets_design_template_design_md_template",
+      "target": "design_md_format_spec",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\assets\\DESIGN.template.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_assets_design_template_design_md_template",
+      "target": "claude_skills_design_md_planner_skill_design_md_planner",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\assets\\DESIGN.template.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_graphify_skill_graphify",
+      "target": "claude_skills_graphify_references_add_watch_add_watch",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\graphify\\SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_graphify_skill_graphify",
+      "target": "claude_skills_graphify_references_exports_exports_benchmark",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\graphify\\SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_graphify_skill_graphify",
+      "target": "claude_skills_graphify_references_extraction_spec_extraction_spec",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\graphify\\SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_graphify_skill_graphify",
+      "target": "claude_skills_graphify_references_github_and_merge_github_merge",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\graphify\\SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_graphify_skill_graphify",
+      "target": "claude_skills_graphify_references_hooks_hooks",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\graphify\\SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_graphify_skill_graphify",
+      "target": "claude_skills_graphify_references_query_query_path_explain",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\graphify\\SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_graphify_skill_graphify",
+      "target": "claude_skills_graphify_references_transcribe_transcribe",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\graphify\\SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_graphify_skill_graphify",
+      "target": "claude_skills_graphify_references_update_update_cluster_only",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\graphify\\SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_graphify_skill_graphify",
+      "target": "knowledge_graph",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\graphify\\SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_graphify_references_extraction_spec_extraction_spec",
+      "target": "knowledge_graph",
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\graphify\\references\\extraction-spec.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_skill_design_md_planner",
+      "target": "design_md_format_spec",
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_skill_design_md_planner",
+      "target": "google_design_md_linter",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_references_color_craft_color_craft",
+      "target": "design_md_format_spec",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\color-craft.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_references_style_directions_style_directions",
+      "target": "claude_skills_design_md_planner_references_color_craft_color_craft",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\style-directions.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_references_style_directions_style_directions",
+      "target": "claude_skills_design_md_planner_references_anti_slop_anti_slop_catalog",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\style-directions.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_references_cli_design_md_cli",
+      "target": "google_design_md_linter",
+      "relation": "documents",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\cli.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_readme_design_md_planner",
+      "target": "claude_skills_design_md_planner_references_anti_slop_anti_slop_catalog",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_readme_design_md_planner",
+      "target": "claude_skills_design_md_planner_references_cli_design_md_cli",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_readme_design_md_planner",
+      "target": "claude_skills_design_md_planner_references_color_craft_color_craft",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_readme_design_md_planner",
+      "target": "claude_skills_design_md_planner_references_designmd_spec_design_md_format_spec",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_readme_design_md_planner",
+      "target": "claude_skills_design_md_planner_references_style_directions_style_directions",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_readme_design_md_planner",
+      "target": "claude_skills_design_md_planner_references_typography_typography_guide",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_assets_design_example_kiln_design_system",
+      "target": "design_md_format_spec",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\assets\\DESIGN.example.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_references_color_craft_color_craft",
+      "target": "claude_skills_design_md_planner_references_anti_slop_anti_slop_catalog",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\color-craft.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_references_color_craft_color_craft",
+      "target": "claude_skills_design_md_planner_references_typography_typography_guide",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\color-craft.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_references_style_directions_style_directions",
+      "target": "oklch_color_space",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\style-directions.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_references_color_craft_color_craft",
+      "target": "ai_design_slop",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\color-craft.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_references_typography_typography_guide",
+      "target": "ai_design_slop",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\typography.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_skill_design_md_planner",
+      "target": "ai_design_slop",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_references_style_directions_style_directions",
+      "target": "ai_design_slop",
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\style-directions.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_assets_design_template_design_md_template",
+      "target": "claude_skills_design_md_planner_references_designmd_spec_design_md_format_spec",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\assets\\DESIGN.template.md",
+      "source_location": null,
+      "weight": 1.0
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "design_md_planner_skill_system",
+      "label": "design-md-planner skill system",
+      "nodes": [
+        "claude_skills_design_md_planner_skill_design_md_planner",
+        "claude_skills_design_md_planner_readme_design_md_planner",
+        "claude_skills_design_md_planner_assets_design_template_design_md_template",
+        "claude_skills_design_md_planner_assets_design_example_kiln_design_system",
+        "claude_skills_design_md_planner_references_anti_slop_anti_slop_catalog",
+        "claude_skills_design_md_planner_references_cli_design_md_cli",
+        "claude_skills_design_md_planner_references_color_craft_color_craft",
+        "claude_skills_design_md_planner_references_designmd_spec_design_md_format_spec",
+        "claude_skills_design_md_planner_references_style_directions_style_directions",
+        "claude_skills_design_md_planner_references_typography_typography_guide"
+      ],
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\SKILL.md"
+    },
+    {
+      "id": "graphify_skill_system",
+      "label": "graphify skill system",
+      "nodes": [
+        "claude_skills_graphify_skill_graphify",
+        "claude_skills_graphify_references_add_watch_add_watch",
+        "claude_skills_graphify_references_exports_exports_benchmark",
+        "claude_skills_graphify_references_extraction_spec_extraction_spec",
+        "claude_skills_graphify_references_github_and_merge_github_merge",
+        "claude_skills_graphify_references_hooks_hooks",
+        "claude_skills_graphify_references_query_query_path_explain",
+        "claude_skills_graphify_references_transcribe_transcribe",
+        "claude_skills_graphify_references_update_update_cluster_only"
+      ],
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\graphify\\SKILL.md"
+    },
+    {
+      "id": "kiln_design_system_asset_cluster",
+      "label": "Kiln design system concept cluster",
+      "nodes": [
+        "kiln_design_system",
+        "claude_skills_design_md_planner_assets_design_example_kiln_design_system",
+        "warm_analog_aesthetic",
+        "archival_institutional_aesthetic",
+        "ai_design_slop",
+        "oklch_color_space",
+        "google_design_md_linter",
+        "design_md_format_spec"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\assets\\DESIGN.example.md"
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

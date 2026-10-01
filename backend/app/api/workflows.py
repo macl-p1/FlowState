@@ -14,6 +14,7 @@ from app.schemas.execution import WorkflowExecution
 from app.agents.planner import PlannerAgent, PlanningResult
 from app.engine.runner import WorkflowRunner
 from app.tools.registry import registry
+from app.genealogy.service import GenealogyService
 
 
 router = APIRouter()
@@ -24,6 +25,7 @@ class SaveWorkflowRequest(BaseModel):
     description: str = ""
     nodes: list[dict[str, Any]]
     edges: list[dict[str, Any]]
+    workflow_id: str | None = None  # If provided, update existing workflow
 
 
 class GenerateRequest(BaseModel):
@@ -92,25 +94,47 @@ async def generate_workflow(request: GenerateRequest, db: Session = Depends(get_
 async def save_workflow_direct(request: SaveWorkflowRequest, db: Session = Depends(get_db)):
     """Save a workflow graph directly (no LLM re-generation).
 
-    The frontend builder sends the exact nodes/edges after AI generation
-    or manual editing. This endpoint persists them as-is.
+    If workflow_id is provided, update the existing workflow and create a new version.
+    Otherwise, create a new workflow.
     """
     import re
-    # Generate stable ID from name for idempotent saves
-    slug = re.sub(r'[^a-z0-9]', '_', request.name.lower())[:20]
-    wf_id = f"wf_{slug}_{uuid.uuid4().hex[:6]}"
 
-    wf_model = WorkflowModel(
-        id=wf_id,
-        name=request.name,
-        description=request.description,
-        nodes=request.nodes,
-        edges=request.edges,
-        metadata={"source": "builder"},
-    )
-    db.add(wf_model)
-    db.commit()
-    db.refresh(wf_model)
+    if request.workflow_id:
+        # Update existing workflow
+        wf_model = db.query(WorkflowModel).filter(WorkflowModel.id == request.workflow_id).first()
+        if not wf_model:
+            raise HTTPException(status_code=404, detail="Workflow not found")
+
+        wf_model.name = request.name
+        wf_model.description = request.description
+        wf_model.nodes = request.nodes
+        wf_model.edges = request.edges
+        db.commit()
+        db.refresh(wf_model)
+    else:
+        # Create new workflow
+        slug = re.sub(r'[^a-z0-9]', '_', request.name.lower())[:20]
+        wf_id = f"wf_{slug}_{uuid.uuid4().hex[:6]}"
+
+        wf_model = WorkflowModel(
+            id=wf_id,
+            name=request.name,
+            description=request.description,
+            nodes=request.nodes,
+            edges=request.edges,
+            metadata={"source": "builder"},
+        )
+        db.add(wf_model)
+        db.commit()
+        db.refresh(wf_model)
+
+    # Save version with diff from previous version
+    try:
+        genealogy = GenealogyService(db)
+        rationale = "Updated workflow" if request.workflow_id else "Initial version"
+        genealogy.save_version(wf_model.id, wf_model.nodes, wf_model.edges, rationale=rationale)
+    except Exception:
+        pass  # Non-critical — don't fail the save if genealogy fails
 
     return {
         "id": wf_model.id,

@@ -1,0 +1,4115 @@
+{
+  "nodes": [
+    {
+      "id": "d_claude_code_orchestrai_claude_claude_md",
+      "label": "OrchestrAI CLAUDE.md",
+      "file_type": "document",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\CLAUDE.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "claude_skills_design_md_planner_readme_design_md_planner",
+      "label": "design-md-planner README",
+      "file_type": "document",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "claude_skills_design_md_planner_skill_design_md_planner",
+      "label": "design-md-planner skill",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\SKILL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "claude_skills_design_md_planner_assets_design_example_kiln_design_system",
+      "label": "Kiln — worked DESIGN.md example",
+      "file_type": "document",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\assets\\DESIGN.example.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "claude_skills_design_md_planner_assets_design_template_design_md_template",
+      "label": "DESIGN.md template skeleton",
+      "file_type": "document",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\assets\\DESIGN.template.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "claude_skills_design_md_planner_references_anti_slop_anti_slop_catalog",
+      "label": "anti-slop.md — slop catalog",
+      "file_type": "rationale",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\anti-slop.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "claude_skills_design_md_planner_references_cli_design_md_cli",
+      "label": "cli.md — @google/design.md CLI reference",
+      "file_type": "document",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\cli.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "claude_skills_design_md_planner_references_color_craft_color_craft",
+      "label": "color-craft.md — palette building guide",
+      "file_type": "rationale",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\color-craft.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "claude_skills_design_md_planner_references_designmd_spec_design_md_format_spec",
+      "label": "designmd-spec.md — DESIGN.md format spec",
+      "file_type": "document",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\designmd-spec.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "claude_skills_design_md_planner_references_style_directions_style_directions",
+      "label": "style-directions.md — 15 named aesthetic directions",
+      "file_type": "rationale",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\style-directions.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "claude_skills_design_md_planner_references_typography_typography_guide",
+      "label": "typography.md — typeface pairing and scale guide",
+      "file_type": "rationale",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\typography.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "claude_skills_graphify_skill_graphify",
+      "label": "graphify skill",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\graphify\\SKILL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "claude_skills_graphify_references_add_watch_add_watch",
+      "label": "add-watch.md — URL ingest and folder watch reference",
+      "file_type": "document",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\graphify\\references\\add-watch.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "claude_skills_graphify_references_exports_exports_benchmark",
+      "label": "exports.md — extra exports and benchmark reference",
+      "file_type": "document",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\graphify\\references\\exports.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "claude_skills_graphify_references_extraction_spec_extraction_spec",
+      "label": "extraction-spec.md — extraction subagent prompt spec",
+      "file_type": "document",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\graphify\\references\\extraction-spec.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "claude_skills_graphify_references_github_and_merge_github_merge",
+      "label": "github-and-merge.md — GitHub clone and cross-repo merge reference",
+      "file_type": "document",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\graphify\\references\\github-and-merge.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "claude_skills_graphify_references_hooks_hooks",
+      "label": "hooks.md — commit hook and CLAUDE.md integration reference",
+      "file_type": "document",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\graphify\\references\\hooks.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "claude_skills_graphify_references_query_query_path_explain",
+      "label": "query.md — query, path, explain reference",
+      "file_type": "document",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\graphify\\references\\query.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "claude_skills_graphify_references_transcribe_transcribe",
+      "label": "transcribe.md — video/audio transcription reference",
+      "file_type": "document",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\graphify\\references\\transcribe.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "claude_skills_graphify_references_update_update_cluster_only",
+      "label": "update.md — incremental update and cluster-only reference",
+      "file_type": "document",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\graphify\\references\\update.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "kiln_design_system",
+      "label": "Kiln — ceramicist studio management design system",
+      "file_type": "document",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\assets\\DESIGN.example.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "design_md_format_spec",
+      "label": "DESIGN.md format specification",
+      "file_type": "document",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\designmd-spec.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "google_design_md_linter",
+      "label": "@google/design.md linter",
+      "file_type": "tool",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\cli.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "oklch_color_space",
+      "label": "OKLCH color space",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\color-craft.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "ai_design_slop",
+      "label": "AI-generated design slop",
+      "file_type": "rationale",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\anti-slop.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "warm_analog_aesthetic",
+      "label": "Warm Analog aesthetic direction",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\style-directions.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "archival_institutional_aesthetic",
+      "label": "Archival Institutional aesthetic direction",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\style-directions.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "knowledge_graph",
+      "label": "knowledge graph",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\graphify\\SKILL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "orchestr_ai",
+      "label": "OrchestrAI Platform",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 1"
+    },
+    {
+      "id": "flowpilot",
+      "label": "FlowPilot (Product Name)",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 7"
+    },
+    {
+      "id": "universal_workflow_automation",
+      "label": "Universal Workflow Automation",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 3"
+    },
+    {
+      "id": "natural_language_interface",
+      "label": "Natural Language Interface",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 8"
+    },
+    {
+      "id": "fastapi_backend",
+      "label": "FastAPI Backend",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 17"
+    },
+    {
+      "id": "langgraph_engine",
+      "label": "LangGraph Engine",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 17"
+    },
+    {
+      "id": "nextjs_frontend",
+      "label": "Next.js Frontend",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 18"
+    },
+    {
+      "id": "glassmorphism_ui",
+      "label": "Glassmorphism UI",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 18"
+    },
+    {
+      "id": "anthropic_claude",
+      "label": "Anthropic Claude API",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\README.md",
+      "source_location": "line 58"
+    },
+    {
+      "id": "pydantic_schemas",
+      "label": "Pydantic Schemas",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 46"
+    },
+    {
+      "id": "sqlalchemy_orm",
+      "label": "SQLAlchemy ORM",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 47"
+    },
+    {
+      "id": "tool_registry",
+      "label": "Tool Registry",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 48"
+    },
+    {
+      "id": "planner_agent",
+      "label": "Planner Agent",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 49"
+    },
+    {
+      "id": "compiler",
+      "label": "Workflow Compiler",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 49"
+    },
+    {
+      "id": "runner_engine",
+      "label": "WorkflowRunner Engine",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 50"
+    },
+    {
+      "id": "verifier_agent",
+      "label": "Verifier Agent",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 50"
+    },
+    {
+      "id": "approval_system",
+      "label": "Approval System (HITL)",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 51"
+    },
+    {
+      "id": "sqlite_db",
+      "label": "SQLite Database",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\README.md",
+      "source_location": "line 59"
+    },
+    {
+      "id": "postgresql_db",
+      "label": "PostgreSQL Database",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\docker-compose.yml",
+      "source_location": "line 2"
+    },
+    {
+      "id": "docker_compose",
+      "label": "Docker Compose",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\docker-compose.yml",
+      "source_location": "line 1"
+    },
+    {
+      "id": "pytest_suite",
+      "label": "pytest Test Suite",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 19"
+    },
+    {
+      "id": "testcases_md",
+      "label": "Test Cases Document",
+      "file_type": "document",
+      "source_file": "D:\\claude_code\\OrchestrAI\\testcases.md",
+      "source_location": "line 1"
+    },
+    {
+      "id": "backend_plan",
+      "label": "Backend Architecture Plan",
+      "file_type": "document",
+      "source_file": "D:\\claude_code\\OrchestrAI\\backend\\plan.md",
+      "source_location": "line 1"
+    },
+    {
+      "id": "requirements_txt",
+      "label": "Python Requirements",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\backend\\requirements.txt",
+      "source_location": "line 1"
+    },
+    {
+      "id": "design_system",
+      "label": "Control Room Glass Design System",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\DESIGN.md",
+      "source_location": "line 3"
+    },
+    {
+      "id": "space_grotesk_font",
+      "label": "Space Grotesk Font",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\DESIGN.md",
+      "source_location": "line 69"
+    },
+    {
+      "id": "jetbrains_mono_font",
+      "label": "JetBrains Mono Font",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\DESIGN.md",
+      "source_location": "line 69"
+    },
+    {
+      "id": "deep_space_palette",
+      "label": "Deep Space Color Palette",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\DESIGN.md",
+      "source_location": "line 31"
+    },
+    {
+      "id": "phosphor_cyan",
+      "label": "Phosphor Cyan Accent",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\DESIGN.md",
+      "source_location": "line 32"
+    },
+    {
+      "id": "human_in_the_loop",
+      "label": "Human-in-the-Loop",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 12"
+    },
+    {
+      "id": "retry_mechanism",
+      "label": "Retry Mechanism",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 12"
+    },
+    {
+      "id": "branching_logic",
+      "label": "Branching Logic",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 12"
+    },
+    {
+      "id": "observability",
+      "label": "Step-Level Observability",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 19"
+    },
+    {
+      "id": "template_substitution",
+      "label": "Template Variable Substitution",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\backend\\plan.md",
+      "source_location": "line 298"
+    },
+    {
+      "id": "six_node_types",
+      "label": "Six Node Types",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\README.md",
+      "source_location": "line 53"
+    },
+    {
+      "id": "permission_levels",
+      "label": "Permission Levels",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\README.md",
+      "source_location": "line 54"
+    },
+    {
+      "id": "verifier_verdicts",
+      "label": "Verifier Verdicts",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\README.md",
+      "source_location": "line 55"
+    },
+    {
+      "id": "eval_security_concern",
+      "label": "eval() Security Concern",
+      "file_type": "rationale",
+      "source_file": "D:\\claude_code\\OrchestrAI\\backend\\plan.md",
+      "source_location": "line 989"
+    },
+    {
+      "id": "alembic_migrations",
+      "label": "Alembic Migrations",
+      "file_type": "rationale",
+      "source_file": "D:\\claude_code\\OrchestrAI\\backend\\plan.md",
+      "source_location": "line 996"
+    },
+    {
+      "id": "mock_tools",
+      "label": "Mock Tool Implementations",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\backend\\plan.md",
+      "source_location": "line 1006"
+    },
+    {
+      "id": "no_authentication",
+      "label": "No Authentication/Authorization",
+      "file_type": "rationale",
+      "source_file": "D:\\claude_code\\OrchestrAI\\backend\\plan.md",
+      "source_location": "line 999"
+    },
+    {
+      "id": "api_endpoints",
+      "label": "REST API Endpoints",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 52"
+    },
+    {
+      "id": "invoice_workflow",
+      "label": "Invoice Processing Workflow",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\README.md",
+      "source_location": "line 124"
+    },
+    {
+      "id": "onboarding_workflow",
+      "label": "Employee Onboarding Workflow",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\README.md",
+      "source_location": "line 127"
+    },
+    {
+      "id": "complaint_workflow",
+      "label": "Customer Complaint Workflow",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\README.md",
+      "source_location": "line 130"
+    },
+    {
+      "id": "step_persistence",
+      "label": "Step Persistence",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\plan.md",
+      "source_location": "line 58"
+    },
+    {
+      "id": "wireframes_html",
+      "label": "Wireframes",
+      "file_type": "document",
+      "source_file": "D:\\claude_code\\OrchestrAI\\wireframes.html",
+      "source_location": "line 1"
+    },
+    {
+      "id": "frontend_pages",
+      "label": "Frontend Pages",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\plan.md",
+      "source_location": "line 185"
+    },
+    {
+      "id": "landing_page",
+      "label": "Landing Page",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\plan.md",
+      "source_location": "line 187"
+    },
+    {
+      "id": "dashboard_page",
+      "label": "Dashboard",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\plan.md",
+      "source_location": "line 188"
+    },
+    {
+      "id": "workflow_builder_page",
+      "label": "Workflow Builder",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\plan.md",
+      "source_location": "line 190"
+    },
+    {
+      "id": "run_console_page",
+      "label": "Run Console",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\plan.md",
+      "source_location": "line 192"
+    },
+    {
+      "id": "tools_explorer_page",
+      "label": "Tools Explorer",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\plan.md",
+      "source_location": "line 195"
+    },
+    {
+      "id": "cors_middleware",
+      "label": "CORS Middleware",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\backend\\plan.md",
+      "source_location": "line 162"
+    },
+    {
+      "id": "api_key_config",
+      "label": "API Key Configuration",
+      "file_type": "rationale",
+      "source_file": "D:\\claude_code\\OrchestrAI\\backend\\plan.md",
+      "source_location": "line 871"
+    },
+    {
+      "id": "security_first_design",
+      "label": "Security-First Design",
+      "file_type": "rationale",
+      "source_file": "D:\\claude_code\\OrchestrAI\\plan.md",
+      "source_location": "line 93"
+    },
+    {
+      "id": "closed_tool_registry",
+      "label": "Closed Tool Registry",
+      "file_type": "rationale",
+      "source_file": "D:\\claude_code\\OrchestrAI\\plan.md",
+      "source_location": "line 93"
+    },
+    {
+      "id": "llm_agnostic",
+      "label": "LLM-Agnostic Architecture",
+      "file_type": "rationale",
+      "source_file": "D:\\claude_code\\OrchestrAI\\plan.md",
+      "source_location": "line 160"
+    },
+    {
+      "id": "flowstate_name",
+      "label": "FlowState (Presentation Name)",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\prep.md",
+      "source_location": "line 1"
+    },
+    {
+      "id": "build_plan",
+      "label": "21-Session Build Plan",
+      "file_type": "document",
+      "source_file": "D:\\claude_code\\OrchestrAI\\universal_workflow_agent_claude_code_plan.md",
+      "source_location": "line 1"
+    },
+    {
+      "id": "engineering_rules",
+      "label": "12 Non-Negotiable Engineering Rules",
+      "file_type": "rationale",
+      "source_file": "D:\\claude_code\\OrchestrAI\\universal_workflow_agent_claude_code_plan.md",
+      "source_location": "line 1420"
+    },
+    {
+      "id": "react_flow",
+      "label": "React Flow",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\README.md",
+      "source_location": "line 55"
+    },
+    {
+      "id": "tailwind_css",
+      "label": "Tailwind CSS",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\README.md",
+      "source_location": "line 54"
+    },
+    {
+      "id": "framer_motion",
+      "label": "Framer Motion",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\README.md",
+      "source_location": "line 54"
+    },
+    {
+      "id": "langchain_langgraph",
+      "label": "LangGraph (from LangChain)",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\prep.md",
+      "source_location": "line 309"
+    },
+    {
+      "id": "comparison_matrix",
+      "label": "Comparison Matrix (vs Zapier/n8n/Step Functions)",
+      "file_type": "rationale",
+      "source_file": "D:\\claude_code\\OrchestrAI\\prep.md",
+      "source_location": "line 122"
+    },
+    {
+      "id": "invoice_prompt",
+      "label": "Invoice Processing Prompt",
+      "file_type": "rationale",
+      "source_file": "D:\\claude_code\\OrchestrAI\\testcases.md",
+      "source_location": "line 1496"
+    },
+    {
+      "id": "onboarding_prompt",
+      "label": "Employee Onboarding Prompt",
+      "file_type": "rationale",
+      "source_file": "D:\\claude_code\\OrchestrAI\\testcases.md",
+      "source_location": "line 1502"
+    },
+    {
+      "id": "complaint_prompt",
+      "label": "Customer Complaint Prompt",
+      "file_type": "rationale",
+      "source_file": "D:\\claude_code\\OrchestrAI\\testcases.md",
+      "source_location": "line 1507"
+    },
+    {
+      "id": "graphify_knowledge_graph",
+      "label": "Graphify Knowledge Graph",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 66"
+    },
+    {
+      "id": "file_svg_icon",
+      "label": "File SVG Icon (Next.js)",
+      "file_type": "image",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\public\\file.svg",
+      "source_location": null
+    },
+    {
+      "id": "globe_svg_icon",
+      "label": "Globe SVG Icon (Next.js)",
+      "file_type": "image",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\public\\globe.svg",
+      "source_location": null
+    },
+    {
+      "id": "next_svg_logo",
+      "label": "Next.js Logo SVG",
+      "file_type": "image",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\public\\next.svg",
+      "source_location": null
+    },
+    {
+      "id": "backend_readme",
+      "label": "Backend README",
+      "file_type": "document",
+      "source_file": "D:\\claude_code\\OrchestrAI\\backend\\README.md",
+      "source_location": "line 1"
+    },
+    {
+      "id": "frontend_readme",
+      "label": "Frontend README",
+      "file_type": "document",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\README.md",
+      "source_location": "line 1"
+    },
+    {
+      "id": "main_py",
+      "label": "FastAPI main.py Entry Point",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 43"
+    },
+    {
+      "id": "config_py",
+      "label": "Config.py (Settings)",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 44"
+    },
+    {
+      "id": "database_py",
+      "label": "Database.py (SQLAlchemy)",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 45"
+    },
+    {
+      "id": "app_api",
+      "label": "API Route Handlers",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 52"
+    },
+    {
+      "id": "app_agents",
+      "label": "Agent Layer (Planner/Compiler/Verifier)",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 49"
+    },
+    {
+      "id": "app_engine",
+      "label": "Engine Layer (Runner)",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 50"
+    },
+    {
+      "id": "app_approval",
+      "label": "Approval Module (HITL)",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 51"
+    },
+    {
+      "id": "app_tools",
+      "label": "Tools Module (Registry + Implementations)",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 48"
+    },
+    {
+      "id": "backend_tests",
+      "label": "Backend Tests",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 53"
+    },
+    {
+      "id": "flowstate_app",
+      "label": "FlowState Application",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\root.png"
+    },
+    {
+      "id": "flowstate_product",
+      "label": "FlowState Product",
+      "file_type": "rationale",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\root.png"
+    },
+    {
+      "id": "flowstate_logo",
+      "label": "FlowState Logo",
+      "file_type": "image",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\root.png"
+    },
+    {
+      "id": "user_gaura_acme_co",
+      "label": "User gaura@acme.co",
+      "file_type": "rationale",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\builder.png"
+    },
+    {
+      "id": "vercel_logo_svg",
+      "label": "Vercel Logo",
+      "file_type": "image",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\public\\vercel.svg"
+    },
+    {
+      "id": "window_icon_svg",
+      "label": "Window/Frame Icon",
+      "file_type": "image",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\public\\window.svg"
+    },
+    {
+      "id": "desktop_builder_page",
+      "label": "Workflow Builder Page",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\builder.png"
+    },
+    {
+      "id": "desktop_console_page",
+      "label": "Execution Console Page",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\console.png"
+    },
+    {
+      "id": "desktop_dashboard_page",
+      "label": "Dashboard Page",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\dashboard.png"
+    },
+    {
+      "id": "desktop_history_page",
+      "label": "Run History Page",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\history.png"
+    },
+    {
+      "id": "desktop_root_page",
+      "label": "Landing/Root Page",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\root.png"
+    },
+    {
+      "id": "desktop_tools_page",
+      "label": "Tools Explorer Page",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\tools.png"
+    },
+    {
+      "id": "mobile_builder_page",
+      "label": "Workflow Builder (Mobile)",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\mobile\\builder.png"
+    },
+    {
+      "id": "mobile_console_page",
+      "label": "Execution Console (Mobile)",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\mobile\\console.png"
+    },
+    {
+      "id": "mobile_dashboard_page",
+      "label": "Dashboard (Mobile)",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\mobile\\dashboard.png"
+    },
+    {
+      "id": "mobile_history_page",
+      "label": "Run History (Mobile)",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\mobile\\history.png"
+    },
+    {
+      "id": "mobile_root_page",
+      "label": "Landing/Root Page (Mobile)",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\mobile\\root.png"
+    },
+    {
+      "id": "mobile_tools_page",
+      "label": "Tools Explorer (Mobile)",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\mobile\\tools.png"
+    },
+    {
+      "id": "tablet_builder_page",
+      "label": "Workflow Builder (Tablet)",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\tablet\\builder.png"
+    },
+    {
+      "id": "tablet_console_page",
+      "label": "Execution Console (Tablet)",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\tablet\\console.png"
+    },
+    {
+      "id": "tablet_dashboard_page",
+      "label": "Dashboard (Tablet)",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\tablet\\dashboard.png"
+    },
+    {
+      "id": "tablet_history_page",
+      "label": "Run History (Tablet)",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\tablet\\history.png"
+    },
+    {
+      "id": "tablet_root_page",
+      "label": "Landing/Root Page (Tablet)",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\tablet\\root.png"
+    },
+    {
+      "id": "tablet_tools_page",
+      "label": "Tools Explorer (Tablet)",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\tablet\\tools.png"
+    },
+    {
+      "id": "navigation_sidebar",
+      "label": "Navigation Sidebar",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\builder.png"
+    },
+    {
+      "id": "dashboard_nav",
+      "label": "Dashboard Navigation",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\builder.png"
+    },
+    {
+      "id": "workflows_nav",
+      "label": "Workflows Navigation",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\builder.png"
+    },
+    {
+      "id": "console_nav",
+      "label": "Console Navigation",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\builder.png"
+    },
+    {
+      "id": "tools_nav",
+      "label": "Tools Navigation",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\builder.png"
+    },
+    {
+      "id": "history_nav",
+      "label": "History Navigation",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\builder.png"
+    },
+    {
+      "id": "plain_language_feature",
+      "label": "Plain Language Workflow Definition",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\root.png"
+    },
+    {
+      "id": "observability_feature",
+      "label": "Workflow Execution Observability",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\root.png"
+    },
+    {
+      "id": "verification_feature",
+      "label": "AI Output Verification",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\root.png"
+    },
+    {
+      "id": "human_approval_feature",
+      "label": "Human-in-the-Loop Approval",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\console.png"
+    },
+    {
+      "id": "workflow_execution_flow",
+      "label": "Execution Flow Visualization",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\console.png"
+    },
+    {
+      "id": "console_output_log",
+      "label": "Console Output Log",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\console.png"
+    },
+    {
+      "id": "approval_ui",
+      "label": "Approval UI",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\console.png"
+    },
+    {
+      "id": "dashboard_kpi_cards",
+      "label": "Dashboard KPI Cards",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\dashboard.png"
+    },
+    {
+      "id": "workflow_list",
+      "label": "Workflow List",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\dashboard.png"
+    },
+    {
+      "id": "run_history_table",
+      "label": "Run History Table",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\history.png"
+    },
+    {
+      "id": "tools_browser",
+      "label": "Tools Browser",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\tools.png"
+    },
+    {
+      "id": "landing_hero",
+      "label": "Landing Page Hero Section",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\root.png"
+    },
+    {
+      "id": "landing_feature_sections",
+      "label": "Landing Feature Sections",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\root.png"
+    },
+    {
+      "id": "landing_cta",
+      "label": "Landing CTA Section",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\root.png"
+    },
+    {
+      "id": "landing_footer",
+      "label": "Landing Page Footer",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\root.png"
+    },
+    {
+      "id": "http_request_tool",
+      "label": "HTTP Request Tool",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\tools.png"
+    },
+    {
+      "id": "database_query_tool",
+      "label": "Database Query Tool",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\tools.png"
+    },
+    {
+      "id": "send_email_tool",
+      "label": "Send Email Tool",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\tools.png"
+    },
+    {
+      "id": "webhook_trigger_tool",
+      "label": "Webhook Trigger Tool",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\tools.png"
+    },
+    {
+      "id": "transform_tool",
+      "label": "Transform Tool",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\tools.png"
+    },
+    {
+      "id": "rate_limiter_tool",
+      "label": "Rate Limiter Tool",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\tools.png"
+    },
+    {
+      "id": "fetch_customers_node",
+      "label": "Fetch Customers Node",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\builder.png"
+    },
+    {
+      "id": "parse_results_node",
+      "label": "Parse Results Node",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\builder.png"
+    },
+    {
+      "id": "store_output_node",
+      "label": "Store Output Node",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\builder.png"
+    },
+    {
+      "id": "workflow_canvas",
+      "label": "Workflow Canvas",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\builder.png"
+    },
+    {
+      "id": "node_properties_panel",
+      "label": "Node Properties Panel",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\builder.png"
+    },
+    {
+      "id": "tools_palette",
+      "label": "Tools Palette",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\builder.png"
+    },
+    {
+      "id": "workflow_status_badge",
+      "label": "Workflow Status Badge",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\builder.png"
+    },
+    {
+      "id": "customer_onboarding_workflow",
+      "label": "Customer Onboarding Workflow",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\dashboard.png"
+    },
+    {
+      "id": "daily_report_generator_workflow",
+      "label": "Daily Report Generator Workflow",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\dashboard.png"
+    },
+    {
+      "id": "invoice_processor_workflow",
+      "label": "Invoice Processor Workflow",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\dashboard.png"
+    },
+    {
+      "id": "support_ticket_router_workflow",
+      "label": "Support Ticket Router Workflow",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\dashboard.png"
+    },
+    {
+      "id": "workflow_run",
+      "label": "Workflow Run",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\console.png"
+    },
+    {
+      "id": "run_status_completed",
+      "label": "Run Status: Completed",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\dashboard.png"
+    },
+    {
+      "id": "run_status_running",
+      "label": "Run Status: Running",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\dashboard.png"
+    },
+    {
+      "id": "run_status_pending",
+      "label": "Run Status: Pending",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\dashboard.png"
+    },
+    {
+      "id": "run_status_failed",
+      "label": "Run Status: Failed",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\dashboard.png"
+    },
+    {
+      "id": "node_status_running",
+      "label": "Node Status: Running",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\console.png"
+    },
+    {
+      "id": "node_status_completed",
+      "label": "Node Status: Completed",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\console.png"
+    },
+    {
+      "id": "node_status_pending",
+      "label": "Node Status: Pending",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\console.png"
+    },
+    {
+      "id": "node_status_queued",
+      "label": "Node Status: Queued",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\history.png"
+    },
+    {
+      "id": "workflow_kpis",
+      "label": "Dashboard KPIs",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\dashboard.png"
+    },
+    {
+      "id": "glassmorphism_design",
+      "label": "Glassmorphism Design System",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\builder.png"
+    },
+    {
+      "id": "responsive_design",
+      "label": "Responsive Multi-Device Design",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\mobile\\builder.png"
+    },
+    {
+      "id": "live_execution_replay",
+      "label": "Live Execution Replay",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\root.png"
+    },
+    {
+      "id": "step_by_step_execution_graph",
+      "label": "Step-by-Step Execution Graph",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\root.png"
+    },
+    {
+      "id": "retry_logic",
+      "label": "Retry Logic",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\root.png"
+    },
+    {
+      "id": "conditional_branching",
+      "label": "Conditional Branching",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\root.png"
+    },
+    {
+      "id": "no_dsl_design",
+      "label": "No DSL Required Design",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\root.png"
+    },
+    {
+      "id": "no_drag_drop_design",
+      "label": "No Drag-and-Drop Design",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\root.png"
+    },
+    {
+      "id": "vercel_deployment",
+      "label": "Vercel Deployment",
+      "file_type": "rationale",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\public\\vercel.svg"
+    },
+    {
+      "id": "dark_theme",
+      "label": "Dark Theme UI",
+      "file_type": "concept",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\builder.png"
+    },
+    {
+      "id": "canvas_grid_background",
+      "label": "Canvas Grid Background",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\builder.png"
+    },
+    {
+      "id": "node_connection_lines",
+      "label": "Node Connection Lines",
+      "file_type": "code",
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\builder.png"
+    }
+  ],
+  "edges": [
+    {
+      "source": "d_claude_code_orchestrai_claude_claude_md",
+      "target": "claude_skills_graphify_skill_graphify",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_skill_design_md_planner",
+      "target": "claude_skills_design_md_planner_readme_design_md_planner",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_skill_design_md_planner",
+      "target": "claude_skills_design_md_planner_references_anti_slop_anti_slop_catalog",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_skill_design_md_planner",
+      "target": "claude_skills_design_md_planner_references_cli_design_md_cli",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_skill_design_md_planner",
+      "target": "claude_skills_design_md_planner_references_color_craft_color_craft",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_skill_design_md_planner",
+      "target": "claude_skills_design_md_planner_references_designmd_spec_design_md_format_spec",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_skill_design_md_planner",
+      "target": "claude_skills_design_md_planner_references_style_directions_style_directions",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_skill_design_md_planner",
+      "target": "claude_skills_design_md_planner_references_typography_typography_guide",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_skill_design_md_planner",
+      "target": "claude_skills_design_md_planner_assets_design_template_design_md_template",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_skill_design_md_planner",
+      "target": "claude_skills_design_md_planner_assets_design_example_kiln_design_system",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_readme_design_md_planner",
+      "target": "claude_skills_design_md_planner_skill_design_md_planner",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_readme_design_md_planner",
+      "target": "claude_skills_design_md_planner_references_style_directions_style_directions",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_assets_design_example_kiln_design_system",
+      "target": "kiln_design_system",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\assets\\DESIGN.example.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_assets_design_example_kiln_design_system",
+      "target": "claude_skills_design_md_planner_skill_design_md_planner",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\assets\\DESIGN.example.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "kiln_design_system",
+      "target": "warm_analog_aesthetic",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\assets\\DESIGN.example.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "kiln_design_system",
+      "target": "archival_institutional_aesthetic",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\assets\\DESIGN.example.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "kiln_design_system",
+      "target": "oklch_color_space",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\assets\\DESIGN.example.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "kiln_design_system",
+      "target": "ai_design_slop",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\assets\\DESIGN.example.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "kiln_design_system",
+      "target": "design_md_format_spec",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\assets\\DESIGN.example.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "kiln_design_system",
+      "target": "google_design_md_linter",
+      "relation": "validated_by",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\assets\\DESIGN.example.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_references_designmd_spec_design_md_format_spec",
+      "target": "design_md_format_spec",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\designmd-spec.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_references_anti_slop_anti_slop_catalog",
+      "target": "ai_design_slop",
+      "relation": "describes",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\anti-slop.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_references_color_craft_color_craft",
+      "target": "oklch_color_space",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\color-craft.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_references_style_directions_style_directions",
+      "target": "warm_analog_aesthetic",
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\style-directions.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_references_style_directions_style_directions",
+      "target": "archival_institutional_aesthetic",
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\style-directions.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_references_cli_design_md_cli",
+      "target": "google_design_md_linter",
+      "relation": "documents",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\cli.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_references_cli_design_md_cli",
+      "target": "design_md_format_spec",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\cli.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_references_typography_typography_guide",
+      "target": "claude_skills_design_md_planner_references_style_directions_style_directions",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\typography.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_references_anti_slop_anti_slop_catalog",
+      "target": "claude_skills_design_md_planner_references_style_directions_style_directions",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\anti-slop.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_assets_design_template_design_md_template",
+      "target": "design_md_format_spec",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\assets\\DESIGN.template.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_assets_design_template_design_md_template",
+      "target": "claude_skills_design_md_planner_skill_design_md_planner",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\assets\\DESIGN.template.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_graphify_skill_graphify",
+      "target": "claude_skills_graphify_references_add_watch_add_watch",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\graphify\\SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_graphify_skill_graphify",
+      "target": "claude_skills_graphify_references_exports_exports_benchmark",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\graphify\\SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_graphify_skill_graphify",
+      "target": "claude_skills_graphify_references_extraction_spec_extraction_spec",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\graphify\\SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_graphify_skill_graphify",
+      "target": "claude_skills_graphify_references_github_and_merge_github_merge",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\graphify\\SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_graphify_skill_graphify",
+      "target": "claude_skills_graphify_references_hooks_hooks",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\graphify\\SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_graphify_skill_graphify",
+      "target": "claude_skills_graphify_references_query_query_path_explain",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\graphify\\SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_graphify_skill_graphify",
+      "target": "claude_skills_graphify_references_transcribe_transcribe",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\graphify\\SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_graphify_skill_graphify",
+      "target": "claude_skills_graphify_references_update_update_cluster_only",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\graphify\\SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_graphify_skill_graphify",
+      "target": "knowledge_graph",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\graphify\\SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_graphify_references_extraction_spec_extraction_spec",
+      "target": "knowledge_graph",
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\graphify\\references\\extraction-spec.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_skill_design_md_planner",
+      "target": "design_md_format_spec",
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_skill_design_md_planner",
+      "target": "google_design_md_linter",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_references_color_craft_color_craft",
+      "target": "design_md_format_spec",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\color-craft.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_references_style_directions_style_directions",
+      "target": "claude_skills_design_md_planner_references_color_craft_color_craft",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\style-directions.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_references_style_directions_style_directions",
+      "target": "claude_skills_design_md_planner_references_anti_slop_anti_slop_catalog",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\style-directions.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_references_cli_design_md_cli",
+      "target": "google_design_md_linter",
+      "relation": "documents",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\cli.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_readme_design_md_planner",
+      "target": "claude_skills_design_md_planner_references_anti_slop_anti_slop_catalog",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_readme_design_md_planner",
+      "target": "claude_skills_design_md_planner_references_cli_design_md_cli",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_readme_design_md_planner",
+      "target": "claude_skills_design_md_planner_references_color_craft_color_craft",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_readme_design_md_planner",
+      "target": "claude_skills_design_md_planner_references_designmd_spec_design_md_format_spec",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_readme_design_md_planner",
+      "target": "claude_skills_design_md_planner_references_style_directions_style_directions",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_readme_design_md_planner",
+      "target": "claude_skills_design_md_planner_references_typography_typography_guide",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_assets_design_example_kiln_design_system",
+      "target": "design_md_format_spec",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\assets\\DESIGN.example.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_references_color_craft_color_craft",
+      "target": "claude_skills_design_md_planner_references_anti_slop_anti_slop_catalog",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\color-craft.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_references_color_craft_color_craft",
+      "target": "claude_skills_design_md_planner_references_typography_typography_guide",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\color-craft.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_references_style_directions_style_directions",
+      "target": "oklch_color_space",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\style-directions.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_references_color_craft_color_craft",
+      "target": "ai_design_slop",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\color-craft.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_references_typography_typography_guide",
+      "target": "ai_design_slop",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\typography.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_skill_design_md_planner",
+      "target": "ai_design_slop",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_references_style_directions_style_directions",
+      "target": "ai_design_slop",
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\references\\style-directions.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_skills_design_md_planner_assets_design_template_design_md_template",
+      "target": "claude_skills_design_md_planner_references_designmd_spec_design_md_format_spec",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\assets\\DESIGN.template.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "planner_agent",
+      "target": "anthropic_claude",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\backend\\plan.md",
+      "source_location": "line 265"
+    },
+    {
+      "source": "verifier_agent",
+      "target": "anthropic_claude",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\backend\\plan.md",
+      "source_location": "line 314"
+    },
+    {
+      "source": "planner_agent",
+      "target": "tool_registry",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\backend\\plan.md",
+      "source_location": "line 266"
+    },
+    {
+      "source": "planner_agent",
+      "target": "pydantic_schemas",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\backend\\plan.md",
+      "source_location": "line 269"
+    },
+    {
+      "source": "compiler",
+      "target": "langgraph_engine",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\backend\\plan.md",
+      "source_location": "line 274"
+    },
+    {
+      "source": "compiler",
+      "target": "pydantic_schemas",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 49"
+    },
+    {
+      "source": "runner_engine",
+      "target": "compiler",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\backend\\plan.md",
+      "source_location": "line 487"
+    },
+    {
+      "source": "runner_engine",
+      "target": "tool_registry",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\backend\\plan.md",
+      "source_location": "line 129"
+    },
+    {
+      "source": "runner_engine",
+      "target": "approval_system",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\backend\\plan.md",
+      "source_location": "line 510"
+    },
+    {
+      "source": "runner_engine",
+      "target": "verifier_agent",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\backend\\plan.md",
+      "source_location": "line 133"
+    },
+    {
+      "source": "app_api",
+      "target": "planner_agent",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\backend\\plan.md",
+      "source_location": "line 56"
+    },
+    {
+      "source": "app_api",
+      "target": "runner_engine",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\backend\\plan.md",
+      "source_location": "line 56"
+    },
+    {
+      "source": "app_api",
+      "target": "approval_system",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\backend\\plan.md",
+      "source_location": "line 56"
+    },
+    {
+      "source": "step_persistence",
+      "target": "sqlalchemy_orm",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\backend\\plan.md",
+      "source_location": "line 86"
+    },
+    {
+      "source": "approval_system",
+      "target": "step_persistence",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\backend\\plan.md",
+      "source_location": "line 510"
+    },
+    {
+      "source": "orchestr_ai",
+      "target": "fastapi_backend",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\README.md",
+      "source_location": "line 56"
+    },
+    {
+      "source": "orchestr_ai",
+      "target": "nextjs_frontend",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\README.md",
+      "source_location": "line 54"
+    },
+    {
+      "source": "orchestr_ai",
+      "target": "anthropic_claude",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\README.md",
+      "source_location": "line 58"
+    },
+    {
+      "source": "orchestr_ai",
+      "target": "sqlite_db",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\README.md",
+      "source_location": "line 59"
+    },
+    {
+      "source": "orchestr_ai",
+      "target": "postgresql_db",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "D:\\claude_code\\OrchestrAI\\docker-compose.yml",
+      "source_location": "line 2"
+    },
+    {
+      "source": "docker_compose",
+      "target": "postgresql_db",
+      "relation": "orchestrates",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\docker-compose.yml",
+      "source_location": "line 2"
+    },
+    {
+      "source": "docker_compose",
+      "target": "fastapi_backend",
+      "relation": "orchestrates",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\docker-compose.yml",
+      "source_location": "line 18"
+    },
+    {
+      "source": "docker_compose",
+      "target": "nextjs_frontend",
+      "relation": "orchestrates",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\docker-compose.yml",
+      "source_location": "line 37"
+    },
+    {
+      "source": "pytest_suite",
+      "target": "orchestr_ai",
+      "relation": "tests",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 19"
+    },
+    {
+      "source": "testcases_md",
+      "target": "pytest_suite",
+      "relation": "documents",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\testcases.md",
+      "source_location": "line 1"
+    },
+    {
+      "source": "backend_plan",
+      "target": "orchestr_ai",
+      "relation": "documents",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\backend\\plan.md",
+      "source_location": "line 1"
+    },
+    {
+      "source": "design_system",
+      "target": "orchestr_ai",
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\DESIGN.md",
+      "source_location": "line 3"
+    },
+    {
+      "source": "design_system",
+      "target": "space_grotesk_font",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\DESIGN.md",
+      "source_location": "line 69"
+    },
+    {
+      "source": "design_system",
+      "target": "jetbrains_mono_font",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\DESIGN.md",
+      "source_location": "line 69"
+    },
+    {
+      "source": "design_system",
+      "target": "deep_space_palette",
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\DESIGN.md",
+      "source_location": "line 31"
+    },
+    {
+      "source": "design_system",
+      "target": "phosphor_cyan",
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\DESIGN.md",
+      "source_location": "line 32"
+    },
+    {
+      "source": "glassmorphism_ui",
+      "target": "design_system",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\DESIGN.md",
+      "source_location": "line 4"
+    },
+    {
+      "source": "nextjs_frontend",
+      "target": "glassmorphism_ui",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 18"
+    },
+    {
+      "source": "human_in_the_loop",
+      "target": "approval_system",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 12"
+    },
+    {
+      "source": "retry_mechanism",
+      "target": "verifier_agent",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\README.md",
+      "source_location": "line 55"
+    },
+    {
+      "source": "branching_logic",
+      "target": "compiler",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 12"
+    },
+    {
+      "source": "observability",
+      "target": "step_persistence",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 19"
+    },
+    {
+      "source": "template_substitution",
+      "target": "runner_engine",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\backend\\plan.md",
+      "source_location": "line 298"
+    },
+    {
+      "source": "six_node_types",
+      "target": "pydantic_schemas",
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\README.md",
+      "source_location": "line 53"
+    },
+    {
+      "source": "permission_levels",
+      "target": "tool_registry",
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\README.md",
+      "source_location": "line 54"
+    },
+    {
+      "source": "verifier_verdicts",
+      "target": "verifier_agent",
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\README.md",
+      "source_location": "line 55"
+    },
+    {
+      "source": "eval_security_concern",
+      "target": "compiler",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\backend\\plan.md",
+      "source_location": "line 989"
+    },
+    {
+      "source": "no_authentication",
+      "target": "app_api",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\backend\\plan.md",
+      "source_location": "line 999"
+    },
+    {
+      "source": "mock_tools",
+      "target": "tool_registry",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\backend\\plan.md",
+      "source_location": "line 1006"
+    },
+    {
+      "source": "alembic_migrations",
+      "target": "sqlalchemy_orm",
+      "relation": "manages",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\backend\\plan.md",
+      "source_location": "line 996"
+    },
+    {
+      "source": "requirements_txt",
+      "target": "orchestr_ai",
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\backend\\requirements.txt",
+      "source_location": "line 1"
+    },
+    {
+      "source": "cors_middleware",
+      "target": "fastapi_backend",
+      "relation": "configures",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\backend\\plan.md",
+      "source_location": "line 162"
+    },
+    {
+      "source": "api_key_config",
+      "target": "anthropic_claude",
+      "relation": "configures",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\backend\\plan.md",
+      "source_location": "line 871"
+    },
+    {
+      "source": "security_first_design",
+      "target": "tool_registry",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\plan.md",
+      "source_location": "line 93"
+    },
+    {
+      "source": "security_first_design",
+      "target": "closed_tool_registry",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\plan.md",
+      "source_location": "line 93"
+    },
+    {
+      "source": "llm_agnostic",
+      "target": "anthropic_claude",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.95,
+      "source_file": "D:\\claude_code\\OrchestrAI\\plan.md",
+      "source_location": "line 160"
+    },
+    {
+      "source": "nextjs_frontend",
+      "target": "frontend_pages",
+      "relation": "renders",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\plan.md",
+      "source_location": "line 185"
+    },
+    {
+      "source": "frontend_pages",
+      "target": "landing_page",
+      "relation": "includes",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\plan.md",
+      "source_location": "line 187"
+    },
+    {
+      "source": "frontend_pages",
+      "target": "dashboard_page",
+      "relation": "includes",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\plan.md",
+      "source_location": "line 188"
+    },
+    {
+      "source": "frontend_pages",
+      "target": "workflow_builder_page",
+      "relation": "includes",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\plan.md",
+      "source_location": "line 190"
+    },
+    {
+      "source": "frontend_pages",
+      "target": "run_console_page",
+      "relation": "includes",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\plan.md",
+      "source_location": "line 192"
+    },
+    {
+      "source": "frontend_pages",
+      "target": "tools_explorer_page",
+      "relation": "includes",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\plan.md",
+      "source_location": "line 195"
+    },
+    {
+      "source": "wireframes_html",
+      "target": "frontend_pages",
+      "relation": "documents",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\wireframes.html",
+      "source_location": "line 1"
+    },
+    {
+      "source": "invoice_workflow",
+      "target": "orchestr_ai",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\README.md",
+      "source_location": "line 124"
+    },
+    {
+      "source": "onboarding_workflow",
+      "target": "orchestr_ai",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\README.md",
+      "source_location": "line 127"
+    },
+    {
+      "source": "complaint_workflow",
+      "target": "orchestr_ai",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\README.md",
+      "source_location": "line 130"
+    },
+    {
+      "source": "natural_language_interface",
+      "target": "planner_agent",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\plan.md",
+      "source_location": "line 69"
+    },
+    {
+      "source": "comparison_matrix",
+      "target": "orchestr_ai",
+      "relation": "documents",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\prep.md",
+      "source_location": "line 122"
+    },
+    {
+      "source": "flowstate_name",
+      "target": "orchestr_ai",
+      "relation": "alias_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\prep.md",
+      "source_location": "line 1"
+    },
+    {
+      "source": "flowpilot",
+      "target": "orchestr_ai",
+      "relation": "alias_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 7"
+    },
+    {
+      "source": "build_plan",
+      "target": "orchestr_ai",
+      "relation": "documents",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\universal_workflow_agent_claude_code_plan.md",
+      "source_location": "line 1"
+    },
+    {
+      "source": "engineering_rules",
+      "target": "orchestr_ai",
+      "relation": "constrains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\universal_workflow_agent_claude_code_plan.md",
+      "source_location": "line 1420"
+    },
+    {
+      "source": "api_endpoints",
+      "target": "fastapi_backend",
+      "relation": "exposes",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 52"
+    },
+    {
+      "source": "fastapi_backend",
+      "target": "cors_middleware",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\backend\\plan.md",
+      "source_location": "line 162"
+    },
+    {
+      "source": "mock_tools",
+      "target": "permission_levels",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\backend\\plan.md",
+      "source_location": "line 361"
+    },
+    {
+      "source": "requirements_txt",
+      "target": "fastapi_backend",
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\backend\\requirements.txt",
+      "source_location": "line 1"
+    },
+    {
+      "source": "requirements_txt",
+      "target": "langgraph_engine",
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\backend\\requirements.txt",
+      "source_location": "line 9"
+    },
+    {
+      "source": "requirements_txt",
+      "target": "anthropic_claude",
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\backend\\requirements.txt",
+      "source_location": "line 8"
+    },
+    {
+      "source": "requirements_txt",
+      "target": "sqlalchemy_orm",
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\backend\\requirements.txt",
+      "source_location": "line 5"
+    },
+    {
+      "source": "requirements_txt",
+      "target": "pytest_suite",
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\backend\\requirements.txt",
+      "source_location": "line 10"
+    },
+    {
+      "source": "main_py",
+      "target": "fastapi_backend",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 43"
+    },
+    {
+      "source": "main_py",
+      "target": "cors_middleware",
+      "relation": "configures",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\backend\\plan.md",
+      "source_location": "line 161"
+    },
+    {
+      "source": "config_py",
+      "target": "main_py",
+      "relation": "configures",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 44"
+    },
+    {
+      "source": "database_py",
+      "target": "sqlalchemy_orm",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 45"
+    },
+    {
+      "source": "app_api",
+      "target": "main_py",
+      "relation": "mounted_by",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\backend\\plan.md",
+      "source_location": "line 163"
+    },
+    {
+      "source": "app_agents",
+      "target": "main_py",
+      "relation": "imported_by",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 49"
+    },
+    {
+      "source": "app_engine",
+      "target": "main_py",
+      "relation": "imported_by",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 50"
+    },
+    {
+      "source": "app_approval",
+      "target": "main_py",
+      "relation": "imported_by",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 51"
+    },
+    {
+      "source": "app_tools",
+      "target": "tool_registry",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 48"
+    },
+    {
+      "source": "backend_tests",
+      "target": "pytest_suite",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 53"
+    },
+    {
+      "source": "graphify_knowledge_graph",
+      "target": "orchestr_ai",
+      "relation": "documents",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md",
+      "source_location": "line 66"
+    },
+    {
+      "source": "docker_compose",
+      "target": "orchestr_ai",
+      "relation": "deploys",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\docker-compose.yml",
+      "source_location": "line 1"
+    },
+    {
+      "source": "langchain_langgraph",
+      "target": "langgraph_engine",
+      "relation": "includes",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\prep.md",
+      "source_location": "line 309"
+    },
+    {
+      "source": "react_flow",
+      "target": "nextjs_frontend",
+      "relation": "used_by",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\README.md",
+      "source_location": "line 55"
+    },
+    {
+      "source": "tailwind_css",
+      "target": "nextjs_frontend",
+      "relation": "used_by",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\README.md",
+      "source_location": "line 54"
+    },
+    {
+      "source": "framer_motion",
+      "target": "nextjs_frontend",
+      "relation": "used_by",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\README.md",
+      "source_location": "line 54"
+    },
+    {
+      "source": "eval_security_concern",
+      "target": "security_first_design",
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "D:\\claude_code\\OrchestrAI\\backend\\plan.md",
+      "source_location": "line 989"
+    },
+    {
+      "source": "alembic_migrations",
+      "target": "postgresql_db",
+      "relation": "manages",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\backend\\plan.md",
+      "source_location": "line 996"
+    },
+    {
+      "source": "step_persistence",
+      "target": "observability",
+      "relation": "enables",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\plan.md",
+      "source_location": "line 114"
+    },
+    {
+      "source": "human_in_the_loop",
+      "target": "retry_mechanism",
+      "relation": "works_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.95,
+      "source_file": "D:\\claude_code\\OrchestrAI\\README.md",
+      "source_location": "line 55"
+    },
+    {
+      "source": "six_node_types",
+      "target": "workflow_automation",
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\README.md",
+      "source_location": "line 53"
+    },
+    {
+      "source": "flowstate_app",
+      "target": "flowstate_product",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\root.png"
+    },
+    {
+      "source": "flowstate_app",
+      "target": "flowstate_logo",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\root.png"
+    },
+    {
+      "source": "flowstate_app",
+      "target": "desktop_builder_page",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\builder.png"
+    },
+    {
+      "source": "flowstate_app",
+      "target": "desktop_console_page",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\console.png"
+    },
+    {
+      "source": "flowstate_app",
+      "target": "desktop_dashboard_page",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\dashboard.png"
+    },
+    {
+      "source": "flowstate_app",
+      "target": "desktop_history_page",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\history.png"
+    },
+    {
+      "source": "flowstate_app",
+      "target": "desktop_root_page",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\root.png"
+    },
+    {
+      "source": "flowstate_app",
+      "target": "desktop_tools_page",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\tools.png"
+    },
+    {
+      "source": "flowstate_app",
+      "target": "mobile_builder_page",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\mobile\\builder.png"
+    },
+    {
+      "source": "flowstate_app",
+      "target": "mobile_console_page",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\mobile\\console.png"
+    },
+    {
+      "source": "flowstate_app",
+      "target": "mobile_dashboard_page",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\mobile\\dashboard.png"
+    },
+    {
+      "source": "flowstate_app",
+      "target": "mobile_history_page",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\mobile\\history.png"
+    },
+    {
+      "source": "flowstate_app",
+      "target": "mobile_root_page",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\mobile\\root.png"
+    },
+    {
+      "source": "flowstate_app",
+      "target": "mobile_tools_page",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\mobile\\tools.png"
+    },
+    {
+      "source": "flowstate_app",
+      "target": "tablet_builder_page",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\tablet\\builder.png"
+    },
+    {
+      "source": "flowstate_app",
+      "target": "tablet_console_page",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\tablet\\console.png"
+    },
+    {
+      "source": "flowstate_app",
+      "target": "tablet_dashboard_page",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\tablet\\dashboard.png"
+    },
+    {
+      "source": "flowstate_app",
+      "target": "tablet_history_page",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\tablet\\history.png"
+    },
+    {
+      "source": "flowstate_app",
+      "target": "tablet_root_page",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\tablet\\root.png"
+    },
+    {
+      "source": "flowstate_app",
+      "target": "tablet_tools_page",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\tablet\\tools.png"
+    },
+    {
+      "source": "flowstate_app",
+      "target": "user_gaura_acme_co",
+      "relation": "serves",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\builder.png"
+    },
+    {
+      "source": "flowstate_app",
+      "target": "vercel_logo_svg",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\public\\vercel.svg"
+    },
+    {
+      "source": "flowstate_app",
+      "target": "window_icon_svg",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\public\\window.svg"
+    },
+    {
+      "source": "vercel_logo_svg",
+      "target": "vercel_deployment",
+      "relation": "indicates",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\public\\vercel.svg"
+    },
+    {
+      "source": "window_icon_svg",
+      "target": "dark_theme",
+      "relation": "represents",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\public\\window.svg"
+    },
+    {
+      "source": "desktop_builder_page",
+      "target": "navigation_sidebar",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\builder.png"
+    },
+    {
+      "source": "desktop_builder_page",
+      "target": "workflow_canvas",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\builder.png"
+    },
+    {
+      "source": "desktop_builder_page",
+      "target": "tools_palette",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\builder.png"
+    },
+    {
+      "source": "desktop_builder_page",
+      "target": "node_properties_panel",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\builder.png"
+    },
+    {
+      "source": "desktop_builder_page",
+      "target": "fetch_customers_node",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\builder.png"
+    },
+    {
+      "source": "desktop_builder_page",
+      "target": "parse_results_node",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\builder.png"
+    },
+    {
+      "source": "desktop_builder_page",
+      "target": "store_output_node",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\builder.png"
+    },
+    {
+      "source": "desktop_builder_page",
+      "target": "node_connection_lines",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\builder.png"
+    },
+    {
+      "source": "desktop_builder_page",
+      "target": "canvas_grid_background",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\builder.png"
+    },
+    {
+      "source": "desktop_builder_page",
+      "target": "workflow_status_badge",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\builder.png"
+    },
+    {
+      "source": "desktop_console_page",
+      "target": "workflow_execution_flow",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\console.png"
+    },
+    {
+      "source": "desktop_console_page",
+      "target": "console_output_log",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\console.png"
+    },
+    {
+      "source": "desktop_console_page",
+      "target": "approval_ui",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\console.png"
+    },
+    {
+      "source": "desktop_dashboard_page",
+      "target": "dashboard_kpi_cards",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\dashboard.png"
+    },
+    {
+      "source": "desktop_dashboard_page",
+      "target": "workflow_list",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\dashboard.png"
+    },
+    {
+      "source": "desktop_dashboard_page",
+      "target": "customer_onboarding_workflow",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\dashboard.png"
+    },
+    {
+      "source": "desktop_dashboard_page",
+      "target": "daily_report_generator_workflow",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\dashboard.png"
+    },
+    {
+      "source": "desktop_dashboard_page",
+      "target": "invoice_processor_workflow",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\dashboard.png"
+    },
+    {
+      "source": "desktop_dashboard_page",
+      "target": "support_ticket_router_workflow",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\dashboard.png"
+    },
+    {
+      "source": "desktop_history_page",
+      "target": "run_history_table",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\history.png"
+    },
+    {
+      "source": "desktop_tools_page",
+      "target": "tools_browser",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\tools.png"
+    },
+    {
+      "source": "desktop_tools_page",
+      "target": "http_request_tool",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\tools.png"
+    },
+    {
+      "source": "desktop_tools_page",
+      "target": "database_query_tool",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\tools.png"
+    },
+    {
+      "source": "desktop_tools_page",
+      "target": "send_email_tool",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\tools.png"
+    },
+    {
+      "source": "desktop_tools_page",
+      "target": "webhook_trigger_tool",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\tools.png"
+    },
+    {
+      "source": "desktop_tools_page",
+      "target": "transform_tool",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\tools.png"
+    },
+    {
+      "source": "desktop_tools_page",
+      "target": "rate_limiter_tool",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\tools.png"
+    },
+    {
+      "source": "desktop_root_page",
+      "target": "landing_hero",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\root.png"
+    },
+    {
+      "source": "desktop_root_page",
+      "target": "landing_feature_sections",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\root.png"
+    },
+    {
+      "source": "desktop_root_page",
+      "target": "landing_cta",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\root.png"
+    },
+    {
+      "source": "desktop_root_page",
+      "target": "landing_footer",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\root.png"
+    },
+    {
+      "source": "navigation_sidebar",
+      "target": "dashboard_nav",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\builder.png"
+    },
+    {
+      "source": "navigation_sidebar",
+      "target": "workflows_nav",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\builder.png"
+    },
+    {
+      "source": "navigation_sidebar",
+      "target": "console_nav",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\builder.png"
+    },
+    {
+      "source": "navigation_sidebar",
+      "target": "tools_nav",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\builder.png"
+    },
+    {
+      "source": "navigation_sidebar",
+      "target": "history_nav",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\builder.png"
+    },
+    {
+      "source": "fetch_customers_node",
+      "target": "http_request_tool",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\builder.png"
+    },
+    {
+      "source": "parse_results_node",
+      "target": "transform_tool",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\builder.png"
+    },
+    {
+      "source": "store_output_node",
+      "target": "database_query_tool",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\builder.png"
+    },
+    {
+      "source": "fetch_customers_node",
+      "target": "parse_results_node",
+      "relation": "connects_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\builder.png"
+    },
+    {
+      "source": "parse_results_node",
+      "target": "store_output_node",
+      "relation": "connects_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\builder.png"
+    },
+    {
+      "source": "fetch_customers_node",
+      "target": "workflow_execution_flow",
+      "relation": "appears_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\console.png"
+    },
+    {
+      "source": "parse_results_node",
+      "target": "workflow_execution_flow",
+      "relation": "appears_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\console.png"
+    },
+    {
+      "source": "store_output_node",
+      "target": "workflow_execution_flow",
+      "relation": "appears_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\console.png"
+    },
+    {
+      "source": "workflow_execution_flow",
+      "target": "console_output_log",
+      "relation": "produces",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\console.png"
+    },
+    {
+      "source": "store_output_node",
+      "target": "approval_ui",
+      "relation": "triggers",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\console.png"
+    },
+    {
+      "source": "customer_onboarding_workflow",
+      "target": "fetch_customers_node",
+      "relation": "contains",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\dashboard.png"
+    },
+    {
+      "source": "customer_onboarding_workflow",
+      "target": "parse_results_node",
+      "relation": "contains",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\dashboard.png"
+    },
+    {
+      "source": "customer_onboarding_workflow",
+      "target": "store_output_node",
+      "relation": "contains",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\dashboard.png"
+    },
+    {
+      "source": "workflow_run",
+      "target": "run_status_completed",
+      "relation": "has_status",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\dashboard.png"
+    },
+    {
+      "source": "workflow_run",
+      "target": "run_status_running",
+      "relation": "has_status",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\dashboard.png"
+    },
+    {
+      "source": "workflow_run",
+      "target": "run_status_pending",
+      "relation": "has_status",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\dashboard.png"
+    },
+    {
+      "source": "workflow_run",
+      "target": "run_status_failed",
+      "relation": "has_status",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\dashboard.png"
+    },
+    {
+      "source": "workflow_kpis",
+      "target": "workflow_run",
+      "relation": "aggregates",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\dashboard.png"
+    },
+    {
+      "source": "desktop_builder_page",
+      "target": "glassmorphism_design",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\builder.png"
+    },
+    {
+      "source": "desktop_console_page",
+      "target": "glassmorphism_design",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\console.png"
+    },
+    {
+      "source": "desktop_dashboard_page",
+      "target": "glassmorphism_design",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\dashboard.png"
+    },
+    {
+      "source": "desktop_tools_page",
+      "target": "glassmorphism_design",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\tools.png"
+    },
+    {
+      "source": "desktop_builder_page",
+      "target": "dark_theme",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\builder.png"
+    },
+    {
+      "source": "desktop_console_page",
+      "target": "dark_theme",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\console.png"
+    },
+    {
+      "source": "desktop_dashboard_page",
+      "target": "dark_theme",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\dashboard.png"
+    },
+    {
+      "source": "desktop_tools_page",
+      "target": "dark_theme",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\tools.png"
+    },
+    {
+      "source": "desktop_root_page",
+      "target": "dark_theme",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\root.png"
+    },
+    {
+      "source": "mobile_builder_page",
+      "target": "responsive_design",
+      "relation": "demonstrates",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\mobile\\builder.png"
+    },
+    {
+      "source": "mobile_console_page",
+      "target": "responsive_design",
+      "relation": "demonstrates",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\mobile\\console.png"
+    },
+    {
+      "source": "mobile_dashboard_page",
+      "target": "responsive_design",
+      "relation": "demonstrates",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\mobile\\dashboard.png"
+    },
+    {
+      "source": "mobile_tools_page",
+      "target": "responsive_design",
+      "relation": "demonstrates",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\mobile\\tools.png"
+    },
+    {
+      "source": "tablet_builder_page",
+      "target": "responsive_design",
+      "relation": "demonstrates",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\tablet\\builder.png"
+    },
+    {
+      "source": "tablet_console_page",
+      "target": "responsive_design",
+      "relation": "demonstrates",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\tablet\\console.png"
+    },
+    {
+      "source": "tablet_dashboard_page",
+      "target": "responsive_design",
+      "relation": "demonstrates",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\tablet\\dashboard.png"
+    },
+    {
+      "source": "tablet_tools_page",
+      "target": "responsive_design",
+      "relation": "demonstrates",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\tablet\\tools.png"
+    },
+    {
+      "source": "landing_hero",
+      "target": "live_execution_replay",
+      "relation": "demonstrates",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\root.png"
+    },
+    {
+      "source": "landing_feature_sections",
+      "target": "plain_language_feature",
+      "relation": "describes",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\root.png"
+    },
+    {
+      "source": "landing_feature_sections",
+      "target": "observability_feature",
+      "relation": "describes",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\root.png"
+    },
+    {
+      "source": "landing_feature_sections",
+      "target": "verification_feature",
+      "relation": "describes",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\root.png"
+    },
+    {
+      "source": "observability_feature",
+      "target": "retry_logic",
+      "relation": "includes",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\root.png"
+    },
+    {
+      "source": "observability_feature",
+      "target": "conditional_branching",
+      "relation": "includes",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\root.png"
+    },
+    {
+      "source": "landing_footer",
+      "target": "flowstate_product",
+      "relation": "brands",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\root.png"
+    },
+    {
+      "source": "plain_language_feature",
+      "target": "step_by_step_execution_graph",
+      "relation": "produces",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\root.png"
+    },
+    {
+      "source": "plain_language_feature",
+      "target": "no_dsl_design",
+      "relation": "eliminates",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\root.png"
+    },
+    {
+      "source": "plain_language_feature",
+      "target": "no_drag_drop_design",
+      "relation": "eliminates",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\root.png"
+    },
+    {
+      "source": "human_approval_feature",
+      "target": "approval_ui",
+      "relation": "realized_as",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\console.png"
+    },
+    {
+      "source": "workflow_kpis",
+      "target": "dashboard_kpi_cards",
+      "relation": "displayed_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\dashboard.png"
+    },
+    {
+      "source": "run_history_table",
+      "target": "workflow_run",
+      "relation": "tracks",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\history.png"
+    },
+    {
+      "source": "http_request_tool",
+      "target": "tool_registry",
+      "relation": "registered_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\tools.png"
+    },
+    {
+      "source": "database_query_tool",
+      "target": "tool_registry",
+      "relation": "registered_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\tools.png"
+    },
+    {
+      "source": "send_email_tool",
+      "target": "tool_registry",
+      "relation": "registered_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\tools.png"
+    },
+    {
+      "source": "webhook_trigger_tool",
+      "target": "tool_registry",
+      "relation": "registered_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\tools.png"
+    },
+    {
+      "source": "transform_tool",
+      "target": "tool_registry",
+      "relation": "registered_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\tools.png"
+    },
+    {
+      "source": "rate_limiter_tool",
+      "target": "tool_registry",
+      "relation": "registered_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\tools.png"
+    },
+    {
+      "source": "console_output_log",
+      "target": "node_status_running",
+      "relation": "reflects",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\console.png"
+    },
+    {
+      "source": "console_output_log",
+      "target": "node_status_completed",
+      "relation": "reflects",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\console.png"
+    },
+    {
+      "source": "vercel_deployment",
+      "target": "flowstate_app",
+      "relation": "hosts",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\public\\vercel.svg"
+    },
+    {
+      "source": "landing_footer",
+      "target": "vercel_deployment",
+      "relation": "associated_with",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\root.png"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "design_md_planner_skill_system",
+      "label": "design-md-planner skill system",
+      "nodes": [
+        "claude_skills_design_md_planner_skill_design_md_planner",
+        "claude_skills_design_md_planner_readme_design_md_planner",
+        "claude_skills_design_md_planner_assets_design_template_design_md_template",
+        "claude_skills_design_md_planner_assets_design_example_kiln_design_system",
+        "claude_skills_design_md_planner_references_anti_slop_anti_slop_catalog",
+        "claude_skills_design_md_planner_references_cli_design_md_cli",
+        "claude_skills_design_md_planner_references_color_craft_color_craft",
+        "claude_skills_design_md_planner_references_designmd_spec_design_md_format_spec",
+        "claude_skills_design_md_planner_references_style_directions_style_directions",
+        "claude_skills_design_md_planner_references_typography_typography_guide"
+      ],
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\SKILL.md"
+    },
+    {
+      "id": "graphify_skill_system",
+      "label": "graphify skill system",
+      "nodes": [
+        "claude_skills_graphify_skill_graphify",
+        "claude_skills_graphify_references_add_watch_add_watch",
+        "claude_skills_graphify_references_exports_exports_benchmark",
+        "claude_skills_graphify_references_extraction_spec_extraction_spec",
+        "claude_skills_graphify_references_github_and_merge_github_merge",
+        "claude_skills_graphify_references_hooks_hooks",
+        "claude_skills_graphify_references_query_query_path_explain",
+        "claude_skills_graphify_references_transcribe_transcribe",
+        "claude_skills_graphify_references_update_update_cluster_only"
+      ],
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\graphify\\SKILL.md"
+    },
+    {
+      "id": "kiln_design_system_asset_cluster",
+      "label": "Kiln design system concept cluster",
+      "nodes": [
+        "kiln_design_system",
+        "claude_skills_design_md_planner_assets_design_example_kiln_design_system",
+        "warm_analog_aesthetic",
+        "archival_institutional_aesthetic",
+        "ai_design_slop",
+        "oklch_color_space",
+        "google_design_md_linter",
+        "design_md_format_spec"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "D:\\claude_code\\OrchestrAI\\.claude\\skills\\design-md-planner\\assets\\DESIGN.example.md"
+    },
+    {
+      "id": "agent_pipeline",
+      "label": "Agent Pipeline (Plan-Validate-Compile-Run-Verify)",
+      "nodes": [
+        "planner_agent",
+        "pydantic_schemas",
+        "compiler",
+        "runner_engine",
+        "verifier_agent"
+      ],
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\plan.md"
+    },
+    {
+      "id": "execution_lifecycle",
+      "label": "Execution Lifecycle (Load-Execute-Verify-Determine)",
+      "nodes": [
+        "runner_engine",
+        "tool_registry",
+        "verifier_agent",
+        "approval_system"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\backend\\plan.md"
+    },
+    {
+      "id": "data_layer",
+      "label": "Data Layer",
+      "nodes": [
+        "sqlalchemy_orm",
+        "sqlite_db",
+        "postgresql_db"
+      ],
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md"
+    },
+    {
+      "id": "frontend_tech_stack",
+      "label": "Frontend Tech Stack",
+      "nodes": [
+        "nextjs_frontend",
+        "react_flow",
+        "tailwind_css",
+        "framer_motion"
+      ],
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\README.md"
+    },
+    {
+      "id": "backend_tech_stack",
+      "label": "Backend Tech Stack",
+      "nodes": [
+        "fastapi_backend",
+        "langgraph_engine",
+        "anthropic_claude",
+        "sqlalchemy_orm"
+      ],
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\README.md"
+    },
+    {
+      "id": "docker_services",
+      "label": "Docker Services",
+      "nodes": [
+        "docker_compose",
+        "postgresql_db",
+        "fastapi_backend",
+        "nextjs_frontend"
+      ],
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\docker-compose.yml"
+    },
+    {
+      "id": "app_module_structure",
+      "label": "Backend App Module Structure",
+      "nodes": [
+        "main_py",
+        "config_py",
+        "database_py",
+        "app_api",
+        "app_agents",
+        "app_engine",
+        "app_approval",
+        "app_tools"
+      ],
+      "relation": "form",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\CLAUDE.md"
+    },
+    {
+      "id": "demo_workflows",
+      "label": "Demo Workflows",
+      "nodes": [
+        "invoice_workflow",
+        "onboarding_workflow",
+        "complaint_workflow"
+      ],
+      "relation": "form",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\README.md"
+    },
+    {
+      "id": "workflow_node_types",
+      "label": "Workflow Node Types",
+      "nodes": [
+        "six_node_types"
+      ],
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\README.md"
+    },
+    {
+      "id": "flowstate_multi_device_pages",
+      "label": "FlowState Application Across Devices",
+      "nodes": [
+        "desktop_builder_page",
+        "desktop_console_page",
+        "desktop_dashboard_page",
+        "desktop_history_page",
+        "desktop_tools_page",
+        "mobile_builder_page",
+        "mobile_console_page",
+        "mobile_dashboard_page",
+        "mobile_history_page",
+        "mobile_tools_page",
+        "tablet_builder_page",
+        "tablet_console_page",
+        "tablet_dashboard_page",
+        "tablet_history_page",
+        "tablet_tools_page"
+      ],
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\builder.png"
+    },
+    {
+      "id": "customer_onboarding_flow_demo",
+      "label": "Customer Onboarding Demo Flow",
+      "nodes": [
+        "fetch_customers_node",
+        "parse_results_node",
+        "store_output_node",
+        "http_request_tool",
+        "transform_tool",
+        "database_query_tool"
+      ],
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\builder.png"
+    },
+    {
+      "id": "navigation_system",
+      "label": "Application Navigation System",
+      "nodes": [
+        "dashboard_nav",
+        "workflows_nav",
+        "console_nav",
+        "tools_nav",
+        "history_nav"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\builder.png"
+    },
+    {
+      "id": "landing_page_structure",
+      "label": "Landing Page Complete Structure",
+      "nodes": [
+        "landing_hero",
+        "landing_feature_sections",
+        "landing_cta",
+        "landing_footer"
+      ],
+      "relation": "form",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\root.png"
+    },
+    {
+      "id": "dashboard_kpi_set",
+      "label": "Dashboard KPI Metric Set",
+      "nodes": [
+        "dashboard_kpi_cards",
+        "workflow_kpis",
+        "run_status_completed",
+        "run_status_running",
+        "run_status_pending",
+        "run_status_failed"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.95,
+      "source_file": "D:\\claude_code\\OrchestrAI\\frontend\\screenshots\\desktop\\dashboard.png"
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

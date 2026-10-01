@@ -14,6 +14,7 @@ from app.schemas.tool import ToolResult
 from app.agents.compiler import WorkflowCompiler, CompiledWorkflow, CompilationError
 from app.tools.registry import registry
 from app.approval.service import ApprovalService
+from app.utils.safe_eval import safe_eval, SafeEvalError
 
 
 class WorkflowNotFoundError(Exception):
@@ -90,30 +91,13 @@ class WorkflowRunner:
         exec_model.status = ExecutionStatus.RUNNING
         self.db.commit()
 
-        try:
-            # Execute the graph
-            initial_state = {
-                "execution_id": exec_model.id,
-                "steps": [],
-                "context": context or {},
-                "status": ExecutionStatus.RUNNING,
-                "current_node": None,
-            }
+        # Persist steps incrementally during execution
+        persisted_count = 0
 
-            app = compiled.get_compiled()
-            config = {"configurable": {"thread_id": exec_model.id}}
-            final_state = await app.ainvoke(initial_state, config=config)
-
-            # Update execution with final state
-            exec_model.status = final_state.get("status", ExecutionStatus.COMPLETED)
-            exec_model.current_node_id = final_state.get("current_node")
-            exec_model.completed_at = datetime.utcnow()
-
-            if exec_model.status == ExecutionStatus.FAILED:
-                exec_model.error_message = final_state.get("error", "Unknown error")
-
-            # Persist step records
-            for step_data in final_state.get("steps", []):
+        def _persist_steps(steps_data: list[dict]) -> None:
+            nonlocal persisted_count
+            new_steps = steps_data[persisted_count:]
+            for step_data in new_steps:
                 step_model = StepExecutionModel(
                     execution_id=exec_model.id,
                     node_id=step_data.get("node_id", ""),
@@ -129,8 +113,51 @@ class WorkflowRunner:
                     completed_at=step_data.get("completed_at"),
                 )
                 self.db.add(step_model)
+            persisted_count = len(steps_data)
+            self.db.commit()
 
-            # Check for approval gate (overrides completed status if approval is pending)
+        try:
+            # Execute the graph, streaming state after each node for incremental step persistence
+            initial_state = {
+                "execution_id": exec_model.id,
+                "steps": [],
+                "context": context or {},
+                "status": ExecutionStatus.RUNNING,
+                "current_node": None,
+            }
+
+            app = compiled.get_compiled()
+            config = {"configurable": {"thread_id": exec_model.id}}
+            final_state = initial_state
+
+            async for state in app.astream(initial_state, config=config):
+                # state is {node_name: updated_state_dict} — merge all node outputs
+                merged: dict[str, Any] = {}
+                for node_output in state.values():
+                    if isinstance(node_output, dict):
+                        merged.update(node_output)
+
+                # Persist any new steps after each node execution
+                current_steps = merged.get("steps", [])
+                if len(current_steps) > persisted_count:
+                    _persist_steps(current_steps)
+
+                final_state = merged if merged else final_state
+
+            # Update execution with final state
+            exec_model.status = final_state.get("status", ExecutionStatus.COMPLETED)
+            exec_model.current_node_id = final_state.get("current_node")
+            exec_model.completed_at = datetime.utcnow()
+
+            if exec_model.status == ExecutionStatus.FAILED:
+                exec_model.error_message = final_state.get("error", "Unknown error")
+
+            # Persist any remaining steps not yet saved
+            final_steps = final_state.get("steps", [])
+            if len(final_steps) > persisted_count:
+                _persist_steps(final_steps)
+
+            # Check for approval gate
             pending_approval = final_state.get("pending_approval")
             if pending_approval:
                 exec_model.status = ExecutionStatus.WAITING_APPROVAL
@@ -259,8 +286,11 @@ class WorkflowRunner:
             elif node_type == "condition":
                 expression = node.get("expression", "")
                 try:
-                    result = eval(expression, {"__builtins__": {}}, resumed_context)
+                    # Evaluate expression safely (no eval, whitelisted operators only)
+                    result = safe_eval(expression, resumed_context)
                     branch = "true" if result else "false"
+                except SafeEvalError:
+                    branch = "true"
                 except Exception:
                     branch = "true"
 

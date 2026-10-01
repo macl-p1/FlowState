@@ -12,6 +12,7 @@ from app.database import Base
 from app.schemas.workflow import NodeType, PermissionLevel
 from app.schemas.execution import ExecutionStatus, StepStatus
 from app.models.custom_tool import CustomTool  # noqa: F401 — ensures table is registered
+from app.models.genealogy import WorkflowVersionModel, WorkflowBranchModel  # noqa: F401
 
 
 def gen_id() -> str:
@@ -31,6 +32,7 @@ class WorkflowModel(Base):
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
     executions = relationship("WorkflowExecutionModel", back_populates="workflow", cascade="all, delete-orphan")
+    versions = relationship("WorkflowVersionModel", back_populates="workflow", cascade="all, delete-orphan", order_by="WorkflowVersionModel.version_number")
 
 
 class WorkflowExecutionModel(Base):

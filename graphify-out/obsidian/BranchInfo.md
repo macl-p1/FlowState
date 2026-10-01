@@ -1,0 +1,17 @@
+---
+source_file: "frontend/src/lib/api.ts"
+type: "code"
+community: "Frontend Pages"
+location: "L430"
+tags:
+  - graphify/code
+  - graphify/EXTRACTED
+  - community/Frontend_Pages
+---
+
+# BranchInfo
+
+## Connections
+- [[api.ts]] - `contains` [EXTRACTED]
+
+#graphify/code #graphify/EXTRACTED #community/Frontend_Pages

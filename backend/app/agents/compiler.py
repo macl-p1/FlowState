@@ -8,6 +8,7 @@ from langgraph.checkpoint.memory import MemorySaver
 
 from app.schemas.workflow import Workflow
 from app.schemas.execution import ExecutionStatus, StepStatus, StepExecution
+from app.utils.safe_eval import safe_eval, SafeEvalError
 from app.tools.registry import registry
 from datetime import datetime
 import uuid
@@ -178,9 +179,11 @@ def _make_node_executor(node: dict, tool_registry):
         elif node_type == "condition":
             expression = node.get("expression", "")
             try:
-                # Evaluate expression against context
-                result = eval(expression, {"__builtins__": {}}, context)
+                # Evaluate expression safely (no eval, whitelisted operators only)
+                result = safe_eval(expression, context)
                 branch = "true" if result else "false"
+            except SafeEvalError:
+                branch = "true"  # Default to true branch on invalid expression
             except Exception:
                 branch = "true"  # Default to true branch on error
 

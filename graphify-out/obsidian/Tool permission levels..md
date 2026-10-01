@@ -1,0 +1,17 @@
+---
+source_file: "backend/app/schemas/workflow.py"
+type: "rationale"
+community: "Workflow Schema Types"
+location: "L19"
+tags:
+  - graphify/rationale
+  - graphify/EXTRACTED
+  - community/Workflow_Schema_Types
+---
+
+# Tool permission levels.
+
+## Connections
+- [[PermissionLevel]] - `rationale_for` [EXTRACTED]
+
+#graphify/rationale #graphify/EXTRACTED #community/Workflow_Schema_Types
