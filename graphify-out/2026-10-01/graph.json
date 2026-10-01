@@ -14718,7 +14718,7 @@
       "node_kind": "heading",
       "norm_label": "1. execution caching / resumability",
       "source_file": "feature.md",
-      "source_location": "L73"
+      "source_location": "L78"
     },
     {
       "id": "feature_2_workflow_templates_marketplace",
@@ -14730,7 +14730,7 @@
       "node_kind": "heading",
       "norm_label": "2. workflow templates marketplace",
       "source_file": "feature.md",
-      "source_location": "L80"
+      "source_location": "L85"
     },
     {
       "id": "feature_3_real_time_execution_console",
@@ -14742,7 +14742,7 @@
       "node_kind": "heading",
       "norm_label": "3. real-time execution console",
       "source_file": "feature.md",
-      "source_location": "L87"
+      "source_location": "L92"
     },
     {
       "id": "feature_4_multi_env_deployment",
@@ -14754,7 +14754,7 @@
       "node_kind": "heading",
       "norm_label": "4. multi-env deployment",
       "source_file": "feature.md",
-      "source_location": "L93"
+      "source_location": "L98"
     },
     {
       "id": "feature_5_observability_analytics",
@@ -14766,7 +14766,7 @@
       "node_kind": "heading",
       "norm_label": "5. observability & analytics",
       "source_file": "feature.md",
-      "source_location": "L100"
+      "source_location": "L105"
     },
     {
       "id": "feature_backend_core_engine",
@@ -14802,7 +14802,7 @@
       "node_kind": "heading",
       "norm_label": "backend \ufffd evolution engine",
       "source_file": "feature.md",
-      "source_location": "L38"
+      "source_location": "L41"
     },
     {
       "id": "feature_backend_genealogy",
@@ -14838,7 +14838,7 @@
       "node_kind": "heading",
       "norm_label": "frontend",
       "source_file": "feature.md",
-      "source_location": "L44"
+      "source_location": "L49"
     },
     {
       "id": "feature_orchestrai_feature_plan",
@@ -14862,7 +14862,7 @@
       "node_kind": "heading",
       "norm_label": "tests \u2014 146/146 passing",
       "source_file": "feature.md",
-      "source_location": "L58"
+      "source_location": "L63"
     },
     {
       "id": "feature_what_needs_to_be_built",
@@ -14874,7 +14874,7 @@
       "node_kind": "heading",
       "norm_label": "what needs to be built",
       "source_file": "feature.md",
-      "source_location": "L71"
+      "source_location": "L76"
     },
     {
       "id": "feature_what_s_built",
@@ -41934,7 +41934,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "feature.md",
-      "source_location": "L71",
+      "source_location": "L76",
       "weight": 1.0
     },
     {
@@ -41945,7 +41945,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "feature.md",
-      "source_location": "L100",
+      "source_location": "L105",
       "weight": 1.0
     },
     {
@@ -41956,7 +41956,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "feature.md",
-      "source_location": "L73",
+      "source_location": "L78",
       "weight": 1.0
     },
     {
@@ -41967,7 +41967,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "feature.md",
-      "source_location": "L80",
+      "source_location": "L85",
       "weight": 1.0
     },
     {
@@ -41978,7 +41978,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "feature.md",
-      "source_location": "L87",
+      "source_location": "L92",
       "weight": 1.0
     },
     {
@@ -41989,7 +41989,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "feature.md",
-      "source_location": "L93",
+      "source_location": "L98",
       "weight": 1.0
     },
     {
@@ -42033,7 +42033,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "feature.md",
-      "source_location": "L38",
+      "source_location": "L41",
       "weight": 1.0
     },
     {
@@ -42044,7 +42044,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "feature.md",
-      "source_location": "L44",
+      "source_location": "L49",
       "weight": 1.0
     },
     {
@@ -42066,7 +42066,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "feature.md",
-      "source_location": "L58",
+      "source_location": "L63",
       "weight": 1.0
     },
     {

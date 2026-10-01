@@ -1,7 +1,7 @@
 # Graph Report - OrchestrAI  (2026-10-01)
 
 ## Corpus Check
-- 128 files · ~167,292 words
+- 128 files · ~167,369 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 11 file(s) not represented in the graph (top: (none) 6, .graphify-bak 1, .ini 1)
 
@@ -463,9 +463,9 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `SQLAlchemy ORM` connect `models/__init__.py` to `runs.py`, `api/quality.py`, `workflows.py`, `api/integrations.py`, `approvals.py`, `conftest.py`, `Anthropic Claude API`, `WorkflowRunner Engine`, `typing`, `WorkflowModel`, `ExecutionStatus`, `custom_tools.py`, `test_api.py`, `OrchestrAI Platform`?**
   _High betweenness centrality (0.160) - this node is a cross-community bridge._
 - **Why does `ToolResult` connect `ToolResult` to `implementations.py`, `Tool`, `registry.py`, `IntegrationHandler`, `WorkflowRunner`, `conftest.py`, `asyncio`, `tools/integrations.py`, `TestVerifierLLM`, `test_schemas.py`, `.execute`, `ToolRegistry`, `4. Tool Execution Tests`, `ExecutionStatus`, `VerifierAgent`, `validate_invoice`, `create_calendar_event`, `test_api.py`?**
-  _High betweenness centrality (0.154) - this node is a cross-community bridge._
+  _High betweenness centrality (0.153) - this node is a cross-community bridge._
 - **Why does `Tool Registry` connect `Tool Registry` to `Workflow Compiler`, `Anthropic Claude API`, `WorkflowRunner Engine`?**
-  _High betweenness centrality (0.108) - this node is a cross-community bridge._
+  _High betweenness centrality (0.107) - this node is a cross-community bridge._
 - **Are the 8 inferred relationships involving `ToolResult` (e.g. with `VerifierAgent` and `WorkflowRunner`) actually correct?**
   _`ToolResult` has 8 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 29 inferred relationships involving `WorkflowRunner` (e.g. with `approve_request()` and `reject_request()`) actually correct?**

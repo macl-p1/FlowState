@@ -23910,7 +23910,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/app/page.tsx",
-      "source_location": "L458",
+      "source_location": "L452",
       "weight": 1.0
     },
     {
@@ -57038,5 +57038,5 @@
       "source_file": ".claude/skills/design-md-planner/assets/DESIGN.example.md"
     }
   ],
-  "built_at_commit": "580b44c1b5a344066bdf425c9219ffb6ed56c0d4"
+  "built_at_commit": "1b329e9a82f85124aaef546e0d6e15c5964fe54c"
 }

@@ -444,21 +444,21 @@
     "semantic_hash": "25f303f21ab3cd99c92d06737cd56f80"
   },
   "frontend/src/app/layout.tsx": {
-    "mtime": 1790685436.6472766,
-    "seen": 1790817960.7987342,
-    "ast_hash": "f86a867ef76a50f61c4b5f4f09d089ec",
-    "semantic_hash": "f86a867ef76a50f61c4b5f4f09d089ec"
+    "mtime": 1790829470.5012717,
+    "seen": 1790829482.553038,
+    "ast_hash": "eb88606194d2e7849cf1462a51cc5260",
+    "semantic_hash": ""
   },
   "frontend/src/app/page.tsx": {
-    "mtime": 1790694315.7410963,
-    "seen": 1790817960.7987342,
-    "ast_hash": "6aedd2b886207f61596a83f4a0a83544",
-    "semantic_hash": "6aedd2b886207f61596a83f4a0a83544"
+    "mtime": 1790829470.4699335,
+    "seen": 1790829482.553038,
+    "ast_hash": "b4ac3b9dfd83d0b509512b46eb0b3a75",
+    "semantic_hash": ""
   },
   "frontend/src/components/AppSidebar.tsx": {
-    "mtime": 1790826810.0134232,
-    "seen": 1790826821.3105228,
-    "ast_hash": "496ee4b6f0d642b14efc4fac5134c81c",
+    "mtime": 1790829470.3933015,
+    "seen": 1790829482.553038,
+    "ast_hash": "ff694eb9c254486067522a02446a16d2",
     "semantic_hash": ""
   },
   "frontend/src/components/FlowNode.tsx": {
@@ -468,10 +468,10 @@
     "semantic_hash": "4c83e3f92e9c3c66a7bd2e1aba35b26e"
   },
   "frontend/src/components/LandingNav.tsx": {
-    "mtime": 1790659103.919104,
-    "seen": 1790817960.7987342,
-    "ast_hash": "4bfe6893703627b8a8ed38b234c90857",
-    "semantic_hash": "4bfe6893703627b8a8ed38b234c90857"
+    "mtime": 1790829470.4134169,
+    "seen": 1790829482.553038,
+    "ast_hash": "5dcd7701f13151193b4cde3026e52dc6",
+    "semantic_hash": ""
   },
   "frontend/src/components/SuggestionsPanel.tsx": {
     "mtime": 1790826834.238912,
