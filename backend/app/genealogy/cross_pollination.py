@@ -6,6 +6,8 @@ from anthropic import Anthropic
 
 from app.config import settings
 
+MIN_SIMILARITY = 0.15  # ponytail: structural relevance threshold
+
 
 # ── Pattern Definitions ──────────────────────────────────────────────────────
 
@@ -709,14 +711,14 @@ def _structural_suggestions(
     top_k: int = 5,
 ) -> list[dict[str, Any]]:
     """
-    Generate cross-pollination suggestions for a workflow.
+    Cross-pollination suggestions from similar workflows, weighted by outcome evidence.
 
-    Compares against all other workflows, finds the top_k most similar ones,
-    identifies pattern gaps, and optionally enriches with LLM.
-
-    Returns a list of suggestion dicts, sorted by similarity_score descending.
+    A candidate that adopted a pattern AND improved gets a higher similarity score
+    than one that merely has it. Collective consensus (N workflows already using it)
+    also strengthens the suggestion.
     """
     from app.models import WorkflowModel
+    from app.api.quality import workflow_quality
 
     target = db.query(WorkflowModel).filter(WorkflowModel.id == workflow_id).first()
     if not target:
@@ -726,12 +728,34 @@ def _structural_suggestions(
         WorkflowModel.id != workflow_id
     ).all()
 
-    if len(all_workflows) < 1:
+    if not all_workflows:
         return []
 
     target_info = extract_patterns(target.nodes or [], target.edges or [])
     target_nodes = target.nodes or []
     target_edges = target.edges or []
+
+    # Pre-compute: outcome evidence per workflow (success rate, override rate, eval score)
+    wf_evidence: dict[str, dict] = {}
+    for wf in all_workflows:
+        try:
+            q = workflow_quality(db, wf.id)
+            wf_evidence[wf.id] = q
+        except Exception:
+            wf_evidence[wf.id] = {}
+
+    # Pre-compute: pattern adoption timelines for outcome evidence
+    from app.genealogy.history_insights import pattern_timeline, pattern_events, version_outcomes, event_evidence
+    wf_timelines: dict[str, list[dict]] = {}
+    wf_outcomes: dict[str, dict] = {}
+    for wf in all_workflows:
+        try:
+            tl = pattern_timeline(db, wf.id)
+            wf_timelines[wf.id] = tl
+            wf_outcomes[wf.id] = version_outcomes(db, wf.id, tl)
+        except Exception:
+            wf_timelines[wf.id] = []
+            wf_outcomes[wf.id] = {}
 
     # Score all candidates
     candidates = []
@@ -744,11 +768,82 @@ def _structural_suggestions(
         cand_info = extract_patterns(wf_nodes, wf_edges)
         score = compute_similarity(target_info, cand_info)
 
-        if score < 0.15:
+        if score < MIN_SIMILARITY:
             continue
 
         # Find pattern gaps
         gaps = find_pattern_gaps(target_info, cand_info)
+        if not gaps:
+            continue
+
+        # Attach outcome evidence to each gap
+        timeline = wf_timelines.get(wf.id, [])
+        outcomes = wf_outcomes.get(wf.id, {})
+        ev = wf_evidence.get(wf.id, {})
+
+        # Pattern adoption events with outcome evidence
+        adoption_evidence: dict[str, dict] = {}
+        for evt in pattern_events(timeline):
+            if evt["kind"] == "adopted" and evt["pattern"] in cand_info["patterns"] and cand_info["patterns"][evt["pattern"]]:
+                ee = event_evidence(evt, timeline, outcomes)
+                if ee["verdict"] != "worse":
+                    adoption_evidence[evt["pattern"]] = ee
+
+        # For patterns the workflow always had, estimate from overall quality
+        for g in gaps:
+            pat = g["pattern"]
+            if pat not in adoption_evidence and cand_info["patterns"].get(pat):
+                adoption_evidence[pat] = {
+                    "verdict": "unknown",
+                    "before": {"runs": 0, "rate": None},
+                    "after": {"runs": ev.get("runs", 0), "rate": ev.get("avg_score")},
+                    "from_quality": True,
+                }
+
+        # Count how many other workflows also have this pattern (consensus)
+        pattern_consensus: dict[str, int] = {}
+        for other in all_workflows:
+            if other.id == wf.id:
+                continue
+            o_info = extract_patterns(other.nodes or [], other.edges or [])
+            for g in gaps:
+                if o_info["patterns"].get(g["pattern"]):
+                    pattern_consensus[g["pattern"]] = pattern_consensus.get(g["pattern"], 0) + 1
+
+        for g in gaps:
+            pat = g["pattern"]
+            ae = adoption_evidence.get(pat)
+            evidence_text = ""
+            if ae:
+                if ae["verdict"] == "improved":
+                    b_rate = ae["before"]["rate"] or 0
+                    a_rate = ae["after"]["rate"] or 0
+                    evidence_text = f"'{wf.name}' adopted this and success went {b_rate:.0%} → {a_rate:.0%}"
+                elif ae.get("from_quality"):
+                    a_rate = ae["after"]["rate"]
+                    if a_rate is not None:
+                        evidence_text = f"'{wf.name}' has this; avg run score {a_rate:.0%}"
+                    else:
+                        evidence_text = f"'{wf.name}' has this pattern"
+                else:
+                    evidence_text = f"'{wf.name}' adopted this (too few runs to measure effect)"
+            else:
+                evidence_text = f"'{wf.name}' has this pattern"
+
+            # Consensus boost
+            consensus_n = pattern_consensus.get(pat, 0)
+            if consensus_n > 0:
+                evidence_text += f"; {consensus_n + 1} workflow(s) total use it"
+
+            # Outcome-weighted similarity: base score + evidence boost
+            weighted = score
+            if ae and ae["verdict"] == "improved":
+                weighted = min(1.0, weighted + 0.15)
+            elif ae and ae["verdict"] == "unknown" and ae.get("from_quality"):
+                weighted = weighted + 0.05
+
+            g["_evidence_text"] = evidence_text
+            g["_weighted_score"] = round(weighted, 4)
 
         candidates.append({
             "id": wf.id,
@@ -759,10 +854,11 @@ def _structural_suggestions(
             "info": cand_info,
             "gaps": gaps,
             "gap_patterns": [g["pattern"] for g in gaps],
+            "evidence": ev,
         })
 
-    # Sort by score descending, take top_k
-    candidates.sort(key=lambda c: c["score"], reverse=True)
+    # Sort by weighted score descending, take top_k
+    candidates.sort(key=lambda c: max((g["_weighted_score"] for g in c["gaps"]), default=0), reverse=True)
     top_candidates = candidates[:top_k]
 
     if not top_candidates:
@@ -787,18 +883,22 @@ def _structural_suggestions(
                     workflow_id, top_candidates[0], sugg
                 ))
     else:
-        # Fallback: use structural suggestions
+        # Fallback: use weighted structural suggestions with evidence
         for cand in top_candidates:
             for gap in cand["gaps"]:
                 pat = gap["pattern"]
                 if pat not in seen_patterns:
                     seen_patterns.add(pat)
                     suggestions.append(_finalize_suggestion(
-                        workflow_id, cand, gap
+                        workflow_id, cand, gap, "structural",
+                        gap.get("_evidence_text"),
                     ))
 
-    # Sort by score descending
-    suggestions.sort(key=lambda s: s["similarity_score"], reverse=True)
+    def _sort_key(s):
+        ws = (s.get("evidence") or {}).get("weighted_score")
+        return -ws if ws is not None else -s["similarity_score"]
+
+    suggestions.sort(key=_sort_key)
     return suggestions[:top_k * 2]  # up to 2 suggestions per candidate
 
 
@@ -806,9 +906,14 @@ def _finalize_suggestion(
     workflow_id: str,
     candidate: dict[str, Any],
     gap: dict[str, Any],
+    origin: str = "structural",
+    evidence_text: str | None = None,
 ) -> dict[str, Any]:
     """Build the final suggestion dict with a stable ID."""
     import uuid
+    ev: dict[str, Any] = {}
+    if evidence_text:
+        ev = {"text": evidence_text, "verdict": "unknown", "weighted_score": gap.get("_weighted_score", candidate["score"])}
     return {
         "id": f"sugg_{uuid.uuid4().hex[:8]}",
         "workflow_id": workflow_id,
@@ -822,4 +927,6 @@ def _finalize_suggestion(
         "target_node_id": gap.get("target_node_id"),
         "actionable": True,
         "apply_patch": gap.get("apply_patch", {}),
+        "origin": origin,
+        "evidence": ev or None,
     }

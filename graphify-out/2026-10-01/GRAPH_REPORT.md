@@ -1,113 +1,112 @@
 # Graph Report - OrchestrAI  (2026-10-01)
 
 ## Corpus Check
-- 134 files · ~172,835 words
+- 137 files · ~178,177 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 11 file(s) not represented in the graph (top: (none) 6, .graphify-bak 1, .ini 1)
 
 ## Summary
-- 1781 nodes · 3640 edges · 130 communities (82 shown, 48 thin omitted)
-- Extraction: 90% EXTRACTED · 10% INFERRED · 0% AMBIGUOUS · INFERRED: 350 edges (avg confidence: 0.93)
+- 1857 nodes · 3918 edges · 134 communities (84 shown, 50 thin omitted)
+- Extraction: 91% EXTRACTED · 9% INFERRED · 0% AMBIGUOUS · INFERRED: 366 edges (avg confidence: 0.93)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `2c1dfcd1`
+- Built from commit: `b485291b`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
 - implementations.py
-- ToolResult
-- api.ts
+- VerifierAgent
+- fetchWithAuth
 - TestPlannerAgent
 - package.json
-- api/quality.py
-- generate_workflow
-- compiler.py
+- conftest.py
+- workflows.py
+- StepExecution
 - api/integrations.py
 - IntegrationHandler
-- api/triggers.py
-- enqueue_run
+- jobs.py
+- ExecutionStatus
 - asyncio
 - BuilderClient.tsx
 - lucide-react
-- console/page.tsx
-- runner.py
+- ConsoleClient.tsx
+- config.py
 - CustomTool
 - tools/integrations.py
 - FlowState Application
 - Workflow Builder Page
-- ToolRegistry
-- client
+- 2. Schema Validation Tests
+- history_insights.py
 - compilerOptions
 - design-md-planner skill
-- OrchestrAI Backend — Comprehensive Test Cases
+- 7. Integration / End-to-End Tests
 - compute_diff
-- VerifierAgent
-- ApprovalService
-- GenealogyService
+- apply_patch_to_workflow
+- ToolRegistry
+- evolve_workflow
 - TestApiKeyAuth
 - OrchestrAI Platform
 - WorkflowCompiler
 - Dashboard Page
-- config.py
-- Worker
-- test_quality.py
-- conftest.py
-- custom_tools.py
+- 8. Edge Cases & Stress Tests
+- ToolResult
+- GenealogyService
+- fixture
+- test_history.py
 - Tool Registry
-- approvals.py
-- test_jobs.py
+- custom_tools.py
+- test_approval.py
 - WorkflowModel
 - workflow.py
 - 1. API Endpoint Tests
 - Anthropic Claude API
 - WorkflowRunner Engine
-- 10. Performance Tests
+- ApprovalRequestModel
 - graphify skill
-- schemas/suggestions.py
-- get_tool
+- extract_patterns
+- OrchestrAI Backend — Comprehensive Test Cases
 - Next.js Frontend
 - Landing Feature Sections
 - FastAPI main.py Entry Point
-- analytics/page.tsx
-- WorkflowRunner
-- models/custom_tool.py
+- ApprovalNotFoundError
+- tool.py
+- evaluator.py
 - history/page.tsx
-- TestInvalidWorkflows
-- VersionHistoryPanel.tsx
+- ToolAlreadyRegisteredError
+- EvolvePanel.tsx
 - 5. Workflow Runner Tests
 - PlannerAgent
 - OrchestrAI — Run Instructions
-- .run
+- CompiledWorkflow
 - Workflow Compiler
 - Frontend Pages
-- cross_pollination.py
-- Session
+- get_suggestions
+- reject_request
 - Navigation Sidebar
 - Dark Theme UI
 - TestWorkflowAPI
 - 6. Approval Service Tests
 - What's Built
-- planner.py
-- tool.py
-- Workflow
+- .run
+- cross_pollination.py
 - 9. Security Tests
+- UnknownToolError
 - TriggersPanel.tsx
-- find_pattern_gaps
-- apply_patch_to_workflow
-- extract_patterns
-- TestCompilerSequential
+- ApprovalService
+- typing
 - TestCompilerEdgeCases
-- 2. Schema Validation Tests
-- CompiledWorkflow
-- auth.py
+- Session
+- WorkflowRunner
+- models/custom_tool.py
+- VersionHistoryPanel.tsx
 - 4. Tool Execution Tests
-- ExecutionStatus
+- Session
 - TestToolAPI
-- TestApprovalQueries
-- dashboard/page.tsx
-- _run_verification_test
+- TestToolRegistration
+- api.ts
+- _version_to_dict
 - AGENTS.md
 - postcss.config.mjs
 - Backend README
@@ -118,44 +117,47 @@
 - Node Status: Pending
 - Node Status: Queued
 - Universal Workflow Automation
-- TestVerifierLLM
-- replay_run
-- test_schemas.py
+- auth.py
 - apply_suggestion
-- TestApprovalCreation
-- WorkflowInvalid
-- compute_similarity
-- get_suggestions
+- _run_verification_test
+- TestCompilerSequential
+- DiffResult
+- WorkflowVersionModel
 - models/__init__.py
-- cron_next
+- compute_similarity
+- Workflow
+- TestVerifierLLM
 - app/layout.tsx
-- TestApprovalResolution
+- test_schemas.py
 - TestApprovalAPI
 - TestRunAPI
+- get_tool
+- create_calendar_event
+- .list_pending
 
 ## God Nodes (most connected - your core abstractions)
 1. `ToolResult` - 91 edges
-2. `ExecutionStatus` - 53 edges
+2. `ExecutionStatus` - 59 edges
 3. `WorkflowRunner` - 50 edges
-4. `fetchWithAuth()` - 47 edges
-5. `handleResponse()` - 45 edges
-6. `ToolRegistry` - 41 edges
-7. `WorkflowModel` - 40 edges
-8. `Workflow` - 36 edges
+4. `fetchWithAuth()` - 48 edges
+5. `WorkflowModel` - 46 edges
+6. `handleResponse()` - 46 edges
+7. `ToolRegistry` - 41 edges
+8. `Workflow` - 38 edges
 9. `PlannerAgent` - 35 edges
-10. `ApprovalService` - 29 edges
+10. `GenealogyService` - 33 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `TC-RUN-002: Happy Path — Branching Workflow (Onboarding)` --references--> `WorkflowRunner`  [INFERRED]
+- `TC-EDGE-007: Empty Workflow Prompt to Planner` --references--> `PlanningResult`  [INFERRED]
+  backend/test-cases.md → backend/app/agents/planner.py
+- `TC-APR-014: Create Approval With Default Parameters` --references--> `ApprovalService`  [INFERRED]
+  backend/test-cases.md → backend/app/approval/service.py
+- `TC-RUN-009: Error Handling — Unknown Workflow` --references--> `WorkflowNotFoundError`  [INFERRED]
   backend/test-cases.md → backend/app/engine/runner.py
-- `TC-SCH-009: ExecutionStatus Enum Contains All Required States` --references--> `ExecutionStatus`  [INFERRED]
-  backend/test-cases.md → backend/app/schemas/execution.py
-- `TC-SCH-010: StepStatus Enum Contains All Required States` --references--> `StepStatus`  [INFERRED]
-  backend/test-cases.md → backend/app/schemas/execution.py
-- `TC-API-016: Get Specific Tool Details` --references--> `send_email()`  [INFERRED]
-  backend/test-cases.md → backend/app/tools/implementations.py
-- `TC-EDGE-014: Empty Tool Inputs` --references--> `send_email()`  [INFERRED]
-  backend/test-cases.md → backend/app/tools/implementations.py
+- `TC-RUN-013: Resume Non-Existent Execution` --references--> `WorkflowNotFoundError`  [INFERRED]
+  backend/test-cases.md → backend/app/engine/runner.py
+- `TC-RUN-014: Cancel Non-Existent Execution` --references--> `WorkflowNotFoundError`  [INFERRED]
+  backend/test-cases.md → backend/app/engine/runner.py
 
 ## Import Cycles
 - None detected.
@@ -179,19 +181,19 @@
 - **Workflow Node Types** — six_node_types [EXTRACTED 1.00]
 - **Kiln design system concept cluster** — kiln_design_system, claude_skills_design_md_planner_assets_design_example_kiln_design_system, warm_analog_aesthetic, archival_institutional_aesthetic, ai_design_slop, oklch_color_space, google_design_md_linter, design_md_format_spec [INFERRED 0.90]
 
-## Communities (130 total, 48 thin omitted)
+## Communities (134 total, 50 thin omitted)
 
 ### Community 0 - "implementations.py"
 Cohesion: 0.04
-Nodes (34): aggregate_metrics(), check_health(), classify_text(), conditional_router(), create_calendar_event(), create_invoice(), create_lead(), create_task() (+26 more)
+Nodes (32): aggregate_metrics(), check_health(), classify_text(), conditional_router(), create_invoice(), create_lead(), delay(), delete_file() (+24 more)
 
-### Community 1 - "ToolResult"
-Cohesion: 0.13
-Nodes (8): ToolResult, export_csv(), fan_in(), get_employee_info(), validate_invoice(), TC-TOOL-017: validate_invoice — Detects Large Amounts, TestToolResult, TestVerifierRuleBased
+### Community 1 - "VerifierAgent"
+Cohesion: 0.15
+Nodes (6): VerificationResult, VerifierAgent, TC-AGT-016: Verifier Rule-Based — Success Verdict, TC-AGT-020: Verifier LLM-Based Verification With Mock, TC-AGT-021: Verifier Falls Back to Rule-Based on LLM Error, verifier()
 
-### Community 2 - "api.ts"
-Cohesion: 0.07
-Nodes (64): ConsoleClient(), ConsoleClientProps, getNodeState(), NODE_ICONS, NodeState, nodeStateStyles, statusLabel, statusStyles (+56 more)
+### Community 2 - "fetchWithAuth"
+Cohesion: 0.12
+Nodes (38): ConsoleClient(), FormData, STATUS_LABEL, STATUS_STYLES, TOOL_TYPE_LABELS, TOOL_TYPES, ToolsPage(), TYPE_ICONS (+30 more)
 
 ### Community 3 - "TestPlannerAgent"
 Cohesion: 0.23
@@ -199,54 +201,54 @@ Nodes (3): make_mock_client(), make_mock_client_with_sequence(), TestPlannerAgen
 
 ### Community 4 - "package.json"
 Cohesion: 0.05
-Nodes (39): eslintConfig, dependencies, lucide-react, next, react, react-dom, @xyflow/react, devDependencies (+31 more)
+Nodes (38): eslintConfig, dependencies, lucide-react, next, react, react-dom, @xyflow/react, devDependencies (+30 more)
 
-### Community 5 - "api/quality.py"
-Cohesion: 0.13
-Nodes (10): _rate(), stats(), add_correction(), CorrectionRequest, get_evaluation(), get_quality(), serialize_evaluation(), workflow_quality() (+2 more)
+### Community 5 - "conftest.py"
+Cohesion: 0.07
+Nodes (9): get_db_context(), WorkflowNotFoundError, StepExecutionModel, StepStatus, WorkflowExecution, persisted_invoice_workflow(), persisted_onboarding_workflow(), runner() (+1 more)
 
-### Community 6 - "generate_workflow"
-Cohesion: 0.15
-Nodes (10): delete_workflow(), generate_workflow(), GenerateRequest, get_workflow(), list_workflows(), run_workflow(), RunRequest, save_workflow_direct() (+2 more)
+### Community 6 - "workflows.py"
+Cohesion: 0.10
+Nodes (15): cancel_run(), replay_run(), ReplayRequest, delete_workflow(), generate_workflow(), GenerateRequest, get_workflow(), list_workflows() (+7 more)
 
-### Community 7 - "compiler.py"
-Cohesion: 0.13
+### Community 7 - "StepExecution"
+Cohesion: 0.16
 Nodes (6): _make_node_executor(), execute(), StepExecution, _eval_node(), safe_eval(), SafeEvalError
 
 ### Community 8 - "api/integrations.py"
 Cohesion: 0.11
 Nodes (11): get_integration(), _get_tool_or_404(), list_integrations(), remove_integration(), set_integration(), _tool_to_response(), verify_integration(), CustomToolResponse (+3 more)
 
-### Community 10 - "api/triggers.py"
-Cohesion: 0.19
-Nodes (9): create_trigger(), delete_trigger(), list_triggers(), _serialize(), TriggerCreate, TriggerUpdate, update_trigger(), next_fire() (+1 more)
+### Community 10 - "jobs.py"
+Cohesion: 0.11
+Nodes (14): create_trigger(), delete_trigger(), fire_webhook(), list_triggers(), _serialize(), TriggerCreate, TriggerUpdate, update_trigger() (+6 more)
 
-### Community 11 - "enqueue_run"
-Cohesion: 0.24
-Nodes (12): enqueue_run(), recover_interrupted(), slow(), _status(), test_cancel_while_queued_is_never_started(), test_concurrency_cap_and_cancel(), test_enqueue_rejects_unrunnable_workflow(), test_queued_run_executes_with_provenance() (+4 more)
+### Community 11 - "ExecutionStatus"
+Cohesion: 0.16
+Nodes (23): enqueue_run(), recover_interrupted(), WorkflowExecutionModel, RunMetaModel, ExecutionStatus, create_execution_at_approval(), _cleanup(), _create_wf() (+15 more)
 
 ### Community 13 - "BuilderClient.tsx"
-Cohesion: 0.11
-Nodes (24): BuilderClient(), BuilderInner(), defaultEdges, defaultNodes, LabeledEdgeMemo, snap(), toBackendGraph(), toFlowGraph() (+16 more)
+Cohesion: 0.10
+Nodes (28): BuilderClient(), BuilderInner(), defaultEdges, defaultNodes, LabeledEdgeMemo, snap(), toBackendGraph(), toFlowGraph() (+20 more)
 
 ### Community 14 - "lucide-react"
+Cohesion: 0.16
+Nodes (13): nextConfig, AppLayout(), demoSteps, features, LandingPage(), RunIdSpan(), templates, AppSidebar() (+5 more)
+
+### Community 15 - "ConsoleClient.tsx"
 Cohesion: 0.12
-Nodes (20): nextConfig, AppLayout(), demoSteps, features, LandingPage(), RunIdSpan(), templates, AppSidebar() (+12 more)
+Nodes (15): ConsoleClientProps, getNodeState(), NODE_ICONS, NodeState, nodeStateStyles, statusLabel, statusStyles, dynamic (+7 more)
 
-### Community 15 - "console/page.tsx"
-Cohesion: 0.50
-Nodes (3): dynamic, Page(), PageProps
-
-### Community 16 - "runner.py"
-Cohesion: 0.11
-Nodes (5): get_db(), get_db_context(), get_worker(), health(), lifespan()
+### Community 16 - "config.py"
+Cohesion: 0.18
+Nodes (3): Config, Settings, main()
 
 ### Community 17 - "CustomTool"
 Cohesion: 0.17
 Nodes (9): create_custom_tool(), delete_custom_tool(), get_custom_tool(), list_all_tools(), list_custom_tools(), list_custom_tools_by_type(), register_custom_tool(), _tool_to_response() (+1 more)
 
 ### Community 18 - "tools/integrations.py"
-Cohesion: 0.14
+Cohesion: 0.16
 Nodes (3): _mask(), _mask_credentials(), TestCredentialMasking
 
 ### Community 19 - "FlowState Application"
@@ -257,13 +259,13 @@ Nodes (17): FlowState Application, FlowState Logo, Vercel Logo, Workflow Builder
 Cohesion: 0.16
 Nodes (19): Approval UI, Canvas Grid Background, Customer Onboarding Workflow, Fetch Customers Node, Workflow Builder Page, Console Output Log, Execution Console Page, Glassmorphism Design System (+11 more)
 
-### Community 21 - "ToolRegistry"
-Cohesion: 0.05
-Nodes (20): ToolAlreadyRegisteredError, ToolRegistry, UnknownToolError, 8. Edge Cases & Stress Tests, TC-EDGE-001: Very Large Workflow (50+ Nodes), TC-EDGE-003: Missing Tool Handler at Runtime, TC-EDGE-004: Node Execution Timeout, TC-EDGE-005: Malformed Context Data (+12 more)
+### Community 21 - "2. Schema Validation Tests"
+Cohesion: 0.14
+Nodes (15): 2. Schema Validation Tests, TC-SCH-001: Valid Invoice Processing Workflow Passes Validation, TC-SCH-002: Valid Employee Onboarding Workflow Passes Validation, TC-SCH-003: Missing Trigger Node Rejected, TC-SCH-004: Multiple Trigger Nodes Rejected, TC-SCH-005: Duplicate Node IDs Rejected, TC-SCH-006: Orphaned Edge Source Rejected, TC-SCH-007: Orphaned Edge Target Rejected (+7 more)
 
-### Community 22 - "client"
-Cohesion: 0.25
-Nodes (4): auth_client(), client(), override_get_db(), setup_test_db()
+### Community 22 - "history_insights.py"
+Cohesion: 0.21
+Nodes (9): graph_key(), event_evidence(), _evidence_text(), _finish(), history_suggestions(), pattern_events(), pattern_timeline(), _side() (+1 more)
 
 ### Community 23 - "compilerOptions"
 Cohesion: 0.11
@@ -273,25 +275,21 @@ Nodes (18): compilerOptions, allowJs, esModuleInterop, incremental, isolatedModu
 Cohesion: 0.33
 Nodes (12): Archival Institutional aesthetic direction, Kiln — worked DESIGN.md example, DESIGN.md template skeleton, design-md-planner README, cli.md — @google/design.md CLI reference, designmd-spec.md — DESIGN.md format spec, design-md-planner skill, DESIGN.md format specification (+4 more)
 
-### Community 25 - "OrchestrAI Backend — Comprehensive Test Cases"
-Cohesion: 0.17
-Nodes (11): 7. Integration / End-to-End Tests, OrchestrAI Backend — Comprehensive Test Cases, Table of Contents, TC-E2E-001: Full Invoice Processing Workflow, TC-E2E-002: Full Employee Onboarding Workflow, TC-E2E-003: Full Customer Support Workflow, TC-E2E-004: Workflow With Retry on Failure, TC-E2E-005: Workflow With Multiple Condition Nodes (+3 more)
+### Community 25 - "7. Integration / End-to-End Tests"
+Cohesion: 0.15
+Nodes (12): RunnerError, 7. Integration / End-to-End Tests, TC-E2E-001: Full Invoice Processing Workflow, TC-E2E-002: Full Employee Onboarding Workflow, TC-E2E-003: Full Customer Support Workflow, TC-E2E-004: Workflow With Retry on Failure, TC-E2E-005: Workflow With Multiple Condition Nodes, TC-E2E-006: Concurrent Workflow Executions (+4 more)
 
 ### Community 26 - "compute_diff"
-Cohesion: 0.11
-Nodes (5): compute_diff(), DiffResult, _edge_condition_key(), _serialize(), TestComputeDiff
+Cohesion: 0.19
+Nodes (4): compute_diff(), _edge_condition_key(), _serialize(), TestComputeDiff
 
-### Community 27 - "VerifierAgent"
-Cohesion: 0.15
-Nodes (6): VerificationResult, VerifierAgent, TC-AGT-016: Verifier Rule-Based — Success Verdict, TC-AGT-020: Verifier LLM-Based Verification With Mock, TC-AGT-021: Verifier Falls Back to Rule-Based on LLM Error, verifier()
+### Community 27 - "apply_patch_to_workflow"
+Cohesion: 0.18
+Nodes (5): _anchor_refs(), apply_patch_to_workflow(), ref(), PatchError, TestApplyPatch
 
-### Community 28 - "ApprovalService"
-Cohesion: 0.10
-Nodes (9): ApprovalService, ApprovalRequestModel, TC-APR-001: Create Pending Approval Request, TC-APR-009: Get Existing Approval by ID, TC-APR-013: Approval Persists Across Session Close/Reopen, TC-APR-014: Create Approval With Default Parameters, create_pending_approval(), approval_service() (+1 more)
-
-### Community 29 - "GenealogyService"
-Cohesion: 0.09
-Nodes (12): branch_workflow(), BranchWorkflowRequest, evolve_workflow(), EvolveRequest, get_history(), get_lineage(), get_version(), save_version() (+4 more)
+### Community 29 - "evolve_workflow"
+Cohesion: 0.18
+Nodes (8): branch_workflow(), BranchWorkflowRequest, evolve_workflow(), EvolveRequest, restore_version(), RestoreRequest, save_version(), SaveVersionRequest
 
 ### Community 31 - "OrchestrAI Platform"
 Cohesion: 0.14
@@ -299,43 +297,47 @@ Nodes (12): Backend Architecture Plan, 21-Session Build Plan, Customer Complaint
 
 ### Community 32 - "WorkflowCompiler"
 Cohesion: 0.10
-Nodes (11): CompilationError, WorkflowCompiler, TC-AGT-010: Compiler Rejects Workflow Without Trigger, TC-AGT-011: Compiler Rejects Workflow With Multiple Triggers, TC-AGT-012: Compiler Handles Condition Nodes with True/False Branches, TC-AGT-013: Compiler Handles Approval Nodes, TC-AGT-014: Compiler Handles Retry Configuration on Nodes, TC-AGT-015: Compiler Minimal Workflow (Trigger + End Only) (+3 more)
+Nodes (12): CompilationError, WorkflowCompiler, TC-AGT-010: Compiler Rejects Workflow Without Trigger, TC-AGT-011: Compiler Rejects Workflow With Multiple Triggers, TC-AGT-012: Compiler Handles Condition Nodes with True/False Branches, TC-AGT-013: Compiler Handles Approval Nodes, TC-AGT-014: Compiler Handles Retry Configuration on Nodes, TC-AGT-015: Compiler Minimal Workflow (Trigger + End Only) (+4 more)
 
 ### Community 33 - "Dashboard Page"
 Cohesion: 0.14
 Nodes (14): Daily Report Generator Workflow, Dashboard KPI Cards, Dashboard Page, Run History Page, Invoice Processor Workflow, Run History Table, Run Status: Completed, Run Status: Failed (+6 more)
 
-### Community 34 - "config.py"
-Cohesion: 0.18
-Nodes (3): Config, Settings, main()
+### Community 34 - "8. Edge Cases & Stress Tests"
+Cohesion: 0.15
+Nodes (13): 8. Edge Cases & Stress Tests, TC-EDGE-001: Very Large Workflow (50+ Nodes), TC-EDGE-004: Node Execution Timeout, TC-EDGE-005: Malformed Context Data, TC-EDGE-006: Database Connection Loss During Execution, TC-EDGE-007: Empty Workflow Prompt to Planner, TC-EDGE-008: Workflow With Only Trigger and End (No Intermediate Nodes), TC-EDGE-009: Unicode and Special Characters in Workflow Names and Inputs (+5 more)
 
-### Community 36 - "test_quality.py"
-Cohesion: 0.39
-Nodes (8): evaluate_run(), _cleanup(), _seed(), test_clean_run_is_ok(), test_delete_run_and_analytics_workflows(), test_flagged_issue_weighs_more_next_time(), test_heuristics_flag_empty_drift_and_warnings(), test_override_rate_insight_and_reject_correction()
-
-### Community 37 - "conftest.py"
+### Community 35 - "ToolResult"
 Cohesion: 0.12
-Nodes (10): db_engine(), db_session(), persisted_invoice_workflow(), persisted_onboarding_workflow(), registry_with_context(), runner(), sample_complaint_workflow(), sample_invoice_workflow() (+2 more)
+Nodes (8): ToolResult, create_task(), delete_record(), list_available_slots(), transform_data(), update_employee_record(), TestToolResult, TestVerifierRuleBased
 
-### Community 38 - "custom_tools.py"
+### Community 36 - "GenealogyService"
 Cohesion: 0.23
-Nodes (8): list_categories(), _type_icon(), verify_custom_tool(), CustomToolCreate, CustomToolUpdate, ToolCategory, ToolVerifyRequest, ToolVerifyResponse
+Nodes (4): GenealogyService, db(), _make_workflow(), TestGenealogyService
+
+### Community 37 - "fixture"
+Cohesion: 0.13
+Nodes (7): db_engine(), db_session(), registry_with_context(), sample_complaint_workflow(), sample_invoice_workflow(), sample_onboarding_workflow(), tool_registry()
+
+### Community 38 - "test_history.py"
+Cohesion: 0.14
+Nodes (25): _edge(), is_canvas_shaped(), _node(), normalize_graph(), normalize_stored_graphs(), _tool(), _cleanup(), db() (+17 more)
 
 ### Community 39 - "Tool Registry"
 Cohesion: 0.26
 Nodes (12): Tools Module (Registry + Implementations), Database Query Tool, Tools Browser, Tools Explorer Page, HTTP Request Tool, Mock Tool Implementations, Permission Levels, Rate Limiter Tool (+4 more)
 
-### Community 40 - "approvals.py"
-Cohesion: 0.20
-Nodes (6): approve_request(), ApproveRequest, list_approvals(), reject_request(), RejectRequest, record_correction()
+### Community 40 - "custom_tools.py"
+Cohesion: 0.23
+Nodes (8): list_categories(), _type_icon(), verify_custom_tool(), CustomToolCreate, CustomToolUpdate, ToolCategory, ToolVerifyRequest, ToolVerifyResponse
 
-### Community 41 - "test_jobs.py"
-Cohesion: 0.31
-Nodes (8): RunMetaModel, _cleanup(), _create_wf(), db(), test_replay_uses_original_definition_unless_latest(), test_trigger_validation(), test_webhook_trigger_end_to_end(), _wait_done()
+### Community 41 - "test_approval.py"
+Cohesion: 0.12
+Nodes (4): approval_service(), TestApprovalCreation, TestApprovalQueries, TestApprovalResolution
 
 ### Community 42 - "WorkflowModel"
-Cohesion: 0.08
-Nodes (17): apply_ops(), candidate_ops(), evolve(), score(), fitness(), _remove_node(), _sandbox_db(), SandboxRegistry (+9 more)
+Cohesion: 0.07
+Nodes (21): apply_ops(), candidate_ops(), evolve(), score(), fitness(), _remove_node(), _sandbox_db(), SandboxRegistry (+13 more)
 
 ### Community 43 - "workflow.py"
 Cohesion: 0.19
@@ -343,7 +345,7 @@ Nodes (11): ActionNode, ApprovalNode, ConditionNode, Edge, EndNode, NodeType, Pe
 
 ### Community 44 - "1. API Endpoint Tests"
 Cohesion: 0.12
-Nodes (17): 1. API Endpoint Tests, TC-API-001: Health Check Returns Service Status, TC-API-002: Generate Workflow From Natural Language Prompt, TC-API-003: List Workflows — Empty State, TC-API-004: List Workflows — Multiple Workflows Sorted by Recency, TC-API-005: Get Specific Workflow, TC-API-006: Run Workflow — Happy Path, TC-API-007: Run Workflow — Not Found (+9 more)
+Nodes (16): 1. API Endpoint Tests, TC-API-001: Health Check Returns Service Status, TC-API-002: Generate Workflow From Natural Language Prompt, TC-API-003: List Workflows — Empty State, TC-API-004: List Workflows — Multiple Workflows Sorted by Recency, TC-API-005: Get Specific Workflow, TC-API-006: Run Workflow — Happy Path, TC-API-007: Run Workflow — Not Found (+8 more)
 
 ### Community 45 - "Anthropic Claude API"
 Cohesion: 0.18
@@ -353,17 +355,21 @@ Nodes (9): Anthropic Claude API, Python Requirements, Backend Tests, LangGraph (
 Cohesion: 0.22
 Nodes (10): API Route Handlers, Approval System (HITL), Human-in-the-Loop, Step-Level Observability, Retry Mechanism, WorkflowRunner Engine, Step Persistence, Template Variable Substitution (+2 more)
 
-### Community 47 - "10. Performance Tests"
-Cohesion: 0.17
-Nodes (10): 10. Performance Tests, TC-APR-008: List Pending Returns Only Pending, TC-PERF-001: Workflow Compilation Time for Large Graphs, TC-PERF-002: Concurrent Execution Limits, TC-PERF-003: Database Query Optimization for List Runs, TC-PERF-004: Memory Usage With Many Concurrent Workflows, TC-PERF-005: LangGraph Compilation Caching, TC-PERF-006: API Response Time Under Load (+2 more)
+### Community 47 - "ApprovalRequestModel"
+Cohesion: 0.20
+Nodes (4): ApprovalRequestModel, TC-APR-001: Create Pending Approval Request, TC-APR-009: Get Existing Approval by ID, create_pending_approval()
 
 ### Community 48 - "graphify skill"
 Cohesion: 0.20
 Nodes (11): OrchestrAI CLAUDE.md, add-watch.md — URL ingest and folder watch reference, exports.md — extra exports and benchmark reference, extraction-spec.md — extraction subagent prompt spec, github-and-merge.md — GitHub clone and cross-repo merge reference, hooks.md — commit hook and CLAUDE.md integration reference, query.md — query, path, explain reference, transcribe.md — video/audio transcription reference (+3 more)
 
-### Community 49 - "schemas/suggestions.py"
-Cohesion: 0.28
-Nodes (3): ApplyPatchRequest, SuggestionResponse, SuggestionsResponse
+### Community 49 - "extract_patterns"
+Cohesion: 0.21
+Nodes (4): extract_patterns(), _get_condition_node_ids(), intrinsic_suggestions(), TestPatternExtraction
+
+### Community 50 - "OrchestrAI Backend — Comprehensive Test Cases"
+Cohesion: 0.18
+Nodes (10): 10. Performance Tests, OrchestrAI Backend — Comprehensive Test Cases, Table of Contents, TC-PERF-001: Workflow Compilation Time for Large Graphs, TC-PERF-002: Concurrent Execution Limits, TC-PERF-003: Database Query Optimization for List Runs, TC-PERF-004: Memory Usage With Many Concurrent Workflows, TC-PERF-005: LangGraph Compilation Caching (+2 more)
 
 ### Community 51 - "Next.js Frontend"
 Cohesion: 0.20
@@ -377,29 +383,29 @@ Nodes (9): Conditional Branching, Landing Feature Sections, No Drag-and-Drop Des
 Cohesion: 0.29
 Nodes (8): REST API Endpoints, Agent Layer (Planner/Compiler/Verifier), Approval Module (HITL), Engine Layer (Runner), Config.py (Settings), CORS Middleware, FastAPI Backend, FastAPI main.py Entry Point
 
-### Community 54 - "analytics/page.tsx"
-Cohesion: 0.53
-Nodes (5): AnalyticsPage(), pct(), Stat(), AnalyticsStats, getAnalyticsStats()
-
-### Community 55 - "WorkflowRunner"
-Cohesion: 0.14
-Nodes (13): WorkflowRunner, TC-RUN-001: Happy Path — Simple Linear Workflow, TC-RUN-003: Approval Pause and Resume Flow, test_runner_cancel_running_workflow(), test_runner_context_passed_through(), test_runner_happy_path_simple_workflow(), test_runner_multiple_runs_no_state_leakage(), test_runner_onboarding_workflow() (+5 more)
-
-### Community 56 - "models/custom_tool.py"
+### Community 54 - "ApprovalNotFoundError"
 Cohesion: 0.22
-Nodes (3): update_custom_tool(), ToolStatus, ToolType
+Nodes (3): ApprovalNotFoundError, TC-APR-011: Approve Non-Existent Approval Raises Error, TC-APR-012: Reject Non-Existent Approval Raises Error
+
+### Community 55 - "tool.py"
+Cohesion: 0.19
+Nodes (3): Tool, ToolCall, TestToolPermissions
+
+### Community 56 - "evaluator.py"
+Cohesion: 0.13
+Nodes (16): evaluate_run(), heuristic_evaluate(), _keys(), learned_corrections(), llm_evaluate(), _previous_runs(), _refine_with_llm(), _verdict() (+8 more)
 
 ### Community 57 - "history/page.tsx"
 Cohesion: 0.24
-Nodes (10): HistoryPage(), HistoryRow, STATUS_BUCKET, statusDot, statusLabel, statusStyles, toRow(), deleteRun() (+2 more)
+Nodes (9): HistoryPage(), HistoryRow, STATUS_BUCKET, statusDot, statusLabel, statusStyles, toRow(), deleteRun() (+1 more)
 
-### Community 59 - "VersionHistoryPanel.tsx"
-Cohesion: 0.16
-Nodes (19): EvolvePanelProps, PATTERN_COLORS, SuggestionCard(), SuggestionsPanel(), SuggestionsPanelProps, CHANGE_TYPE_COLORS, ChangeTypeBadge(), formatTime() (+11 more)
+### Community 59 - "EvolvePanel.tsx"
+Cohesion: 0.17
+Nodes (18): EvolvePanel(), EvolvePanelProps, pct(), VariantCard(), PATTERN_COLORS, SuggestionCard(), SuggestionsPanel(), SuggestionsPanelProps (+10 more)
 
 ### Community 60 - "5. Workflow Runner Tests"
 Cohesion: 0.12
-Nodes (19): RunnerError, WorkflowNotFoundError, 5. Workflow Runner Tests, TC-E2E-010: Database Transaction Rollback on Runner Failure, TC-RUN-002: Happy Path — Branching Workflow (Onboarding), TC-RUN-004: Approval Rejection Cancels Workflow, TC-RUN-005: Cancel Running Workflow, TC-RUN-006: Context Propagation Between Nodes (+11 more)
+Nodes (17): 5. Workflow Runner Tests, TC-RUN-001: Happy Path — Simple Linear Workflow, TC-RUN-002: Happy Path — Branching Workflow (Onboarding), TC-RUN-003: Approval Pause and Resume Flow, TC-RUN-004: Approval Rejection Cancels Workflow, TC-RUN-005: Cancel Running Workflow, TC-RUN-006: Context Propagation Between Nodes, TC-RUN-007: Context-Driven Branching (Amount > Threshold) (+9 more)
 
 ### Community 61 - "PlannerAgent"
 Cohesion: 0.13
@@ -417,13 +423,13 @@ Nodes (4): Branching Logic, Workflow Compiler, Pydantic Schemas, Six Node Types
 Cohesion: 0.29
 Nodes (7): Dashboard, Frontend Pages, Landing Page, Run Console, Tools Explorer, Wireframes, Workflow Builder
 
-### Community 66 - "cross_pollination.py"
-Cohesion: 0.22
-Nodes (4): enrich_with_llm(), _get_condition_node_ids(), _get_node_by_id(), _summarize_workflow()
+### Community 66 - "get_suggestions"
+Cohesion: 0.29
+Nodes (4): get_suggestions(), db(), _make_workflow(), TestGetSuggestions
 
-### Community 67 - "Session"
-Cohesion: 0.19
-Nodes (9): delete_run(), get_run(), list_runs(), _meta(), _serialize_exec(), _serialize_step(), stream_run(), event_generator() (+1 more)
+### Community 67 - "reject_request"
+Cohesion: 0.20
+Nodes (5): approve_request(), ApproveRequest, list_approvals(), reject_request(), RejectRequest
 
 ### Community 68 - "Navigation Sidebar"
 Cohesion: 0.33
@@ -434,100 +440,104 @@ Cohesion: 0.33
 Nodes (6): Dark Theme UI, Window/Frame Icon, Landing/Root Page, Landing CTA Section, Landing Page Hero Section, Live Execution Replay
 
 ### Community 71 - "6. Approval Service Tests"
-Cohesion: 0.14
-Nodes (12): ApprovalAlreadyResolvedError, ApprovalNotFoundError, 6. Approval Service Tests, TC-APR-002: Approve Sets All Required Fields, TC-APR-003: Reject Sets All Required Fields, TC-APR-004: Double-Approve Raises Error, TC-APR-005: Double-Reject Raises Error, TC-APR-006: Approve Already-Rejected Approval Raises Error (+4 more)
+Cohesion: 0.24
+Nodes (10): ApprovalAlreadyResolvedError, 6. Approval Service Tests, TC-APR-002: Approve Sets All Required Fields, TC-APR-003: Reject Sets All Required Fields, TC-APR-004: Double-Approve Raises Error, TC-APR-005: Double-Reject Raises Error, TC-APR-006: Approve Already-Rejected Approval Raises Error, TC-APR-007: Reject Already-Approved Approval Raises Error (+2 more)
 
 ### Community 72 - "What's Built"
 Cohesion: 0.12
-Nodes (15): 1. Execution Caching / Resumability, 2. Workflow Templates Marketplace, 3. Real-time Execution Console, 4. Multi-env Deployment, 5. Observability & Analytics, Backend — Core Engine, Backend — Cross-Pollination, Backend � Evolution Engine (+7 more)
+Nodes (16): 1. Execution Caching / Resumability, 2. Workflow Templates Marketplace, 3. Real-time Execution Console, 4. Multi-env Deployment, 5. Observability & Analytics, Backend — Core Engine, Backend — Cross-Pollination, Backend � Evolution Engine (+8 more)
 
-### Community 73 - "planner.py"
+### Community 74 - "cross_pollination.py"
 Cohesion: 0.13
-Nodes (4): PlanningError, PlanningResult, TC-EDGE-007: Empty Workflow Prompt to Planner, mock_registry()
+Nodes (8): _build_suggestion(), enrich_with_llm(), _finalize_suggestion(), find_pattern_gaps(), _get_node_by_id(), _structural_suggestions(), _summarize_workflow(), TestPatternGaps
 
-### Community 74 - "tool.py"
-Cohesion: 0.26
-Nodes (3): Tool, ToolCall, TestToolPermissions
-
-### Community 75 - "Workflow"
-Cohesion: 0.12
-Nodes (5): Workflow, workflow_from_dict(), workflow_to_dict(), TC-SCH-014: Workflow Serialization Round-Trip, TestValidWorkflows
-
-### Community 76 - "9. Security Tests"
+### Community 75 - "9. Security Tests"
 Cohesion: 0.20
 Nodes (10): 9. Security Tests, TC-SEC-002: XSS in Workflow Names and Descriptions, TC-SEC-003: Permission Escalation via Approval, TC-SEC-004: Unauthorized Cancellation of Another User's Execution, TC-SEC-005: Environment Variable Exposure, TC-SEC-006: Code Injection via Condition Expression (eval), TC-SEC-007: Oversized Payload DoS Protection, TC-SEC-008: Tool Input Schema Validation (+2 more)
+
+### Community 76 - "UnknownToolError"
+Cohesion: 0.25
+Nodes (3): UnknownToolError, TC-EDGE-003: Missing Tool Handler at Runtime, TC-TOOL-011: Unknown Tool Execution Raises Error
 
 ### Community 77 - "TriggersPanel.tsx"
 Cohesion: 0.29
 Nodes (10): describe(), PRESETS, TriggersPanel(), TriggersPanelProps, createTrigger(), deleteTrigger(), listTriggers(), setTriggerEnabled() (+2 more)
 
-### Community 78 - "find_pattern_gaps"
+### Community 79 - "ApprovalService"
+Cohesion: 0.20
+Nodes (3): ApprovalService, TC-APR-013: Approval Persists Across Session Close/Reopen, TestApprovalPersistence
+
+### Community 83 - "typing"
 Cohesion: 0.24
-Nodes (4): _build_suggestion(), _finalize_suggestion(), find_pattern_gaps(), TestPatternGaps
+Nodes (3): ApplyPatchRequest, SuggestionResponse, SuggestionsResponse
 
-### Community 79 - "apply_patch_to_workflow"
-Cohesion: 0.32
-Nodes (4): apply_patch_to_workflow(), _find_first_by_type(), _find_node(), TestApplyPatch
+### Community 85 - "Session"
+Cohesion: 0.19
+Nodes (9): delete_run(), get_run(), list_runs(), _meta(), _serialize_exec(), _serialize_step(), stream_run(), event_generator() (+1 more)
 
-### Community 86 - "2. Schema Validation Tests"
-Cohesion: 0.14
-Nodes (15): 2. Schema Validation Tests, TC-SCH-001: Valid Invoice Processing Workflow Passes Validation, TC-SCH-002: Valid Employee Onboarding Workflow Passes Validation, TC-SCH-003: Missing Trigger Node Rejected, TC-SCH-004: Multiple Trigger Nodes Rejected, TC-SCH-005: Duplicate Node IDs Rejected, TC-SCH-006: Orphaned Edge Source Rejected, TC-SCH-007: Orphaned Edge Target Rejected (+7 more)
+### Community 86 - "WorkflowRunner"
+Cohesion: 0.09
+Nodes (12): Worker, WorkflowRunner, test_runner_cancel_running_workflow(), test_runner_context_passed_through(), test_runner_happy_path_simple_workflow(), test_runner_multiple_runs_no_state_leakage(), test_runner_onboarding_workflow(), test_runner_pauses_at_approval() (+4 more)
+
+### Community 87 - "models/custom_tool.py"
+Cohesion: 0.22
+Nodes (3): update_custom_tool(), ToolStatus, ToolType
+
+### Community 88 - "VersionHistoryPanel.tsx"
+Cohesion: 0.33
+Nodes (8): CHANGE_TYPE_COLORS, ChangeTypeBadge(), formatTime(), VersionHistoryPanel(), branchWorkflow(), getWorkflowHistory(), restoreVersion(), saveWorkflowVersion()
 
 ### Community 89 - "4. Tool Execution Tests"
 Cohesion: 0.07
-Nodes (30): create_ticket(), extract_invoice_data(), process_payment(), request_human_approval(), search_database(), send_email(), send_slack_message(), update_database() (+22 more)
+Nodes (32): create_ticket(), extract_invoice_data(), process_payment(), request_human_approval(), search_database(), send_email(), send_slack_message(), update_database() (+24 more)
 
-### Community 90 - "ExecutionStatus"
-Cohesion: 0.13
-Nodes (13): heuristic_evaluate(), _keys(), learned_corrections(), llm_evaluate(), _previous_runs(), _refine_with_llm(), _verdict(), StepExecutionModel (+5 more)
+### Community 90 - "Session"
+Cohesion: 0.32
+Nodes (3): get_history(), get_lineage(), get_version()
 
-### Community 93 - "dashboard/page.tsx"
-Cohesion: 0.31
-Nodes (8): DashboardPage(), statusLabel, statusStyles, deleteWorkflow(), listWorkflows(), runWorkflow(), WorkflowDetail, WorkflowListItem
+### Community 93 - "api.ts"
+Cohesion: 0.10
+Nodes (27): AnalyticsPage(), pct(), Stat(), DashboardPage(), statusLabel, statusStyles, AnalyticsStats, authHeaders() (+19 more)
 
-### Community 94 - "_run_verification_test"
+### Community 118 - "_run_verification_test"
 Cohesion: 0.38
 Nodes (3): _build_verification_inputs(), _run_verification_test(), _validate_config_shape()
 
-### Community 117 - "replay_run"
-Cohesion: 0.29
-Nodes (3): cancel_run(), replay_run(), ReplayRequest
+### Community 122 - "models/__init__.py"
+Cohesion: 0.07
+Nodes (15): _rate(), stats(), add_correction(), CorrectionRequest, get_evaluation(), get_quality(), record_correction(), serialize_evaluation() (+7 more)
 
-### Community 123 - "get_suggestions"
-Cohesion: 0.48
-Nodes (3): get_suggestions(), _make_workflow(), TestGetSuggestions
-
-### Community 124 - "models/__init__.py"
-Cohesion: 0.10
-Nodes (7): _version_to_dict(), WorkflowBranchModel, WorkflowVersionModel, db(), db(), Database.py (SQLAlchemy), SQLAlchemy ORM
-
-### Community 125 - "cron_next"
-Cohesion: 0.33
-Nodes (4): _cron_field(), cron_next(), parse_cron(), test_cron_next()
+### Community 124 - "Workflow"
+Cohesion: 0.08
+Nodes (7): PlanningError, PlanningResult, Workflow, workflow_from_dict(), workflow_to_dict(), TC-SCH-014: Workflow Serialization Round-Trip, mock_registry()
 
 ### Community 126 - "app/layout.tsx"
 Cohesion: 0.33
 Nodes (3): instrumentSans, jetbrainsMono, metadata
 
+### Community 127 - "test_schemas.py"
+Cohesion: 0.12
+Nodes (3): TestExecutionStatuses, TestInvalidWorkflows, TestValidWorkflows
+
 ## Knowledge Gaps
-- **298 isolated node(s):** `Config`, `eslintConfig`, `nextConfig`, `name`, `version` (+293 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 790 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **48 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **300 isolated node(s):** `Config`, `eslintConfig`, `nextConfig`, `name`, `version` (+295 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 818 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **50 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `SQLAlchemy ORM` connect `models/__init__.py` to `api/quality.py`, `custom_tools.py`, `conftest.py`, `approvals.py`, `api/integrations.py`, `WorkflowModel`, `api/triggers.py`, `Anthropic Claude API`, `WorkflowRunner Engine`, `runner.py`, `ExecutionStatus`, `OrchestrAI Platform`?**
-  _High betweenness centrality (0.130) - this node is a cross-community bridge._
-- **Why does `ToolResult` connect `ToolResult` to `implementations.py`, `conftest.py`, `IntegrationHandler`, `tool.py`, `WorkflowModel`, `asyncio`, `runner.py`, `tools/integrations.py`, `TestVerifierLLM`, `ToolRegistry`, `test_schemas.py`, `WorkflowRunner`, `4. Tool Execution Tests`, `VerifierAgent`, `.run`?**
-  _High betweenness centrality (0.104) - this node is a cross-community bridge._
-- **Why does `Python Requirements` connect `Anthropic Claude API` to `models/__init__.py`, `FastAPI main.py Entry Point`, `OrchestrAI Platform`?**
-  _High betweenness centrality (0.069) - this node is a cross-community bridge._
+- **Why does `SQLAlchemy ORM` connect `models/__init__.py` to `get_suggestions`, `GenealogyService`, `conftest.py`, `workflows.py`, `test_history.py`, `api/integrations.py`, `custom_tools.py`, `jobs.py`, `WorkflowModel`, `test_approval.py`, `Anthropic Claude API`, `WorkflowRunner Engine`, `history_insights.py`, `evaluator.py`, `OrchestrAI Platform`?**
+  _High betweenness centrality (0.140) - this node is a cross-community bridge._
+- **Why does `ToolResult` connect `ToolResult` to `implementations.py`, `VerifierAgent`, `create_calendar_event`, `conftest.py`, `IntegrationHandler`, `WorkflowModel`, `UnknownToolError`, `asyncio`, `tools/integrations.py`, `WorkflowRunner`, `tool.py`, `4. Tool Execution Tests`, `ToolRegistry`, `TestVerifierLLM`, `test_schemas.py`?**
+  _High betweenness centrality (0.122) - this node is a cross-community bridge._
+- **Why does `Tool Registry` connect `Tool Registry` to `Workflow Compiler`, `Anthropic Claude API`, `WorkflowRunner Engine`?**
+  _High betweenness centrality (0.073) - this node is a cross-community bridge._
 - **Are the 8 inferred relationships involving `ToolResult` (e.g. with `VerifierAgent` and `WorkflowRunner`) actually correct?**
   _`ToolResult` has 8 INFERRED edges - model-reasoned connections that need verification._
-- **Are the 29 inferred relationships involving `ExecutionStatus` (e.g. with `_make_node_executor()` and `evaluate_run()`) actually correct?**
-  _`ExecutionStatus` has 29 INFERRED edges - model-reasoned connections that need verification._
+- **Are the 33 inferred relationships involving `ExecutionStatus` (e.g. with `_make_node_executor()` and `evaluate_run()`) actually correct?**
+  _`ExecutionStatus` has 33 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 31 inferred relationships involving `WorkflowRunner` (e.g. with `approve_request()` and `reject_request()`) actually correct?**
   _`WorkflowRunner` has 31 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `Config`, `eslintConfig`, `nextConfig` to the rest of the system?**
-  _298 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _300 weakly-connected nodes found - possible documentation gaps or missing edges._

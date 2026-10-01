@@ -84,9 +84,9 @@
     "semantic_hash": "1de7487e6d0747285422cec9f22a09bf"
   },
   "backend/app/api/genealogy.py": {
-    "mtime": 1790828839.4198077,
-    "seen": 1790828852.792142,
-    "ast_hash": "e595b4d42267534f22c1c7b321da31b7",
+    "mtime": 1790832716.7752695,
+    "seen": 1790832731.9572532,
+    "ast_hash": "b318bf76a200931343c5e5aad14d4696",
     "semantic_hash": ""
   },
   "backend/app/api/integrations.py": {
@@ -102,10 +102,10 @@
     "semantic_hash": ""
   },
   "backend/app/api/suggestions.py": {
-    "mtime": 1790792125.7652116,
-    "seen": 1790817960.7987342,
-    "ast_hash": "d5d7b0c89e4d971697b1aa496d5daeea",
-    "semantic_hash": "d5d7b0c89e4d971697b1aa496d5daeea"
+    "mtime": 1790832716.7752695,
+    "seen": 1790832731.9572532,
+    "ast_hash": "31969a9d264552ab56b4ec2ab320ba7a",
+    "semantic_hash": ""
   },
   "backend/app/api/tools.py": {
     "mtime": 1790356134.6433296,
@@ -114,9 +114,9 @@
     "semantic_hash": "220b7007a837edef99873d86ca0f82b5"
   },
   "backend/app/api/workflows.py": {
-    "mtime": 1790831517.7297578,
-    "seen": 1790831526.68152,
-    "ast_hash": "a6745010982919521db371e13f533e41",
+    "mtime": 1790833570.532848,
+    "seen": 1790833580.2284386,
+    "ast_hash": "80d3ec86f10e70cb766a59beb6e6b8d5",
     "semantic_hash": ""
   },
   "backend/app/approval/__init__.py": {
@@ -162,27 +162,27 @@
     "semantic_hash": "1c21a181617dcf5acf30d370ca6bbf2f"
   },
   "backend/app/genealogy/cross_pollination.py": {
-    "mtime": 1790792809.216889,
-    "seen": 1790817960.7987342,
-    "ast_hash": "d92c3c3bc58df7cca8c3260f200b7782",
-    "semantic_hash": "d92c3c3bc58df7cca8c3260f200b7782"
+    "mtime": 1790839419.5223887,
+    "seen": 1790839428.3034804,
+    "ast_hash": "aefc688da6ab9805a30f2cf89b2fa086",
+    "semantic_hash": ""
   },
   "backend/app/genealogy/diff.py": {
-    "mtime": 1790789572.7435124,
-    "seen": 1790817960.7987342,
-    "ast_hash": "24c7c34921dc17e5a4970ea3e9cce5cc",
-    "semantic_hash": "24c7c34921dc17e5a4970ea3e9cce5cc"
+    "mtime": 1790832716.7732584,
+    "seen": 1790832731.9572532,
+    "ast_hash": "006cbcaa607cf8c49d8044f2f403745f",
+    "semantic_hash": ""
   },
   "backend/app/genealogy/service.py": {
-    "mtime": 1790789598.9235444,
-    "seen": 1790817960.7987342,
-    "ast_hash": "cd51e694da3acc6fdde4983e5eeced9a",
-    "semantic_hash": "cd51e694da3acc6fdde4983e5eeced9a"
+    "mtime": 1790832716.7732584,
+    "seen": 1790832731.9572532,
+    "ast_hash": "568eca163576e65b4c321ec41b1a0879",
+    "semantic_hash": ""
   },
   "backend/app/main.py": {
-    "mtime": 1790831559.462971,
-    "seen": 1790831570.70749,
-    "ast_hash": "4f5700db4fe9ceb80410624bf0710f9d",
+    "mtime": 1790833570.532848,
+    "seen": 1790833580.2284386,
+    "ast_hash": "51e08bebc24f6bb4a5cfd1074af63904",
     "semantic_hash": ""
   },
   "backend/app/models/__init__.py": {
@@ -228,10 +228,10 @@
     "semantic_hash": "35841d7f96aa22c7054f10c6cf3a845e"
   },
   "backend/app/schemas/suggestions.py": {
-    "mtime": 1790792072.2324746,
-    "seen": 1790817960.7987342,
-    "ast_hash": "1395da5fa76c8fe1baf974a50a5b743b",
-    "semantic_hash": "1395da5fa76c8fe1baf974a50a5b743b"
+    "mtime": 1790832716.7752695,
+    "seen": 1790832731.9572532,
+    "ast_hash": "3100a803cbfbbeadb581978194f73450",
+    "semantic_hash": ""
   },
   "backend/app/schemas/tool.py": {
     "mtime": 1790357060.402937,
@@ -396,9 +396,9 @@
     "semantic_hash": "cd521389915c885c485ce84fae3f4e66"
   },
   "frontend/src/app/(app)/builder/BuilderClient.tsx": {
-    "mtime": 1790832165.573805,
-    "seen": 1790832178.6527693,
-    "ast_hash": "30641c6ac8852de609b762b40e3288ff",
+    "mtime": 1790832872.0352209,
+    "seen": 1790832887.0008252,
+    "ast_hash": "de4cc39aca2e779eec7b1772051067f8",
     "semantic_hash": ""
   },
   "frontend/src/app/(app)/builder/page.tsx": {
@@ -474,21 +474,21 @@
     "semantic_hash": ""
   },
   "frontend/src/components/SuggestionsPanel.tsx": {
-    "mtime": 1790826834.238912,
-    "seen": 1790826842.0032318,
-    "ast_hash": "3b49ae6f3386b27784a10323a7ed8096",
+    "mtime": 1790834174.7794914,
+    "seen": 1790834180.3132489,
+    "ast_hash": "6f5fe0049d6164815ede5923ba396a7d",
     "semantic_hash": ""
   },
   "frontend/src/components/VersionHistoryPanel.tsx": {
-    "mtime": 1790790524.4149876,
-    "seen": 1790817960.7987342,
-    "ast_hash": "7dfa0e414671c8ebb0e26d19ec515811",
-    "semantic_hash": "7dfa0e414671c8ebb0e26d19ec515811"
+    "mtime": 1790832872.0352209,
+    "seen": 1790832887.0008252,
+    "ast_hash": "310dd00578510976e3d2ffbe645fb651",
+    "semantic_hash": ""
   },
   "frontend/src/lib/api.ts": {
-    "mtime": 1790832165.5703816,
-    "seen": 1790832178.6527693,
-    "ast_hash": "7ea6b425ac1dc0e0d2e550c26d067d5f",
+    "mtime": 1790834165.622959,
+    "seen": 1790834180.3132489,
+    "ast_hash": "bb75c28ae7e44a086f1da01bf0983cba",
     "semantic_hash": ""
   },
   "frontend/tsconfig.json": {
@@ -840,9 +840,9 @@
     "semantic_hash": ""
   },
   "feature.md": {
-    "mtime": 1790832296.3735135,
-    "seen": 1790832296.9049656,
-    "ast_hash": "51332ac032356bc73f571c6554d07ed2",
+    "mtime": 1790834360.8806357,
+    "seen": 1790834368.7338667,
+    "ast_hash": "aaffed0a6947d85b27b57d2d26eab8ec",
     "semantic_hash": ""
   },
   "frontend/AGENTS.md": {
@@ -957,6 +957,24 @@
     "mtime": 1790832164.8642254,
     "seen": 1790832178.6527693,
     "ast_hash": "3e6bd822dfd143bcbc49eb3a36fb5f82",
+    "semantic_hash": ""
+  },
+  "backend/app/genealogy/history_insights.py": {
+    "mtime": 1790832671.5584495,
+    "seen": 1790832731.9572532,
+    "ast_hash": "2fbb04f9d71903ab3903bad749a2eb0c",
+    "semantic_hash": ""
+  },
+  "backend/tests/test_history.py": {
+    "mtime": 1790834313.552523,
+    "seen": 1790834322.858038,
+    "ast_hash": "4f6f4b100f3debc78e2bae00ab2da032",
+    "semantic_hash": ""
+  },
+  "backend/app/utils/graph.py": {
+    "mtime": 1790833470.197654,
+    "seen": 1790833580.2284386,
+    "ast_hash": "44f8184f13e39d27586efe609b5a19fa",
     "semantic_hash": ""
   }
 }
